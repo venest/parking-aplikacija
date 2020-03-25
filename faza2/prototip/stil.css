@@ -1,0 +1,17 @@
+
+.dropdown-menu a:active {
+    color: black;
+    background-color: #e3f2fd;
+}
+
+.alert-link {
+    color: black;
+}
+
+.alert a:hover, a:active {
+    color: black;
+}
+
+#promenaLozinke a, a:hover, a:active {
+    color: black;
+}
