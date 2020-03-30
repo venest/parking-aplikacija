@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet" href="stil.css">
+    <link rel="stylesheet" type="text/css" href="stil.css">
     <title>Operater</title>
   </head>
   <body>
@@ -36,12 +36,15 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="registracijaKorisnika.html">REGISTRACIJA KORISNIKA</a>
-              <a class="dropdown-item" href="ulazakRegistrovani.html">ULAZAK (REGISTROVANI KORISNIK)</a>
-              <a class="dropdown-item" href="ulazakGost.html">ULAZAK (GOST)</a>
-              <a class="dropdown-item" href="izlazakRegistrovani.html">IZLAZAK (REGISTROVANI KORISNIK)</a>
-              <a class="dropdown-item" href="izlazakGost.html">IZLAZAK (GOST)</a>
+              <a class="dropdown-item" href="izdavanjeKartice.html">IZDAVANJE KARTICE</a>
+              <a class="dropdown-item" href="izgubljenaKartica.html">IZGUBLJENA KARTICA</a>
+              <a class="dropdown-item" href="ulazakRegistrovani.html">ULAZAK REGISTROVANOG KORISNIKA</a>
+              <a class="dropdown-item" href="ulazakGost.html">ULAZAK GOSTA</a>
+              <a class="dropdown-item" href="izlazak.html">IZLAZAK</a>
               <a class="dropdown-item" href="uplata.html">UPLATA</a>
+              <a class="dropdown-item" href="isplata.html">ISPLATA</a>
               <a class="dropdown-item" href="produzetakVazenjaKartice.html">PRODUŽETAK VAŽENJA KARTICE</a>
+              <a class="dropdown-item" href="pronadjiIdKartice.html">PRONAĐI ID KARTICE</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -79,17 +82,24 @@
     <div class="container" style="margin-top: 20px;">
       <form>
         <div class="row justify-content-center">
-        <div class="form-group col-lg-6 col-md-9">
-          <label for="idKartice">ID Kartice</label>
-          <input type="text" class="form-control" id="idKartice" placeholder="ID kartice">
-        </div>
+          <div class="form-group col-lg-6 col-md-9" id="lozinka">
+            <label for="idKartice">ID KARTICE</label>
+            <input type="text" class="form-control" id="idKartice" placeholder="ID">
+          </div>
         </div>
         <div class="row justify-content-center">
-          <button type="submit" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">OČITAJ KARTICU</button>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="cekboks1">
+            <label class="form-check-label" for="cekboks1">
+              IZDAVANJE DUPLIKATA
+            </label>
+          </div>
         </div>
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">EVIDENTIRAJ GUBITAK</button>
+          </div>
       </form>
-    </div>
-
+  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

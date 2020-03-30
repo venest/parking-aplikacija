@@ -36,12 +36,15 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="registracijaKorisnika.html">REGISTRACIJA KORISNIKA</a>
-              <a class="dropdown-item" href="ulazakRegistrovani.html">ULAZAK (REGISTROVANI KORISNIK)</a>
-              <a class="dropdown-item" href="ulazakGost.html">ULAZAK (GOST)</a>
-              <a class="dropdown-item" href="izlazakRegistrovani.html">IZLAZAK (REGISTROVANI KORISNIK)</a>
-              <a class="dropdown-item" href="izlazakGost.html">IZLAZAK (GOST)</a>
+              <a class="dropdown-item" href="izdavanjeKartice.html">IZDAVANJE KARTICE</a>
+              <a class="dropdown-item" href="izgubljenaKartica.html">IZGUBLJENA KARTICA</a>
+              <a class="dropdown-item" href="ulazakRegistrovani.html">ULAZAK REGISTROVANOG KORISNIKA</a>
+              <a class="dropdown-item" href="ulazakGost.html">ULAZAK GOSTA</a>
+              <a class="dropdown-item" href="izlazak.html">IZLAZAK</a>
               <a class="dropdown-item" href="uplata.html">UPLATA</a>
+              <a class="dropdown-item" href="isplata.html">ISPLATA</a>
               <a class="dropdown-item" href="produzetakVazenjaKartice.html">PRODUŽETAK VAŽENJA KARTICE</a>
+              <a class="dropdown-item" href="pronadjiIdKartice.html">PRONAĐI ID KARTICE</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -81,7 +84,7 @@
           <div class="row justify-content-center">
           <div class="col-lg-6 col-md-9">
             <div class="form-group">
-                <label for="tablice">Broj registarskih tablica</label>
+                <label for="tablice">BROJ REGISTARSKIH TABLICA</label>
                 <input type="text" class="form-control" id="tablice" placeholder="Tablice">
             </div>
           </div>
@@ -89,11 +92,11 @@
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9">
               <div class="form-group">
-                <label for="tipPrekrsaja">Tip prekršaja</label>
+                <label for="tipPrekrsaja">TIP PREKRŠAJA</label>
                 <select class="form-control" id="tipPrekrsaja" onclick="promena()">
-                    <option value="prva">Parkiranje na mestu za invalide</option>
-                    <option value="druga">Parkiranje na mestu za trudnice</option>
-                    <option value="treca">Zauzimanje više parking mesta</option>
+                    <option value="prva">PARKIRANJE NA MESTU ZA INVALIDE</option>
+                    <option value="druga">PARKIRANJE NA MESTU ZA TRUDNICE</option>
+                    <option value="treca">ZAUZIMANJE VIŠE PARKING MESTA</option>
                 </select>
               </div>
             </div>
@@ -101,7 +104,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9">
               <div class="form-group">
-                <label for="iznos">Iznos kazne</label>
+                <label for="iznos">IZNOS KAZNE</label>
                 <div class="input-group">
                 <input type="text" class="form-control" id="iznos" value="15000" readonly>
                 <div class="input-group-append">
