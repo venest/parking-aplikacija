@@ -1,0 +1,9 @@
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.alert-link :link, :visited, :hover, :active {
+    color: black;
+}
