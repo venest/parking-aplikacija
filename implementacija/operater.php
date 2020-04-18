@@ -15,20 +15,20 @@
     exit(); 
   }
 ?>
-
-<!-- autor: Veljko Nestorovic 0039/2017 -->
 <!doctype html>
 <html lang="en">
   <head>
     <?php include("bootstrapHeder.php"); ?>
     <link rel="stylesheet" href="stil.css"> 
-    <title>Operater</title>
+    <title>OPERATER</title>
   </head>
   <body>
     <div class="container text-center" style="margin-top: 20px;" id="operaterFunkc">
-    <?php include("operaterHeder.php"); ?>
-    <form method="POST" action="operater.php">
-      <?php include("operaterSadrzaj.php"); ?>
+    <?php include("operaterHeder.php"); include("operaterSadrzaj.php"); ?>
+    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
+      <div class="row justify-content-center">
+        <button type="submit" name="izlogujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">IZLOGUJ SE</button>
+      </div>
     </form>
     </div>
     <?php include("bootstrapFuter.php"); ?>

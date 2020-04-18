@@ -1,4 +1,7 @@
 <?php
+
+    // autor: Veljko Nestorovic 0039/2017
+
     session_start();
     if(!isset($_SESSION["ulogovan"])) { 
       header("Location: logovanje.php");
@@ -45,13 +48,12 @@
   <head>
     <?php include("bootstrapHeder.php"); ?>
     <link rel="stylesheet" href="stil.css">
-    <title>Korisnik</title>
+    <title>KORISNIK</title>
   </head>
   <body>
     <div class="container" style="margin-top: 20px;">
       <?php include("korisnikHeder.php"); ?>
-        <form method="POST" action="urediProfil.php" autocomplete="off">
-        <?php
+            <?php
             if(isset($_REQUEST["sacuvajIzmene"])) {
               if(!$svePopunjeno) { ?>
                 <div class="row justify-content-center">
@@ -74,40 +76,41 @@
               }
             }
             ?>
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="ime">EMAIL ADRESA</label>
-                  <input type="email" name="email" class="form-control" id="email" placeholder="Email" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $email; else print $noviEmail; ?>">
+                  <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="unesite email" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $email; else print $noviEmail; ?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="ime">IME</label>
-                  <input type="text" name="ime" class="form-control" id="ime" placeholder="Ime" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $ime; else print $novoIme; ?>">
+                  <input type="text" name="ime" class="form-control form-control-lg" id="ime" placeholder="unesite ime" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $ime; else print $novoIme; ?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="prezime">PREZIME</label>
-                  <input type="text" name="prezime" class="form-control" id="prezime" placeholder="Prezime" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $prezime; else print $novoPrezime; ?>">
+                  <input type="text" name="prezime" class="form-control form-control-lg" id="prezime" placeholder="unesite prezime" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $prezime; else print $novoPrezime; ?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="grad">GRAD</label>
-                  <input type="text" name="grad" class="form-control" id="grad" placeholder="Grad" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $grad; else print $noviGrad; ?>">
+                  <input type="text" name="grad" class="form-control form-control-lg" id="grad" placeholder="unesite grad" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $grad; else print $noviGrad; ?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="adresa">ADRESA</label>
-                  <input type="text" name="adresa" class="form-control" id="adresa" placeholder="Ulica i broj" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $adresa; else print $novaAdresa; ?>">
+                  <input type="text" name="adresa" class="form-control form-control-lg" id="adresa" placeholder="unesite ulicu i broj" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $adresa; else print $novaAdresa; ?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="telefon">TELEFON</label>
-                  <input type="text" name="telefon" class="form-control" id="telefon" placeholder="Telefon" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $telefon; else print $noviTelefon; ?>">
+                  <input type="text" name="telefon" class="form-control form-control-lg" id="telefon" placeholder="unesite telefon" value="<?php if(!isset($_REQUEST["sacuvajIzmene"])) print $telefon; else print $noviTelefon; ?>">
                 </div>
             </div>
             <div class="row justify-content-center">

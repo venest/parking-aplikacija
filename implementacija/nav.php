@@ -21,6 +21,9 @@
         <li class="nav-item">
           <a class="nav-link" href="logovanje.php">LOGOVANJE</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cenovnik.php">CENOVNIK</a>
+        </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">

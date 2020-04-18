@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 14, 2020 at 01:46 PM
+-- Generation Time: Apr 18, 2020 at 11:12 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -58,7 +58,14 @@ CREATE TABLE IF NOT EXISTS `isplata` (
   PRIMARY KEY (`idIsplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `isplata`
+--
+
+INSERT INTO `isplata` (`idIsplate`, `idKartice`, `idRacuna`) VALUES
+(44, 8, 71);
 
 -- --------------------------------------------------------
 
@@ -96,11 +103,11 @@ CREATE TABLE IF NOT EXISTS `kartica` (
 --
 
 INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `datumVazenja`, `iznos`) VALUES
-(7, 'LO-401-MN', 1, '2020-04-22', '401.90'),
-(8, 'LO-400-RE', 1, '2020-04-30', '0.00'),
-(9, 'LO-980-PĐ', 2, '2020-05-22', '0.00'),
-(10, 'LO-512-ĆŽ', 2, '2020-05-05', '0.00'),
-(11, 'LO-678-QR', 2, '2020-04-17', '0.00');
+(7, 'LO-401-MN', 1, '2021-01-16', '600.00'),
+(8, 'LO-400-RE', 1, '2021-01-24', '8000.00'),
+(9, 'LO-980-PĐ', 2, '2020-07-02', '5000.00'),
+(10, 'LO-512-ĆŽ', 2, '2020-05-05', '1200.00'),
+(11, 'LO-678-QR', 2, '2020-04-18', '0.00');
 
 -- --------------------------------------------------------
 
@@ -133,7 +140,17 @@ CREATE TABLE IF NOT EXISTS `produzenje` (
   PRIMARY KEY (`idProduzenja`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `produzenje`
+--
+
+INSERT INTO `produzenje` (`idProduzenja`, `idKartice`, `datumProduzetka`, `idRacuna`) VALUES
+(7, 7, '2021-01-15', 73),
+(8, 8, '2021-01-23', 74),
+(9, 8, '2021-01-24', 75),
+(10, 7, '2021-01-16', 76);
 
 -- --------------------------------------------------------
 
@@ -149,7 +166,19 @@ CREATE TABLE IF NOT EXISTS `racun` (
   `iznos` decimal(10,2) NOT NULL,
   `opis` varchar(50) NOT NULL,
   PRIMARY KEY (`idRacuna`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `racun`
+--
+
+INSERT INTO `racun` (`idRacuna`, `datum`, `vreme`, `iznos`, `opis`) VALUES
+(71, '2020-04-18', '10:50:04', '1000.00', 'isplata'),
+(72, '2020-04-18', '10:50:04', '1000.00', 'uplata'),
+(73, '2020-04-18', '12:50:24', '200.00', 'produzenje'),
+(74, '2020-04-18', '12:51:16', '800.00', 'produzenje'),
+(75, '2020-04-18', '12:51:48', '200.00', 'produzenje'),
+(76, '2020-04-18', '12:55:53', '200.00', 'produzenje');
 
 -- --------------------------------------------------------
 
@@ -193,7 +222,14 @@ CREATE TABLE IF NOT EXISTS `uplata` (
   PRIMARY KEY (`idUplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `uplata`
+--
+
+INSERT INTO `uplata` (`idUplate`, `idKartice`, `idRacuna`) VALUES
+(20, 7, 72);
 
 -- --------------------------------------------------------
 

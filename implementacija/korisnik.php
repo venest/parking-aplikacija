@@ -1,4 +1,7 @@
 <?php
+
+    // autor: Veljko Nestorovic 0039/2017
+
     session_start();
     if(!isset($_SESSION["ulogovan"])) { 
         header("Location: logovanje.php");
@@ -23,13 +26,12 @@
     $rezultat = mysqli_query($konekcija, $upit) or die("neuspesno izvrsavanje upita");
     $red = mysqli_fetch_array($rezultat);
 ?>
-<!-- autor: Veljko Nestorovic 0039/2017 -->
 <!doctype html>
 <html lang="en">
 <head>
     <?php include("bootstrapHeder.php"); ?>
     <link rel="stylesheet" href="stil.css">
-    <title>Parking Aplikacija</title>
+    <title>KORISNIK</title>
 </head>
 <body>
     <div class="container" style="margin-top: 20px;">
@@ -67,10 +69,10 @@
         } while ($red = mysqli_fetch_array($rezultat));
     } mysqli_close($konekcija); ?>
     </table>
-    <form method="POST" action="korisnik.php">
-    <div class="row justify-content-center">
-        <button type="submit" name="izlogujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">IZLOGUJ SE</button>
-    </div>
+    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
+        <div class="row justify-content-center">
+            <button type="submit" name="izlogujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">IZLOGUJ SE</button>
+        </div>
     </form>
     </div>
     <?php include("bootstrapFuter.php"); ?>

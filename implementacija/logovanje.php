@@ -1,4 +1,7 @@
 <?php
+
+  // autor: Veljko Nestorovic 0039/2017
+
   session_start();
   if(isset($_SESSION["ulogovan"]))  { 
     switch($_SESSION["tip"]) {
@@ -53,12 +56,12 @@
   <head>
     <?php include("bootstrapHeder.php"); ?>
     <link rel="stylesheet" href="stil.css">
-    <title>Korisnik</title>
+    <title>LOGOVANJE</title>
   </head>
   <body>
     <?php include("nav.php"); ?>
     <div class="container" style="margin-top: 20px;">
-        <form method="POST" action="logovanje.php" autocomplete="off">
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <?php
             if(isset($_REQUEST["ulogujSe"])) {
               if(!$svePopunjeno) {
@@ -82,14 +85,14 @@
             ?>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
-                  <label for="emailLogovanje">EMAIL ADRESA ILI KORISNIČKO IME</label>
-                  <input type="text" name="korisnickoIme" class="form-control" id="korisnickoImeLogovanje" placeholder="unesite email ili korisničko ime" value="<?php if(isset($_REQUEST["ulogujSe"])) print $_REQUEST["korisnickoIme"];?>">
+                  <label for="emailLogovanje">KORISNIČKO IME ILI EMAIL ADRESA</label>
+                  <input type="text" name="korisnickoIme" class="form-control form-control-lg" id="korisnickoImeLogovanje" placeholder="unesite korisničko ime ili email" value="<?php if(isset($_REQUEST["ulogujSe"])) print $_REQUEST["korisnickoIme"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9" id="lozinka">
                   <label for="lozinkaLogovanje">LOZINKA</label>
-                  <input type="password" name="lozinka" class="form-control" id="lozinkaLogovanje" placeholder="unesite lozinku">
+                  <input type="password" name="lozinka" class="form-control form-control-lg" id="lozinkaLogovanje" placeholder="unesite lozinku">
                 </div>
             </div>
             <div class="row justify-content-center">

@@ -1,4 +1,7 @@
 <?php
+
+    // autor: Veljko Nestorovic 0039/2017
+
     session_start();
     if(!isset($_SESSION["ulogovan"])) { 
         header("Location: logovanje.php");
@@ -6,7 +9,7 @@
     }
     $email = $_SESSION["korisnickoIme"];
     $stara = $_SESSION["lozinka"];
-    if(isset($_REQUEST["promenaLozinke"])) {
+    if(isset($_REQUEST["promeniLozinku"])) {
         $unetaStara = $_REQUEST["staraLozinka"];
         $nova = $_REQUEST["novaLozinka"];
         $novaPonovo = $_REQUEST["novaLozinkaPonovo"];
@@ -27,21 +30,18 @@
         }
     }
 ?>
-
-<!-- autor: Veljko Nestorovic 0039/2017 -->
 <!doctype html>
 <html lang="en">
   <head>
     <?php include("bootstrapHeder.php"); ?>
     <link rel="stylesheet" href="stil.css">
-    <title>Korisnik</title>
+    <title>KORISNIK</title>
   </head>
   <body>
     <div class="container" style="margin-top: 20px;">
         <?php include("korisnikHeder.php"); ?>
-        <form method="POST" action="promenaLozinke.php">
-        <?php
-            if(isset($_REQUEST["promenaLozinke"])) {
+            <?php
+            if(isset($_REQUEST["promeniLozinku"])) {
              if(!$svePopunjeno) {
             ?>
                 <div class="row justify-content-center">
@@ -77,26 +77,27 @@
              }
             }
             ?>
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="staraLozinka">STARA LOZINKA</label>
-                  <input type="password" class="form-control" id="staraLozinka" name="staraLozinka" placeholder="Stara lozinka" value="">
+                  <input type="password" class="form-control form-control-lg" id="staraLozinka" name="staraLozinka" placeholder="unesite staru lozinku" value="">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9" id="lozinka">
-                  <label for="inputPassword4">NOVA LOZINKA</label>
-                  <input type="password" class="form-control" id="novaLozinka" name="novaLozinka" placeholder="Nova lozinka" value="">
+                  <label for="novaLozinka">NOVA LOZINKA</label>
+                  <input type="password" class="form-control form-control-lg" id="novaLozinka" name="novaLozinka" placeholder="unesite novu lozinku" value="">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9" id="lozinka">
-                  <label for="inputPassword4">PONOVITE NOVU LOZINKU</label>
-                  <input type="password" class="form-control" id="novaLozinkaPonovo" name="novaLozinkaPonovo" placeholder="Nova lozinka" value="">
+                  <label for="novaLozinkaPonovo">PONOVITE NOVU LOZINKU</label>
+                  <input type="password" class="form-control form-control-lg" id="novaLozinkaPonovo" name="novaLozinkaPonovo" placeholder="unesite novu lozinku" value="">
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="promenaLozinke" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">PROMENA LOZINKE</button>
+              <button type="submit" name="promeniLozinku" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">PROMENI LOZINKU</button>
             </div>
         </form>
     </div>

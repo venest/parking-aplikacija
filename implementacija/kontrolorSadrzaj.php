@@ -14,6 +14,3 @@
         </a>
     </div>
 </div>
-<div class="row justify-content-center">
-    <button type="submit" name="izlogujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">IZLOGUJ SE</button>
-</div>

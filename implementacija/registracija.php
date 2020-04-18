@@ -1,6 +1,8 @@
-<!-- autor: Veljko Nestorovic 0039/2017 -->
 <?php
-  if(isset($_REQUEST["dugmeRegistracija"])) {
+
+  // autor: Veljko Nestorovic 0039/2017
+
+  if(isset($_REQUEST["registrujSe"])) {
     $ime = $_REQUEST["ime"];
     $prezime = $_REQUEST["prezime"];
     $email = $_REQUEST["email"];
@@ -35,14 +37,14 @@
   <head>
     <?php include("bootstrapHeder.php"); ?>
     <link rel="stylesheet" href="stil.css">
-    <title>Korisnik</title>
+    <title>REGISTRACIJA</title>
   </head>
   <body>
     <?php include("nav.php"); ?>
     <div class="container" style="margin-top: 20px;">
-        <form method="POST" action="registracija.php" autocomplete="off">
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <?php
-            if(isset($_REQUEST["dugmeRegistracija"])) {
+            if(isset($_REQUEST["registrujSe"])) {
               if(!$svePopunjeno) { ?>
                 <div class="row justify-content-center">
                   <div class="alert alert-danger text-center col-lg-6 col-md-9">
@@ -74,53 +76,53 @@
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="ime">IME</label>
-                  <input type="text" name="ime" class="form-control" id="ime" placeholder="unesite ime" value="<?php if(isset($_REQUEST["dugmeRegistracija"])) print $_REQUEST["ime"];?>">
+                  <input type="text" name="ime" class="form-control form-control-lg" id="ime" placeholder="unesite ime" value="<?php if(isset($_REQUEST["registrujSe"])) print $_REQUEST["ime"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="prezime">PREZIME</label>
-                  <input type="text" name="prezime" class="form-control" id="prezime" placeholder="unesite prezime" value="<?php if(isset($_REQUEST["dugmeRegistracija"])) print $_REQUEST["prezime"];?>">
+                  <input type="text" name="prezime" class="form-control form-control-lg" id="prezime" placeholder="unesite prezime" value="<?php if(isset($_REQUEST["registrujSe"])) print $_REQUEST["prezime"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
               <div class="form-group col-lg-6 col-md-9">
                 <label for="email">EMAIL ADRESA</label>
-                <input type="email" name="email" class="form-control" id="emailRegistracija" placeholder="unesite email" value="<?php if(isset($_REQUEST["dugmeRegistracija"])) print $_REQUEST["email"];?>">
+                <input type="email" name="email" class="form-control form-control-lg" id="emailRegistracija" placeholder="unesite email" value="<?php if(isset($_REQUEST["registrujSe"])) print $_REQUEST["email"];?>">
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="form-group col-lg-6 col-md-9">
                 <label for="password">LOZINKA</label>
-                <input type="password" name="lozinka" class="form-control" id="lozinkaRegistracija" placeholder="unesite lozinku">
+                <input type="password" name="lozinka" class="form-control form-control-lg" id="lozinkaRegistracija" placeholder="unesite lozinku">
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="form-group col-lg-6 col-md-9">
                 <label for="ponovljenPassword">PONOVITE LOZINKU</label>
-                <input type="password" name="ponovljenaLozinka" class="form-control" id="ponovljenaLozinkaRegistracija" placeholder="unesite lozinku">
+                <input type="password" name="ponovljenaLozinka" class="form-control form-control-lg" id="ponovljenaLozinkaRegistracija" placeholder="unesite lozinku">
               </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="grad">GRAD</label>
-                  <input type="text" name="grad" class="form-control" id="grad" placeholder="unesite grad" value="<?php if(isset($_REQUEST["dugmeRegistracija"])) print $_REQUEST["grad"];?>">
+                  <input type="text" name="grad" class="form-control form-control-lg" id="grad" placeholder="unesite grad" value="<?php if(isset($_REQUEST["registrujSe"])) print $_REQUEST["grad"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="adresa">ADRESA</label>
-                  <input type="text" name="adresa" class="form-control" id="adresa" placeholder="unesite ulicu i broj" value="<?php if(isset($_REQUEST["dugmeRegistracija"])) print $_REQUEST["adresa"];?>">
+                  <input type="text" name="adresa" class="form-control form-control-lg" id="adresa" placeholder="unesite ulicu i broj" value="<?php if(isset($_REQUEST["registrujSe"])) print $_REQUEST["adresa"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="telefon">TELEFON</label>
-                  <input type="text" name="telefon" class="form-control" id="telefon" placeholder="unesite telefon" value="<?php if(isset($_REQUEST["dugmeRegistracija"])) print $_REQUEST["telefon"];?>">
+                  <input type="text" name="telefon" class="form-control form-control-lg" id="telefon" placeholder="unesite telefon" value="<?php if(isset($_REQUEST["registrujSe"])) print $_REQUEST["telefon"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="dugmeRegistracija" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">REGISTRUJ SE</button>
+              <button type="submit" name="registrujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">REGISTRUJ SE</button>
             </div>
           </form>
     </div>
