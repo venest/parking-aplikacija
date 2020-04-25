@@ -1,5 +1,5 @@
-<div class="container text-center" style="margin-top: 20px;">
-        <div class="alert" style="background-color: #e3f2fd;">
+
+        <div class="alert bg-svetlo-plava">
             <h3>REGISTROVANI KORISNICI</h3><br>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -39,4 +39,3 @@
                 </div>
             </div>
         </div>
-</div>

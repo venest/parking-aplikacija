@@ -179,8 +179,12 @@
     <title>KORISNIK</title>
 </head>
 <body>
-    <div class="container" style="margin-top: 20px;">
-    <?php include("korisnikHeder.php"); ?>
+    <div class="container">
+      <?php include("korisnikHeder.php"); ?>
+    </div>
+    <div class="container">
+    <div class="jumbotron bg-siva">
+    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
     <?php
     if(isset($_REQUEST["produzenjeDan"]) || isset($_REQUEST["produzenjeSedmica"]) || isset($_REQUEST["produzenjeMesec"]) || isset($_REQUEST["produzenjeProizvoljno"])) {
       if(!$imaKartica) { ?>
@@ -210,7 +214,6 @@
       }
     }
     ?>
-    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <div class="row justify-content-center">
           <div class="col-md-9 col-lg-6">
               <div class="form-group">
@@ -227,35 +230,36 @@
             <div class="alert alert-info text-center col-lg-6 col-md-9">
               <h5>DAN</h5>
               <h2><strong>200 RSD</strong></h2>
-              <button type="submit" name="produzenjeDan" class="btn btn-secondary btn-lg" style="margin-top: 10px; margin-bottom: 10px;">POTVRDI</button>
+              <button type="submit" name="produzenjeDan" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="alert alert-info text-center col-lg-6 col-md-9">
               <h5>SEDAM DANA</h5>
               <h2><strong>800 RSD</strong></h2>
-                <button type="submit" name="produzenjeSedmica" class="btn btn-secondary btn-lg" style="margin-top: 10px; margin-bottom: 10px;">POTVRDI</button>
+                <button type="submit" name="produzenjeSedmica" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="alert alert-info text-center col-lg-6 col-md-9">
               <h5>MESEC DANA</h5>
               <h2><strong>2000 RSD</strong></h2>
-                <button type="submit" name="produzenjeMesec" class="btn btn-secondary btn-lg" style="margin-top: 10px; margin-bottom: 10px;">POTVRDI</button>
+                <button type="submit" name="produzenjeMesec" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
         </div>
         <div class="row justify-content-center">
           <div class="alert alert-info text-center col-lg-6 col-md-9">
               <h5>PROIZVOLJNO</h5>
               <h2><strong>200 RSD/DAN</strong></h2>
-                <div class="form-group" style="margin-top: 30px; margin-bottom: 0px">
+                <div class="form-group">
                   <label for="datum">BROJ DANA ILI DATUM</label>
                   <input type="text" name="datum" class="form-control form-control-lg" id="datum" placeholder="unesite broj dana ili datum (dan.mesec.godina.)" style="text-align: center" value="<?php if(isset($_REQUEST["produzenjeDan"]) || isset($_REQUEST["produzenjeSedmica"]) || isset($_REQUEST["produzenjeMesec"]) || isset($_REQUEST["produzenjeProizvoljno"])) print $_REQUEST["datum"]; ?>">
                 </div>
-                <button type="submit" name="produzenjeProizvoljno" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 10px;">POTVRDI</button>
+                <button type="submit" name="produzenjeProizvoljno" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
         </div>
       </form>
+    </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
 </body>

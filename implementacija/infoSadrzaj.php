@@ -1,8 +1,8 @@
-<div class="container text-center" style="margin-top: 20px;">
-      <div class="alert" style="background-color: #e3f2fd;">
+
+      <div class="alert bg-svetlo-plava">
           <i class="fas fa-info-circle"></i>  Aplikacija urađena za potrebe projektnog zadatka iz predmeta <a href="http://si3psi.etf.rs/" class="alert-link">Principi softverskog inženjerstva</a>. Članovi tima za izradu projekta su:
       </div>
-      <table class="table table-bordered" style="background-color: #e3f2fd;">
+      <table class="table table-bordered bg-svetlo-plava">
         <thead class="thead">
           <tr>
             <th scope="col"></th>
@@ -38,4 +38,3 @@
           </tr>
         </tbody>
       </table>
-</div>

@@ -11,7 +11,10 @@
     <title>POČETNA</title>
   </head>
   <body>
-    <?php include("nav.php"); include("pocetnaSadrzaj.php"); ?>    
+    <?php include("navIndex.php"); ?>
+    <div class="container-fluid mt-2">
+     <?php include("indexSadrzaj.php"); ?>    
+    </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>
 </html>

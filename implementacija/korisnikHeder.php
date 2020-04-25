@@ -1,6 +1,9 @@
-<a href="korisnik.php">
-    <div class="alert text-center" style="background-color: #e3f2fd;">
-        <h2><strong>HVALA ŠTO KORISTITE PARKING APLIKACIJU!</strong></h2>
-        <h4> <?php print "$email"; ?></strong></h4>
+<div class="row">
+    <div class="col-12">
+    <a href="korisnik.php">
+        <div class="alert bg-plava text-center pt-3 pb-3 mb-0">
+            <h2> <?php print "$email"; ?> </h2>
+        </div>
+    </a>
     </div>
-</a>
+</div>

@@ -51,9 +51,13 @@
     <title>KORISNIK</title>
   </head>
   <body>
-    <div class="container" style="margin-top: 20px;">
+    <div class="container-fluid">
       <?php include("korisnikHeder.php"); ?>
-            <?php
+    </div>
+    <div class="container">
+    <div class="jumbotron bg-siva">
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
+        <?php
             if(isset($_REQUEST["sacuvajIzmene"])) {
               if(!$svePopunjeno) { ?>
                 <div class="row justify-content-center">
@@ -76,7 +80,6 @@
               }
             }
             ?>
-        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="ime">EMAIL ADRESA</label>
@@ -114,9 +117,10 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="sacuvajIzmene" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">SAČUVAJ IZMENE</button>
+              <button type="submit" name="sacuvajIzmene" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">SAČUVAJ IZMENE</button>
             </div>
           </form>
+    </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>

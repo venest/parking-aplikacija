@@ -11,7 +11,10 @@
     <title>CENOVNIK</title>
   </head>
   <body>
-    <?php include("nav.php"); include("cenovnikSadrzaj.php"); ?>
+    <?php include("navIndex.php"); ?>
+    <div class="container-fluid text-center mt-2">
+      <?php include("cenovnikSadrzaj.php"); ?>
+    </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>
 </html>

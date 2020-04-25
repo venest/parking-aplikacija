@@ -40,8 +40,9 @@
     <title>REGISTRACIJA</title>
   </head>
   <body>
-    <?php include("nav.php"); ?>
-    <div class="container" style="margin-top: 20px;">
+    <?php include("navIndex.php"); ?>
+    <div class="container">
+      <div class="jumbotron bg-siva">
         <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <?php
             if(isset($_REQUEST["registrujSe"])) {
@@ -122,9 +123,10 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="registrujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">REGISTRUJ SE</button>
+              <button type="submit" name="registrujSe" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">REGISTRUJ SE</button>
             </div>
           </form>
+          </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>

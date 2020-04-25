@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 18, 2020 at 11:12 AM
+-- Generation Time: Apr 25, 2020 at 08:29 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -58,14 +58,22 @@ CREATE TABLE IF NOT EXISTS `isplata` (
   PRIMARY KEY (`idIsplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `isplata`
 --
 
 INSERT INTO `isplata` (`idIsplate`, `idKartice`, `idRacuna`) VALUES
-(44, 8, 71);
+(44, 8, 71),
+(45, 8, 79),
+(46, 7, 81),
+(47, 8, 83),
+(48, 7, 85),
+(49, 8, 89),
+(50, 8, 91),
+(51, 7, 98),
+(52, 10, 100);
 
 -- --------------------------------------------------------
 
@@ -103,10 +111,10 @@ CREATE TABLE IF NOT EXISTS `kartica` (
 --
 
 INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `datumVazenja`, `iznos`) VALUES
-(7, 'LO-401-MN', 1, '2021-01-16', '600.00'),
-(8, 'LO-400-RE', 1, '2021-01-24', '8000.00'),
-(9, 'LO-980-PĐ', 2, '2020-07-02', '5000.00'),
-(10, 'LO-512-ĆŽ', 2, '2020-05-05', '1200.00'),
+(7, 'LO-401-MN', 1, '2021-01-24', '0.00'),
+(8, 'LO-400-RE', 1, '2021-01-24', '7000.00'),
+(9, 'LO-980-PĐ', 2, '2020-07-03', '5000.00'),
+(10, 'LO-512-ĆŽ', 2, '2020-05-05', '1000.00'),
 (11, 'LO-678-QR', 2, '2020-04-18', '0.00');
 
 -- --------------------------------------------------------
@@ -140,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `produzenje` (
   PRIMARY KEY (`idProduzenja`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `produzenje`
@@ -150,7 +158,16 @@ INSERT INTO `produzenje` (`idProduzenja`, `idKartice`, `datumProduzetka`, `idRac
 (7, 7, '2021-01-15', 73),
 (8, 8, '2021-01-23', 74),
 (9, 8, '2021-01-24', 75),
-(10, 7, '2021-01-16', 76);
+(10, 7, '2021-01-16', 76),
+(11, 7, '2021-01-17', 77),
+(12, 7, '2021-01-18', 78),
+(13, 7, '2021-01-19', 87),
+(14, 7, '2021-01-20', 88),
+(15, 9, '2020-07-03', 93),
+(16, 7, '2021-01-21', 94),
+(17, 7, '2021-01-22', 95),
+(18, 7, '2021-01-23', 96),
+(19, 7, '2021-01-24', 97);
 
 -- --------------------------------------------------------
 
@@ -166,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `racun` (
   `iznos` decimal(10,2) NOT NULL,
   `opis` varchar(50) NOT NULL,
   PRIMARY KEY (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `racun`
@@ -178,7 +195,32 @@ INSERT INTO `racun` (`idRacuna`, `datum`, `vreme`, `iznos`, `opis`) VALUES
 (73, '2020-04-18', '12:50:24', '200.00', 'produzenje'),
 (74, '2020-04-18', '12:51:16', '800.00', 'produzenje'),
 (75, '2020-04-18', '12:51:48', '200.00', 'produzenje'),
-(76, '2020-04-18', '12:55:53', '200.00', 'produzenje');
+(76, '2020-04-18', '12:55:53', '200.00', 'produzenje'),
+(77, '2020-04-20', '15:20:45', '200.00', 'produzenje'),
+(78, '2020-04-20', '16:05:12', '200.00', 'produzenje'),
+(79, '2020-04-20', '21:28:42', '1000.00', 'isplata'),
+(80, '2020-04-20', '21:28:42', '1000.00', 'uplata'),
+(81, '2020-04-20', '21:30:42', '200.00', 'isplata'),
+(82, '2020-04-20', '21:30:42', '200.00', 'uplata'),
+(83, '2020-04-20', '21:31:14', '200.00', 'isplata'),
+(84, '2020-04-20', '21:31:14', '200.00', 'uplata'),
+(85, '2020-04-20', '21:44:53', '200.00', 'isplata'),
+(86, '2020-04-20', '21:44:53', '200.00', 'uplata'),
+(87, '2020-04-20', '23:45:06', '200.00', 'produzenje'),
+(88, '2020-04-20', '23:45:08', '200.00', 'produzenje'),
+(89, '2020-04-20', '21:45:27', '200.00', 'isplata'),
+(90, '2020-04-20', '21:45:27', '200.00', 'uplata'),
+(91, '2020-04-22', '11:38:05', '200.00', 'isplata'),
+(92, '2020-04-22', '11:38:05', '200.00', 'uplata'),
+(93, '2020-04-22', '16:12:29', '200.00', 'produzenje'),
+(94, '2020-04-23', '19:57:27', '200.00', 'produzenje'),
+(95, '2020-04-23', '20:49:17', '200.00', 'produzenje'),
+(96, '2020-04-23', '20:50:21', '200.00', 'produzenje'),
+(97, '2020-04-23', '20:50:25', '200.00', 'produzenje'),
+(98, '2020-04-23', '18:50:47', '200.00', 'isplata'),
+(99, '2020-04-23', '18:50:47', '200.00', 'uplata'),
+(100, '2020-04-24', '20:01:03', '200.00', 'isplata'),
+(101, '2020-04-24', '20:01:03', '200.00', 'uplata');
 
 -- --------------------------------------------------------
 
@@ -197,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `registrovani` (
   `adresa` varchar(50) NOT NULL,
   `telefon` varchar(50) NOT NULL,
   PRIMARY KEY (`idKorisnika`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `registrovani`
@@ -206,7 +248,8 @@ CREATE TABLE IF NOT EXISTS `registrovani` (
 INSERT INTO `registrovani` (`idKorisnika`, `email`, `lozinka`, `ime`, `prezime`, `grad`, `adresa`, `telefon`) VALUES
 (1, 'pera@etf.rs', 'pera123', 'Pera', 'Peric', 'Loznica', 'Pasiceva 13', '0648652312'),
 (2, 'mika@etf.rs', 'mika123', 'Mika', 'Mikic', 'Loznica', 'Valjevski put 89', '0641355313'),
-(3, 'zika@etf.rs', 'zika123', 'Zika', 'Zikic', 'Beograd', 'Bulevar Kralja Aleksandra 170', '0645490876');
+(3, 'zika@etf.rs', 'zika123', 'Zika', 'Zikic', 'Beograd', 'Bulevar Kralja Aleksandra 170', '0645490876'),
+(5, 'toma@etf.rs', 'toma123', 'toma', 'tomic', 'Sabac', 'BB', '0645321');
 
 -- --------------------------------------------------------
 
@@ -222,14 +265,22 @@ CREATE TABLE IF NOT EXISTS `uplata` (
   PRIMARY KEY (`idUplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `uplata`
 --
 
 INSERT INTO `uplata` (`idUplate`, `idKartice`, `idRacuna`) VALUES
-(20, 7, 72);
+(20, 7, 72),
+(21, 7, 80),
+(22, 8, 82),
+(23, 7, 84),
+(24, 8, 86),
+(25, 7, 90),
+(26, 7, 92),
+(27, 8, 99),
+(28, 9, 101);
 
 -- --------------------------------------------------------
 

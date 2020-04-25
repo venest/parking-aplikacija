@@ -14,8 +14,11 @@
     <title>OPERATER</title>
   </head>
   <body>
-    <div class="container" style="margin-top: 20px;">
+    <div class="container-fluid">
       <?php include("operaterHeder.php"); ?>
+    </div>
+    <div class="container">
+    <div class="jumbotron bg-siva">
       <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9">
@@ -37,9 +40,10 @@
           </div>
           </div>
           <div class="row justify-content-center">
-            <button type="submit" name="pronadjiId" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;"><i class="fas fa-search"></i> PRONAĐI ID KARTICE</button>
+            <button type="submit" name="pronadjiId" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3"><i class="fas fa-search"></i> PRONAĐI ID KARTICE</button>
           </div>
       </form>
+    </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>

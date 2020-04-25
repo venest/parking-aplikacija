@@ -59,8 +59,9 @@
     <title>LOGOVANJE</title>
   </head>
   <body>
-    <?php include("nav.php"); ?>
-    <div class="container" style="margin-top: 20px;">
+    <?php include("navIndex.php"); ?>
+    <div class="container">
+      <div class="jumbotron bg-siva">
         <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <?php
             if(isset($_REQUEST["ulogujSe"])) {
@@ -85,20 +86,21 @@
             ?>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
-                  <label for="emailLogovanje">KORISNIČKO IME ILI EMAIL ADRESA</label>
-                  <input type="text" name="korisnickoIme" class="form-control form-control-lg" id="korisnickoImeLogovanje" placeholder="unesite korisničko ime ili email" value="<?php if(isset($_REQUEST["ulogujSe"])) print $_REQUEST["korisnickoIme"];?>">
+                  <label for="korisnickoIme">KORISNIČKO IME ILI EMAIL ADRESA</label>
+                  <input type="text" name="korisnickoIme" class="form-control form-control-lg" id="korisnickoIme" placeholder="unesite korisničko ime ili email" value="<?php if(isset($_REQUEST["ulogujSe"])) print $_REQUEST["korisnickoIme"];?>">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9" id="lozinka">
-                  <label for="lozinkaLogovanje">LOZINKA</label>
-                  <input type="password" name="lozinka" class="form-control form-control-lg" id="lozinkaLogovanje" placeholder="unesite lozinku">
+                  <label for="lozinka">LOZINKA</label>
+                  <input type="password" name="lozinka" class="form-control form-control-lg" id="lozinka" placeholder="unesite lozinku">
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="ulogujSe" class="btn btn-secondary btn-lg" style="margin-top: 10px; margin-bottom: 30px;">ULOGUJ SE</button>
+              <button type="submit" name="ulogujSe" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">ULOGUJ SE</button>
             </div>
         </form>
+          </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>

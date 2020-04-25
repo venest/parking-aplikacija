@@ -23,11 +23,15 @@
     <title>KONTROLOR</title>
   </head>
   <body>
-    <div class="container text-center" style="margin-top: 20px;">
-      <?php include("kontrolorHeder.php"); include("kontrolorSadrzaj.php"); ?>
+      <div class="container-fluid mb-2">
+        <?php include("kontrolorHeder.php"); ?>
+      </div>
+      <div class="container-fluid text-center">
+        <?php include("kontrolorSadrzaj.php"); ?>
+      </div>
       <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
         <div class="row justify-content-center">
-          <button type="submit" name="izlogujSe" class="btn btn-secondary btn-lg" style="margin-top: 20px; margin-bottom: 30px;">IZLOGUJ SE</button>
+          <button type="submit" name="izlogujSe" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">IZLOGUJ SE</button>
         </div>
       </form>
     </div>

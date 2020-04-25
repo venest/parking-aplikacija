@@ -11,7 +11,10 @@
     <title>INFO</title>
   </head>
   <body>
-    <?php include("nav.php"); include("infoSadrzaj.php"); ?>
+    <?php include("navIndex.php"); ?>
+    <div class="container-fluid text-center mt-2">
+      <?php include("infoSadrzaj.php"); ?>
+    </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>
 </html>

@@ -93,8 +93,12 @@
     <title>KORISNIK</title>
 </head>
 <body>
-    <div class="container" style="margin-top: 20px;">
-    <?php include("korisnikHeder.php"); ?>
+    <div class="container-fluid">
+      <?php include("korisnikHeder.php"); ?>
+    </div>
+    <div class="container">
+    <div class="jumbotron bg-siva">
+    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
     <?php
       if(isset($_REQUEST["potvrdiTransfer"]))  {
         if(!$imaKartica) { ?>
@@ -130,7 +134,6 @@
         }
       }
     ?>
-    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <div class="row justify-content-center">
           <div class="col-md-9 col-lg-6">
             <div class="form-group">
@@ -169,11 +172,11 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <button type="submit" name="potvrdiTransfer" class="btn btn-secondary btn-lg" style="margin-top: 10px; margin-bottom: 20px;">POTVRDI</button>
+          <button type="submit" name="potvrdiTransfer" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
         </div>
     </form>
     </div>
+    </div>
     <?php include("bootstrapFuter.php"); ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.13/dist/js/bootstrap-select.min.js"></script>
 </body>
 </html>
