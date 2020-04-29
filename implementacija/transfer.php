@@ -93,13 +93,13 @@
     <title>KORISNIK</title>
 </head>
 <body>
-    <div class="container-fluid">
-      <?php include("korisnikHeder.php"); ?>
-    </div>
+    <?php include("navKorisnik.php"); ?>
     <div class="container">
-    <div class="jumbotron bg-siva">
-    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
-    <?php
+    <div class="jumbotron pt-0 mb-1">
+        <div class="row justify-content-center pt-4 pb-4">
+          <h4>Transfer</h4>
+        </div>
+        <?php
       if(isset($_REQUEST["potvrdiTransfer"]))  {
         if(!$imaKartica) { ?>
           <div class="row justify-content-center">
@@ -134,6 +134,7 @@
         }
       }
     ?>
+    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <div class="row justify-content-center">
           <div class="col-md-9 col-lg-6">
             <div class="form-group">

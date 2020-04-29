@@ -38,12 +38,12 @@
     <title>KORISNIK</title>
   </head>
   <body>
-    <div class="container-fluid">
-        <?php include("korisnikHeder.php"); ?>
-    </div>
+    <?php include("navKorisnik.php"); ?>
     <div class="container">
-    <div class="jumbotron bg-siva">
-        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
+    <div class="jumbotron pt-0 mb-1">
+        <div class="row justify-content-center pt-4 pb-4">
+          <h4>Promena lozinke</h4>
+        </div>
         <?php
             if(isset($_REQUEST["promeniLozinku"])) {
              if(!$svePopunjeno) {
@@ -80,7 +80,8 @@
             <?php
              }
             }
-            ?>
+        ?>
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="staraLozinka">STARA LOZINKA</label>

@@ -14,11 +14,12 @@
     <title>OPERATER</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <?php include("operaterHeder.php"); ?>
-    </div>
+    <?php include("navOperater.php"); ?>
     <div class="container">
-    <div class="jumbotron bg-siva">
+    <div class="jumbotron pt-0 mb-1">
+        <div class="row justify-content-center pt-4 pb-4">
+          <h4>Pronađi id kartice</h4>
+        </div>
       <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9">
@@ -40,7 +41,9 @@
           </div>
           </div>
           <div class="row justify-content-center">
-            <button type="submit" name="pronadjiId" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3"><i class="fas fa-search"></i> PRONAĐI ID KARTICE</button>
+          <div class="col-lg-6 col-md-9">
+            <button type="submit" name="pronadjiId" class="btn btn-plavi btn-block mt-3 pt-3 pb-3"><i class="fas fa-search"></i> PRONAĐI ID KARTICE</button>
+          </div>
           </div>
       </form>
     </div>

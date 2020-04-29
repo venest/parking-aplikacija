@@ -179,13 +179,13 @@
     <title>KORISNIK</title>
 </head>
 <body>
+    <?php include("navKorisnik.php"); ?>
     <div class="container">
-      <?php include("korisnikHeder.php"); ?>
-    </div>
-    <div class="container">
-    <div class="jumbotron bg-siva">
-    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
-    <?php
+    <div class="jumbotron pt-0 mb-1">
+        <div class="row justify-content-center pt-4 pb-4">
+          <h4>Produžetak važenja kartice</h4>
+        </div>
+        <?php
     if(isset($_REQUEST["produzenjeDan"]) || isset($_REQUEST["produzenjeSedmica"]) || isset($_REQUEST["produzenjeMesec"]) || isset($_REQUEST["produzenjeProizvoljno"])) {
       if(!$imaKartica) { ?>
         <div class="row justify-content-center">
@@ -214,6 +214,7 @@
       }
     }
     ?>
+    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
         <div class="row justify-content-center">
           <div class="col-md-9 col-lg-6">
               <div class="form-group">
@@ -227,28 +228,28 @@
           </div>
         </div>
           <div class="row justify-content-center">
-            <div class="alert alert-info text-center col-lg-6 col-md-9">
+            <div class="alert alert-beli text-center col-lg-6 col-md-9">
               <h5>DAN</h5>
               <h2><strong>200 RSD</strong></h2>
               <button type="submit" name="produzenjeDan" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="alert alert-info text-center col-lg-6 col-md-9">
+            <div class="alert alert-beli text-center col-lg-6 col-md-9">
               <h5>SEDAM DANA</h5>
               <h2><strong>800 RSD</strong></h2>
                 <button type="submit" name="produzenjeSedmica" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="alert alert-info text-center col-lg-6 col-md-9">
+            <div class="alert alert-beli text-center col-lg-6 col-md-9">
               <h5>MESEC DANA</h5>
               <h2><strong>2000 RSD</strong></h2>
                 <button type="submit" name="produzenjeMesec" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">POTVRDI</button>
             </div>
         </div>
         <div class="row justify-content-center">
-          <div class="alert alert-info text-center col-lg-6 col-md-9">
+          <div class="alert alert-beli text-center col-lg-6 col-md-9">
               <h5>PROIZVOLJNO</h5>
               <h2><strong>200 RSD/DAN</strong></h2>
                 <div class="form-group">

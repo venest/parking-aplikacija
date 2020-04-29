@@ -12,7 +12,7 @@
   </head>
   <body>
     <?php include("navIndex.php"); ?>
-    <div class="container-fluid text-center mt-2">
+    <div class="container text-center">
       <?php include("kontaktSadrzaj.php"); ?>
     </div>
     <?php include("bootstrapFuter.php"); ?>

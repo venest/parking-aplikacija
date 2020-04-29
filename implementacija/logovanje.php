@@ -13,33 +13,33 @@
   if(isset($_REQUEST["ulogujSe"])) {
     $korisnickoIme = $_REQUEST["korisnickoIme"];
     $lozinka = $_REQUEST["lozinka"];
-    $svePopunjeno = false;
-    $ispravniKredencijali = false;
-    if(strcmp($korisnickoIme, "") != 0 && strcmp($lozinka, "") != 0) {
-      $svePopunjeno = true;
+    $korisnickoImeOk = true;
+    $lozinkaOk = true;
+    $kredencijaliOk = true;
+    if($korisnickoIme == "") $korisnickoImeOk = false; 
+    else if($lozinka == "") $lozinkaOk = false; 
+    else {
       $konekcija = mysqli_connect("localhost", "root", "", "parking_aplikacija") or die("neuspesna konekcija sa bazom"); 
       $upit = "SELECT * FROM registrovani WHERE email = '$korisnickoIme'";
       $rezultat = mysqli_query($konekcija, $upit) or die("neuspesno izvrsavanje upita");
       if($red = mysqli_fetch_array($rezultat)) {
         $pravaLozinka = $red["lozinka"];
-        if(strcmp($lozinka, $pravaLozinka) == 0) { 
-          $ispravniKredencijali = true;
+        if($lozinka == $pravaLozinka) { 
           $_SESSION["tip"] = "rk";
-        }
+        } else $kredencijaliOk = false;
       } else {
         $upit = "SELECT * FROM zaposleni WHERE korisnickoIme = '$korisnickoIme'";
         $rezultat = mysqli_query($konekcija, $upit) or die("neuspesno izvrsavanje upita");
         if($red = mysqli_fetch_array($rezultat)) {
           $pravaLozinka = $red["lozinka"];
-          if(strcmp($lozinka, $pravaLozinka) == 0) { 
-            $ispravniKredencijali = true;
+          if($lozinka == $pravaLozinka) { 
             $_SESSION["tip"] = $red["tip"];
-          }
-        }
+          } else $kredencijaliOk = false;
+        } else $kredencijaliOk = false;
       }
       mysqli_close($konekcija);
     }
-    if($ispravniKredencijali) {
+    if($korisnickoImeOk && $lozinkaOk && $kredencijaliOk) {
       $_SESSION["korisnickoIme"] = $korisnickoIme;
       $_SESSION["lozinka"] = $lozinka;
       $_SESSION["ulogovan"] = true;
@@ -58,32 +58,30 @@
     <link rel="stylesheet" href="stil.css">
     <title>LOGOVANJE</title>
   </head>
-  <body>
+  <body onload="f()">
     <?php include("navIndex.php"); ?>
     <div class="container">
-      <div class="jumbotron bg-siva">
-        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
-        <?php
+      <div class="jumbotron pt-0 mb-1">
+        <div class="row justify-content-center pt-4 pb-4">
+          <h4>Logovanje</h4>
+        </div>
+      <?php
             if(isset($_REQUEST["ulogujSe"])) {
-              if(!$svePopunjeno) {
+              if(!$korisnickoImeOk) {
                 ?>
-                  <div class="row justify-content-center">
-                    <div class="alert alert-danger text-center col-lg-6 col-md-9">
-                        <strong>SVA POLJA FORME MORAJU BITI POPUNJENA!</strong>
-                    </div>
-                  </div>
+                    <p class="text-center text-danger">UNESITE KORISNIČKO IME (EMAIL ADRESU).</p>
                 <?php
-              } else if(!$ispravniKredencijali) {
+              } else if(!$lozinkaOk) {
                 ?>
-                <div class="row justify-content-center">
-                  <div class="alert alert-danger text-center col-lg-6 col-md-9">
-                    <strong>POGREŠNI KREDENCIJALI (KORISNIČKO IME I/ILI LOZINKA)!</strong>
-                  </div>
-                </div>
+                  <p class="text-center text-danger">UNESITE LOZINKU.</p>
                 <?php
+              } else if(!$kredencijaliOk) { ?>
+                <p class="text-center text-danger">KORISNIČKO IME I/ILI LOZINKA SU POGREŠNI.</p>
+                <p class="text-center text-danger">MOLIMO VAS POKUŠAJTE PONOVO.</p> <?php
               }
             }
-            ?>
+        ?>
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="korisnickoIme">KORISNIČKO IME ILI EMAIL ADRESA</label>
@@ -97,10 +95,15 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="ulogujSe" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">ULOGUJ SE</button>
+            <div class="col-lg-6 col-md-9">
+              <button type="submit" name="ulogujSe" class="btn btn-plavi btn-block mt-3 pt-3 pb-3">ULOGUJ SE</button>
+            </div>
             </div>
         </form>
-          </div>
+        <div class="row justify-content-center mt-4">
+          <h5> <a href="registracija.php" class="link-registruj-se"> Nemate nalog? Registrujte se. </a> </h5>
+        </div>
+        </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>

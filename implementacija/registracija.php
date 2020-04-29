@@ -42,9 +42,11 @@
   <body>
     <?php include("navIndex.php"); ?>
     <div class="container">
-      <div class="jumbotron bg-siva">
-        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
-        <?php
+      <div class="jumbotron pt-0 mb-1">
+        <div class="row justify-content-center pt-4 pb-4">
+          <h4>Registracija</h4>
+        </div>
+      <?php
             if(isset($_REQUEST["registrujSe"])) {
               if(!$svePopunjeno) { ?>
                 <div class="row justify-content-center">
@@ -74,6 +76,7 @@
               }
             }
             ?>
+        <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
             <div class="row justify-content-center">
                 <div class="form-group col-lg-6 col-md-9">
                   <label for="ime">IME</label>
@@ -123,7 +126,9 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-              <button type="submit" name="registrujSe" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">REGISTRUJ SE</button>
+              <div class="col-lg-6 col-md-9">
+              <button type="submit" name="registrujSe" class="btn btn-plavi btn-block mt-3 pt-3 pb-3">REGISTRUJ SE</button>
+            </div>
             </div>
           </form>
           </div>

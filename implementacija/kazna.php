@@ -14,11 +14,12 @@
     <title>KONTROLOR</title>
   </head>
   <body>
-    <div class="container-fluid">
-        <?php include("kontrolorHeder.php"); ?>
-    </div>
+    <?php include("navKontrolor.php"); ?>
     <div class="container">
-    <div class="jumbotron bg-siva">
+    <div class="jumbotron pt-0 mb-1">
+      <div class="row justify-content-center pt-4 pb-4">
+          <h4>Kazna</h4>
+        </div>
         <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>" autocomplete="off">
           <div class="row justify-content-center">
           <div class="col-lg-6 col-md-9">
@@ -54,7 +55,9 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <button type="submit" name="evidentirajKaznu" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">EVIDENTIRAJ KAZNU</button>
+          <div class="col-lg-6 col-md-9">
+            <button type="submit" name="evidentirajKaznu" class="btn btn-plavi btn-block mt-3 pt-3 pb-3">EVIDENTIRAJ KAZNU</button>
+          </div>
           </div>
         </form>
     </div>

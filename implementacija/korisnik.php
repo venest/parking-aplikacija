@@ -18,13 +18,15 @@
     }
     $email = $_SESSION["korisnickoIme"];
     $konekcija = mysqli_connect("localhost", "root", "", "parking_aplikacija") or die("neuspesna konekcija sa bazom");
-    $upit = "SELECT idKorisnika FROM registrovani WHERE email = '$email'";
+    $upit = "SELECT * FROM registrovani WHERE email = '$email'";
     $rezultat = mysqli_query($konekcija, $upit) or die("neuspesno izvrsavanje upita");
     $red = mysqli_fetch_array($rezultat);
-    $idKorisnika = $red["idKorisnika"]; 
-    $upit = "SELECT * FROM kartica WHERE idKorisnika = '$idKorisnika'";
-    $rezultat = mysqli_query($konekcija, $upit) or die("neuspesno izvrsavanje upita");
-    $red = mysqli_fetch_array($rezultat);
+    $idKorisnika = $red["idKorisnika"];
+    $ime = $red["ime"];
+    $prezime = $red["prezime"];
+    $grad = $red["grad"];
+    $adresa = $red["adresa"];
+    $telefon = $red["telefon"];
 ?>
 <!doctype html>
 <html lang="en">
@@ -34,51 +36,38 @@
     <title>KORISNIK</title>
 </head>
 <body>
-    <div class="container-fluid mb-2">
-        <?php include("korisnikHeder.php"); ?>
-    </div>
-    <div class="container-fluid text-center">
-        <?php include("korisnikSadrzaj.php"); ?>
-    <?php
-    if(!$red) { ?>
-        <div class="alert alert-warning text-center">
-            <h4><strong>NAŽALOST U SISTEMU NE POSTOJI NI JEDNA KARTICA KOJA SE ODNOSI NA VAS.</strong></h4>
-        </div>
-    <?php 
-    } else { ?>
-    <table class="table table-bordered text-center bg-svetlo-plava">
-        <tr>
-            <td>ID KARTICE</td>
-            <td>AUTOMOBIL</td>
-            <td>DATUM DO</td>
-            <td>IZNOS</td>
-        </tr>
-    <?php
-        do {
-            $idKartice = $red["idKartice"];
-            $automobil = $red["automobil"];
-            $datumDo = $red["datumVazenja"];
-            $niz = explode("-", $datumDo);
-            $dan = $niz[2];
-            $mesec = $niz[1];
-            $godina = $niz[0];
-            $iznos = $red["iznos"]; ?>
-            <tr>
-            <td><?php print "$idKartice"; ?></td>
-            <td><?php print "$automobil"; ?></td>
-            <td><?php print "$dan."."$mesec."."$godina."; ?></td>
-            <td><?php print "$iznos"; ?></td>
-            </tr>
-    <?php
-        } while ($red = mysqli_fetch_array($rezultat));
-    } mysqli_close($konekcija); ?>
+    <?php include("navKorisnik.php"); ?>
+    <div class="container text-center mt-3">
+    <table class="table table-hover">
+    <tr>
+        <td><strong>IME:</strong> <?php print $ime; ?> </td>
+        <td><strong>PREZIME:</strong> <?php print $prezime; ?> </td>
+    </tr>
+    <tr>
+        <td><strong>GRAD:</strong> <?php print $grad; ?> </td>
+        <td><strong>ADRESA:</strong>  <?php print $adresa; ?> </td>
+    </tr>
+    <tr>
+        <td><strong>TELEFON:</strong> <?php print $telefon; ?> </td>
+        <td><strong>EMAIL:</strong>  <?php print $email; ?> </td>
+    </tr>
     </table>
-    </div>
-    <form method="POST" action="<?php print $_SERVER['PHP_SELF']; ?>">
-        <div class="row justify-content-center">
-            <button type="submit" name="izlogujSe" class="btn btn-plavi btn-lg mt-3 pr-5 pl-5 pt-3 pb-3">IZLOGUJ SE</button>
+        <div class="row">
+            <div class="col-lg-6">
+                <a href="urediProfil.php">
+                    <div class="alert alert-plavi pt-4 pb-4">
+                        <h5><i class="fas fa-user-edit fa-beli"></i> UREDI PROFIL</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a href="promenaLozinke.php">
+                    <div class="alert alert-plavi pt-4 pb-4">
+                        <h5><i class="fas fa-key fa-beli"></i> PROMENA LOZINKE</h5>
+                    </div>
+                </a>
+            </div>
         </div>
-    </form>
     </div>
     <?php include("bootstrapFuter.php"); ?>
 </body>
