@@ -24,8 +24,13 @@
   </head>
   <body>
     <?php include("navOperater.php"); ?>
-    <div class="container text-center mt-3">
-      <?php include("operaterSadrzaj.php"); ?> 
+    <div class="container-fluid">
+    <?php include("kontrolnaTablaDugme.php"); ?>
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <?php include("kontrolnaTablaOperater.php"); ?>
+        </div>
+    </div>
     </div>
     <?php include("bootstrapFuter.php"); ?>
   </body>

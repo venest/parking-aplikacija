@@ -21,7 +21,16 @@
       </ul> 
       <ul class="navbar-nav ml-auto">
         <li>
-          <a class="nav-link" href="logovanje.php">Uloguj se</a>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php print $korisnickoIme; ?>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item pt-3 pb-3" href="admin.php">KONTROLNA TABLA</a>
+            <a class="dropdown-item pt-3 pb-3" href="admin.php?izlogujSe=true">IZLOGUJ SE</a>
+          </div>
+        </div>
         </li>
       </ul> 
     </div>

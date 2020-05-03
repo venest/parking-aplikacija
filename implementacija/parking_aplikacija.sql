@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 25, 2020 at 08:29 AM
+-- Generation Time: May 03, 2020 at 09:00 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `isplata` (
   PRIMARY KEY (`idIsplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `isplata`
@@ -73,7 +73,9 @@ INSERT INTO `isplata` (`idIsplate`, `idKartice`, `idRacuna`) VALUES
 (49, 8, 89),
 (50, 8, 91),
 (51, 7, 98),
-(52, 10, 100);
+(52, 10, 100),
+(53, 8, 104),
+(54, 8, 111);
 
 -- --------------------------------------------------------
 
@@ -100,8 +102,8 @@ CREATE TABLE IF NOT EXISTS `kartica` (
   `idKartice` int(11) NOT NULL AUTO_INCREMENT,
   `automobil` varchar(50) NOT NULL,
   `idKorisnika` int(11) NOT NULL,
-  `datumVazenja` date NOT NULL,
-  `iznos` decimal(10,2) NOT NULL,
+  `vaziDo` date NOT NULL,
+  `stanje` decimal(10,2) NOT NULL,
   PRIMARY KEY (`idKartice`),
   KEY `idKorisnika` (`idKorisnika`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -110,10 +112,10 @@ CREATE TABLE IF NOT EXISTS `kartica` (
 -- Dumping data for table `kartica`
 --
 
-INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `datumVazenja`, `iznos`) VALUES
-(7, 'LO-401-MN', 1, '2021-01-24', '0.00'),
-(8, 'LO-400-RE', 1, '2021-01-24', '7000.00'),
-(9, 'LO-980-PĐ', 2, '2020-07-03', '5000.00'),
+INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `vaziDo`, `stanje`) VALUES
+(7, 'LO-401-MN', 1, '2020-05-04', '1000.00'),
+(8, 'LO-400-RE', 1, '2021-02-01', '4800.00'),
+(9, 'LO-980-PĐ', 2, '2020-07-11', '4000.00'),
 (10, 'LO-512-ĆŽ', 2, '2020-05-05', '1000.00'),
 (11, 'LO-678-QR', 2, '2020-04-18', '0.00');
 
@@ -136,38 +138,44 @@ CREATE TABLE IF NOT EXISTS `kazna` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produzenje`
+-- Table structure for table `obnova`
 --
 
-DROP TABLE IF EXISTS `produzenje`;
-CREATE TABLE IF NOT EXISTS `produzenje` (
-  `idProduzenja` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `obnova`;
+CREATE TABLE IF NOT EXISTS `obnova` (
+  `idObnove` int(11) NOT NULL AUTO_INCREMENT,
   `idKartice` int(11) NOT NULL,
-  `datumProduzetka` date NOT NULL,
   `idRacuna` int(11) NOT NULL,
-  PRIMARY KEY (`idProduzenja`),
+  PRIMARY KEY (`idObnove`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `produzenje`
+-- Dumping data for table `obnova`
 --
 
-INSERT INTO `produzenje` (`idProduzenja`, `idKartice`, `datumProduzetka`, `idRacuna`) VALUES
-(7, 7, '2021-01-15', 73),
-(8, 8, '2021-01-23', 74),
-(9, 8, '2021-01-24', 75),
-(10, 7, '2021-01-16', 76),
-(11, 7, '2021-01-17', 77),
-(12, 7, '2021-01-18', 78),
-(13, 7, '2021-01-19', 87),
-(14, 7, '2021-01-20', 88),
-(15, 9, '2020-07-03', 93),
-(16, 7, '2021-01-21', 94),
-(17, 7, '2021-01-22', 95),
-(18, 7, '2021-01-23', 96),
-(19, 7, '2021-01-24', 97);
+INSERT INTO `obnova` (`idObnove`, `idKartice`, `idRacuna`) VALUES
+(7, 7, 73),
+(8, 8, 74),
+(9, 8, 75),
+(10, 7, 76),
+(11, 7, 77),
+(12, 7, 78),
+(13, 7, 87),
+(14, 7, 88),
+(15, 9, 93),
+(16, 7, 94),
+(17, 7, 95),
+(18, 7, 96),
+(19, 7, 97),
+(20, 9, 102),
+(21, 9, 103),
+(22, 7, 106),
+(23, 8, 107),
+(24, 8, 108),
+(25, 7, 109),
+(26, 7, 110);
 
 -- --------------------------------------------------------
 
@@ -183,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `racun` (
   `iznos` decimal(10,2) NOT NULL,
   `opis` varchar(50) NOT NULL,
   PRIMARY KEY (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `racun`
@@ -220,7 +228,18 @@ INSERT INTO `racun` (`idRacuna`, `datum`, `vreme`, `iznos`, `opis`) VALUES
 (98, '2020-04-23', '18:50:47', '200.00', 'isplata'),
 (99, '2020-04-23', '18:50:47', '200.00', 'uplata'),
 (100, '2020-04-24', '20:01:03', '200.00', 'isplata'),
-(101, '2020-04-24', '20:01:03', '200.00', 'uplata');
+(101, '2020-04-24', '20:01:03', '200.00', 'uplata'),
+(102, '2020-04-29', '21:47:32', '800.00', 'produzenje'),
+(103, '2020-04-29', '21:47:40', '200.00', 'produzenje'),
+(104, '2020-05-03', '07:41:17', '1000.00', 'isplata'),
+(105, '2020-05-03', '07:41:17', '1000.00', 'uplata'),
+(106, '2020-05-03', '10:38:12', '200.00', 'obnova d'),
+(107, '2020-05-03', '10:38:40', '800.00', 'obnova s'),
+(108, '2020-05-03', '10:38:50', '200.00', 'obnova d'),
+(109, '2020-05-03', '10:45:31', '200.00', 'obnova d'),
+(110, '2020-05-03', '10:46:33', '200.00', 'obnova d'),
+(111, '2020-05-03', '08:49:52', '200.00', 'isplata'),
+(112, '2020-05-03', '08:49:52', '200.00', 'uplata');
 
 -- --------------------------------------------------------
 
@@ -265,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `uplata` (
   PRIMARY KEY (`idUplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `uplata`
@@ -280,7 +299,9 @@ INSERT INTO `uplata` (`idUplate`, `idKartice`, `idRacuna`) VALUES
 (25, 7, 90),
 (26, 7, 92),
 (27, 8, 99),
-(28, 9, 101);
+(28, 9, 101),
+(29, 7, 105),
+(30, 7, 112);
 
 -- --------------------------------------------------------
 
@@ -296,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `zaposleni` (
   `tip` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`idZaposlenog`),
   UNIQUE KEY `korisnickoIme` (`korisnickoIme`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `zaposleni`
@@ -304,7 +325,8 @@ CREATE TABLE IF NOT EXISTS `zaposleni` (
 
 INSERT INTO `zaposleni` (`idZaposlenog`, `korisnickoIme`, `lozinka`, `tip`) VALUES
 (1, 'pera', '123', 'o'),
-(2, 'zika', '123', 'k');
+(2, 'zika', '123', 'k'),
+(3, 'mika', '123', 'a');
 
 --
 -- Constraints for dumped tables
@@ -344,11 +366,11 @@ ALTER TABLE `kazna`
   ADD CONSTRAINT `kazna_ibfk_1` FOREIGN KEY (`idBoravka`) REFERENCES `boravak` (`idBoravka`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Constraints for table `produzenje`
+-- Constraints for table `obnova`
 --
-ALTER TABLE `produzenje`
-  ADD CONSTRAINT `produzenje_ibfk_1` FOREIGN KEY (`idKartice`) REFERENCES `kartica` (`idKartice`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `produzenje_ibfk_2` FOREIGN KEY (`idRacuna`) REFERENCES `racun` (`idRacuna`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `obnova`
+  ADD CONSTRAINT `obnova_ibfk_1` FOREIGN KEY (`idKartice`) REFERENCES `kartica` (`idKartice`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `obnova_ibfk_2` FOREIGN KEY (`idRacuna`) REFERENCES `racun` (`idRacuna`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `uplata`

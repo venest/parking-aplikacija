@@ -34,6 +34,7 @@ a:hover, a:active {
     padding-top: 0;
     padding-bottom: 0;
     font-weight: 600;
+    font-size: larger;
     box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
 }
 
@@ -111,6 +112,24 @@ a:hover, a:active {
 .fa-th-large:hover, .fa-th-large:visited {
     color: #6583c4;
 }
+
+.side-nav-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown-item:hover {
+    background-color: #6583c4;
+    color: white;
+}
+
+.list-group .active, .list-group-item-action.active:active{
+    background-color: #6583c4;
+    border-color: #6583c4;
+    color: white;
+}
+
+.list-group-item-action:active{color:#495057;text-decoration:none;background-color:#f8f9fa}
 
 
 
