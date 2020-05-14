@@ -7,7 +7,11 @@
                     case 'UPLATA - USPEH': echo 'USPEŠNO STE IZVRŠILI UPLATU.'; break;
                     case 'ISPLATA - USPEH': echo 'USPEŠNO STE IZVRŠILI ISPLATU.'; break;
                     case 'OBNOVA KARTICE - USPEH': echo 'USPEŠNO STE OBNOVILI KARTICU.'; break;
-                    case 'GUBITAK KARTICE - USPEH': echo 'USPEŠNO STE EVIDENTIRALI GUBITAK KARTICE.'; break;
+                    case 'GUBITAK KARTICE - USPEH': 
+                        echo 'USPEŠNO STE EVIDENTIRALI GUBITAK KARTICE.'; 
+                        echo "<br>";
+                        echo $poruka;
+                        break;
                 }
             ?>
         </h1>

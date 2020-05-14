@@ -91,59 +91,100 @@ class Admin extends BaseController {
     }
 
     public function izdavanjeKarticeSubmit() {
+        
+            $email = $this->request->getVar('email');
+            $tablice = $this->request->getVar('tablice');
+            $stanje=$this->request->getVar('iznos');
+            $period = $this->request->getVar('period');
+        
+            $rules['email'] = 'required';
+            $messages['email']['required'] = 'UNESITE EMAIL.';
+            $rules['tablice'] = 'required';
+            $messages['tablice']['required'] = 'UNESITE TABLICE.';
+            $rules['iznos'] = 'required|decimal|greater_than[0.0]';
+            $messages['iznos']['required'] = 'UNESITE IZNOS.';
+            $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS.';
+            $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN.';
+              if(!$this->validate($rules, $messages)) {
+                if($this->validator->hasError('email')) $poruka = $this->validator->getError ('email');
+                else if($this->validator->hasError('tablice')) $poruka = $this->validator->getError ('tablice');
+                else if($this->validator->hasError('iznos')) $poruka = $this->validator->getError ('iznos');
+              } else {
+                
+                
+           
+                $rm = new RegistrovaniModel();
+                $kor = $rm->dohvatiKorisnika($email);
+                
+                if ($kor==null){
+                    $poruka = 'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.';
+                } else {
+                               $idKor=$kor->idKorisnika;
+                                switch ($period) {
+                                case 'dan': $cena = CENA_DAN;
+                                    break;
+                                case 'sedmica': $cena = CENA_SEDMICA;
+                                    break;
+                                case 'mesec': $cena = CENA_MESEC;
+                                    break;
+                            }
+                            $cena += CENA_IZDAVANJE;
 
-        $email = $this->request->getVar('email');
-        $tablice = $this->request->getVar('tablice');
-        $period = $this->request->getVar('period');
-        $rm = new RegistrovaniModel();
-        $kor = $rm->dohvatiKorisnika($email);
-        var_dump($kor);
-        $idKor=$kor->idKorisnika;
-        $stanje = 0;
-       
+                            if($stanje < $cena) {
+                                    $poruka = 'NEMA DOVOLJNO SREDSTAVA ZA ŽELJENE OPCIJE.';
+                                } else {
+                                        $datumTekuci = explode('-', date('Y-m-d'));
+                                        $danTekuci = (int) $datumTekuci[2];
+                                        $mesecTekuci = (int) $datumTekuci[1];
+                                        $godinaTekuca = (int) $datumTekuci[0];
+                                        $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
+                                        switch ($period) {
+                                            case 'dan': $sekunde = 24 * 60 * 60;
+                                                $datumTekuciUnix += $sekunde;
+                                                break;
+                                            case 'sedmica': $sekunde = 7 * 24 * 60 * 60;
+                                               $datumTekuciUnix += $sekunde;
+                                                break;
+                                            case 'mesec':
+                                                if ($mesecTekuci == 12)
+                                                    $godinaTekuca++;
+                                                $mesecTekuci = ($mesecTekuci + 1) % 12;
+                                                $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
+                                                break;
+                                        }
+                                        $km = new KarticaModel();
+                                        $idKar =$km->dodajKarticu(date('Y-m-d', $datumTekuciUnix), $stanje-$cena, $idKor, $tablice);
 
+                                        //racun za izdavanje i prvu dopunu
+                                        $rm = new RacunModel();
+                                        $data['datum'] = date('Y-m-d');
+                                        $data['vreme'] = date('H:i:s');
+                                        $data['iznos'] = $cena;
+                                        $data['opis'] = 'izdavanje i pocetna dopuna ' . $period;
+                                        $idRac1 = $rm->dodajRacun($data);
 
-        switch ($period) {
-            case 'dan': $cena = CENA_DAN;
-                break;
-            case 'sedmica': $cena = CENA_SEDMICA;
-                break;
-            case 'mesec': $cena = CENA_MESEC;
-                break;
-        }
+                                        $im = new IzdavanjeModel();
+                                        $im->dodajIzdavanje($idKar, $idRac1);
 
-        $cena += CENA_IZDAVANJE;
-        $datumTekuci = explode('-', date('Y-m-d'));
-        $danTekuci = (int) $datumTekuci[2];
-        $mesecTekuci = (int) $datumTekuci[1];
-        $godinaTekuca = (int) $datumTekuci[0];
-        $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
-        switch ($period) {
-            case 'dan': $sekunde = 24 * 60 * 60;
-                $datumTekuciUnix += $sekunde;
-                break;
-            case 'sedmica': $sekunde = 7 * 24 * 60 * 60;
-               $datumTekuciUnix += $sekunde;
-                break;
-            case 'mesec':
-                if ($mesecTekuci == 12)
-                    $godinaTekuca++;
-                $mesecTekuci = ($mesecTekuci + 1) % 12;
-                $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
-                break;
-        }
-        $km = new KarticaModel();
-        $idKar =$km->dodajKarticu(date('Y-m-d', $datumTekuciUnix), $stanje, $idKor, $tablice);
-        $rm = new RacunModel();
-        $data['datum'] = date('Y-m-d');
-        $data['vreme'] = date('H:i:s');
-        $data['iznos'] = $cena;
-        $data['opis'] = 'izdavanje i pocetna dopuna ' . $period;
-        $idRac = $rm->dodajRacun($data);
-        $im = new IzdavanjeModel();
-        $im->dodajIzdavanje($idKar, $idRac);
+                                        //racun za uplatu
+                                        $data['datum'] = date('Y-m-d');
+                                        $data['vreme'] = date('H:i:s');
+                                        $data['iznos'] = $stanje;
+                                        $data['opis'] = 'uplata';
+                                        $idRac2 = $rm->dodajRacun($data);
 
-        return redirect()->to(site_url('Admin/uspehAdmin/1'));
+                                         $um=new UplataModel();
+                                         $dataUplata['idKartice']=$idKar; 
+                                         $dataUplata['idRacuna']=$idRac2;
+                                         $um->dodajUplatu($dataUplata);
+           
+                                         return redirect()->to(site_url('Admin/uspehAdmin/1'));
+            }
+            }
+            }
+        $data['naslov'] = 'IZDAVANJE KARTICE';
+        $data['poruka'] = $poruka;
+        $this->prikazi('izdavanjeKartice', $data);
     }
 
     public function obnovaKarticeSubmit() {
@@ -228,10 +269,61 @@ class Admin extends BaseController {
     }
 
     public function gubitakKarticeSubmit() {
+          $email = $this->request->getVar('email');
+          $tablice = $this->request->getVar('tablice');
+          $rules['email'] = 'required';
+          $messages['email']['required'] = 'UNESITE EMAIL.';
+          $rules['tablice'] = 'required';
+          $messages['tablice']['required'] = 'UNESITE TABLICE.';
+          $poruka='';
+           if(!$this->validate($rules, $messages)) {
+                if($this->validator->hasError('email')) $poruka = $this->validator->getError ('email');
+                else if($this->validator->hasError('tablice')) $poruka = $this->validator->getError ('tablice');
+           } else{
+                $rm = new RegistrovaniModel();
+                $kor = $rm->dohvatiKorisnika($email);
+          
+                if ($kor==null){
+                    $poruka = 'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.';
+                } else {
+                     $idKor=$kor->idKorisnika;
+                    $km=new KarticaModel();
+                    $kartica=$km->nadjiKarticu($tablice, $idKor);
+                    if ($kartica==null){
+                        $poruka='NE POSTOJI KARTICA ZA UNETE PODATKE.';
+                    } else{
+                      $preostaliNovac=$kartica->stanje;
+                      if($preostaliNovac>0){
+                       $data['datum'] = date('Y-m-d');
+                       $data['vreme'] = date('H:i:s');
+                       $data['iznos'] = $preostaliNovac;
+                       $data['opis'] = 'isplata zbog gubitka';
+                       $rm = new RacunModel();
+                      $idRacuna = $rm->dodajRacun($data);
+                      $im=new IsplataModel();
+                      $data['idKartice']=$kartica->idKartice;
+                      $data['idRacuna']=$idRacuna;
+                      $im->dodajIsplatu($data);
+                     //$im->dodajIsplatu($kartica->idKartice,$idRacuna); //bolje je da se data sklapa u samom modelu, a ne ovde
+                      }
+                      
+                      $km->obrisi($kartica); //bolje bi bilo da se status postavi na izgubljena
+                      
+                      //$this->uspehAdmin(5, $poruka);
+                      return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac"));
+                    }
+                }
+           }
+           
+        $data['naslov'] = 'GUBITAK KARTICE';
+        $data['poruka'] = $poruka;
+        $this->prikazi('gubitakKartice', $data);
         
+          
     }
 
-    public function uspehAdmin($id) {
+    public function uspehAdmin($id,$preostaliNovac=null) {
+        $poruka=null;
         switch ($id) {
 
             case '1': $naslov = 'IZDAVANJE KARTICE - USPEH';
@@ -243,9 +335,12 @@ class Admin extends BaseController {
             case '4': $naslov = 'ISPLATA - USPEH';
                 break;
             case '5': $naslov = 'GUBITAK KARTICE - USPEH';
+                $poruka='Novac za isplatu: '.$preostaliNovac.' DIN';
                 break;
         }
+        
         $data['naslov'] = $naslov;
+        $data['poruka']=$poruka;
         $this->prikazi('uspehAdmin', $data);
     }
 

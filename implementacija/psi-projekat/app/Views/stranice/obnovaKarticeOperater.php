@@ -3,6 +3,14 @@
                 <div class="row justify-content-center py-4">
                     <h4>Obnova kartice</h4>
                 </div>
+                <?php
+               if(isset($poruka)) { ?>
+                   <div class="row justify-content-center">
+                       <div class="alert text-center alert-danger col-xl-6 col-md-9">
+                           <strong><?php echo $poruka; ?></strong>
+                       </div>
+                   </div> <?php
+               } ?>
                 <form method="POST" action="obnovaKarticeSubmit" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">

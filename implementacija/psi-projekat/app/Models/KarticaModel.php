@@ -38,5 +38,13 @@ class KarticaModel extends Model {
          $this->insert($data);
          return $this->getInsertID();
     }
+    
+    public function nadjiKarticu($tablice, $idKor){
+        return $this->where('automobil', $tablice)->where('idKorisnika',$idKor)->first();
+    }
+    
+    public function obrisi($kartica) {
+        $this->delete($kartica->idKartice);   
+    }
 
 }

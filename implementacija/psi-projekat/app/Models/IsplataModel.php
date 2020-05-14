@@ -14,4 +14,5 @@ class IsplataModel extends Model
     public function dodajIsplatu($data) {
         $this->insert($data);
     }
+    
 }

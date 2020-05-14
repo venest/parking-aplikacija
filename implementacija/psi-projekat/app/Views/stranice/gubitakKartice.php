@@ -3,17 +3,26 @@
                 <div class="row justify-content-center py-4">
                     <h4>Gubitak kartice</h4>
                 </div>
-                <form method="POST" action="" autocomplete="off">
-                  <div class="row justify-content-center">
-                    <div class="form-group col-lg-9">
-                      <label for="tablice">AUTOMOBIL</label>
-                      <input type="text" class="form-control form-control-lg" name="tablice" id="tablice">
-                    </div>
-                  </div>
+               <?php
+               if(isset($poruka)) { ?>
+                   <div class="row justify-content-center">
+                       <div class="alert text-center alert-danger col-xl-6 col-md-9">
+                           <strong><?php 
+                           echo $poruka; ?></strong>
+                       </div>
+                   </div> <?php
+               } ?>
+                <form method="POST" action="gubitakKarticeSubmit" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="email">EMAIL ADRESA</label>
                       <input type="text" class="form-control form-control-lg" name="email" id="email">
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="form-group col-lg-9">
+                      <label for="tablice">AUTOMOBIL</label>
+                      <input type="text" class="form-control form-control-lg" name="tablice" id="tablice">
                     </div>
                   </div>
                   <div class="row justify-content-center">
