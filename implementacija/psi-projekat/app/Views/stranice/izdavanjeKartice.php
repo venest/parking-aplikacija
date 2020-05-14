@@ -3,7 +3,7 @@
                 <div class="row justify-content-center py-4">
                     <h4>Izdavanje kartice</h4>
                 </div>
-                <form method="POST" action="" autocomplete="off">
+                <form method="POST" action="izdavanjeKarticeSubmit" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="email">EMAIL ADRESA</label>

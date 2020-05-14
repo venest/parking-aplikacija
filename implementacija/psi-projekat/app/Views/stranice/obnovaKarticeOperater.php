@@ -3,7 +3,7 @@
                 <div class="row justify-content-center py-4">
                     <h4>Obnova kartice</h4>
                 </div>
-                <form method="POST" action="" autocomplete="off">
+                <form method="POST" action="obnovaKarticeSubmit" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="idKartice">ID KARTICE</label>
