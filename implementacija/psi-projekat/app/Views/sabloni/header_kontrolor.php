@@ -50,7 +50,7 @@
 
               <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Kontrolor/kontrolnaTabla'); ?>>KONTROLNA TABLA</a>
-                <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Kontrolor/izlogujSe'); ?>>IZLOGUJ SE</a>
+                <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Kontrolor/odjaviSe'); ?>>ODJAVI SE</a>
               </div>
             </div>
             </li>

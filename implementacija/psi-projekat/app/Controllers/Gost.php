@@ -41,10 +41,10 @@ class Gost extends BaseController
 		$this->prikazi('kontakt', $data);;
 	}
 
-        public function logovanje()
+        public function prijava()
 	{
-                $data['naslov'] = 'LOGOVANJE';
-		$this->prikazi('logovanje', $data);
+                $data['naslov'] = 'PRIJAVA';
+		$this->prikazi('prijava', $data);
 	}
         
         public function registracija()
@@ -53,7 +53,7 @@ class Gost extends BaseController
 		$this->prikazi('registracija', $data);
 	}
         
-        public function ulogujSe()
+        public function prijaviSe()
 	{
             $rules['korisnickoIme'] = 'required';
             $rules['lozinka'] = 'required';
@@ -96,8 +96,8 @@ class Gost extends BaseController
                 } else $poruka = 'KORISNIČKO IME I/ILI LOZINKA SU POGREŠNI.';
             }
             $data['poruka'] = $poruka;
-            $data['naslov'] = 'LOGOVANJE';
-            echo $this->prikazi('logovanje', $data);
+            $data['naslov'] = 'PRIJAVA';
+            echo $this->prikazi('prijava', $data);
         }
         
         public function registrujSe()
@@ -160,7 +160,7 @@ class Gost extends BaseController
         
         public function uspesnaRegistracija() {
             $data['naslov'] = 'USPEŠNA REGISTRACIJA';
-            echo $this->prikazi('uspesnaRegistracija', $data);
+            echo $this->prikazi('uspehRegistracija', $data);
         }
 	//--------------------------------------------------------------------
 

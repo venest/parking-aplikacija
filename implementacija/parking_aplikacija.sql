@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: May 17, 2020 at 11:59 AM
+-- Generation Time: May 17, 2020 at 12:48 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `parking_aplikacija`
 --
-CREATE DATABASE IF NOT EXISTS `parking_aplikacija` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `parking_aplikacija` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `parking_aplikacija`;
 
 -- --------------------------------------------------------

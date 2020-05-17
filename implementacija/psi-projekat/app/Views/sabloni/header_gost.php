@@ -40,7 +40,7 @@
       </ul> 
       <ul class="navbar-nav ml-auto">
         <li>
-          <a class="nav-link <?php if($naslov == 'LOGOVANJE') echo 'active'; ?>" href=<?php echo site_url('Gost/logovanje'); ?>>Uloguj se</a>
+          <a class="nav-link <?php if($naslov == 'PRIJAVA') echo 'active'; ?>" href=<?php echo site_url('Gost/prijava'); ?>>Prijavi se</a>
         </li>
       </ul> 
     </div>

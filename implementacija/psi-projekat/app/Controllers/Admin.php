@@ -37,10 +37,10 @@ class Admin extends BaseController {
         $this->prikazi('', $data);
     }
 
-    public function izlogujSe() {
+    public function odjaviSe() {
         $session = session();
         $session->destroy();
-        return redirect()->to(site_url('Gost/logovanje'));
+        return redirect()->to(site_url('Gost/prijava'));
     }
 
     public function uplata() {
@@ -84,8 +84,6 @@ class Admin extends BaseController {
     }
 
     public function obnovaKartice() {
-
-
         $data['naslov'] = 'OBNOVA KARTICE';
         $this->prikazi('obnovaKarticeOperater', $data);
     }
@@ -111,8 +109,6 @@ class Admin extends BaseController {
                 else if($this->validator->hasError('iznos')) $poruka = $this->validator->getError ('iznos');
               } else {
                 
-                
-           
                 $rm = new RegistrovaniModel();
                 $kor = $rm->dohvatiKorisnika($email);
                 
@@ -143,7 +139,7 @@ class Admin extends BaseController {
                                                 $datumTekuciUnix += $sekunde;
                                                 break;
                                             case 'sedmica': $sekunde = 7 * 24 * 60 * 60;
-                                               $datumTekuciUnix += $sekunde;
+                                                $datumTekuciUnix += $sekunde;
                                                 break;
                                             case 'mesec':
                                                 if ($mesecTekuci == 12)
@@ -153,7 +149,7 @@ class Admin extends BaseController {
                                                 break;
                                         }
                                         $km = new KarticaModel();
-                                        $idKar =$km->dodajKarticu(date('Y-m-d', $datumTekuciUnix), $stanje-$cena, $idKor, $tablice);
+                                        $idKar = $km->dodajKarticu(date('Y-m-d', $datumTekuciUnix), $stanje-$cena, $idKor, $tablice);
 
                                         //racun za izdavanje i prvu dopunu
                                         $rm = new RacunModel();

@@ -15,6 +15,11 @@ class KarticaModel extends Model {
         return $this->find($id);
     }
 
+    //MIRKOVA
+    public function dohvatiKarticuAuta($tablice){
+        return $this->where('automobil', $tablice);
+    }
+
     public function dohvatiSveKartice($idKorisnika) {
         return $this->where('idKorisnika', $idKorisnika)->findAll();
     }
@@ -35,8 +40,8 @@ class KarticaModel extends Model {
         $data['idKorisnika'] = $idKor;
         $data['automobil'] = $auto;
         
-         $this->insert($data);
-         return $this->getInsertID();
+        $this->insert($data);
+        return $this->getInsertID();
     }
     
     public function nadjiKarticu($tablice, $idKor){

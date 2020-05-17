@@ -21,10 +21,10 @@ class Kontrolor extends BaseController
 		$this->prikazi('', $data);
 	}
         
-        public function izlogujSe() {
+        public function odjaviSe() {
             $session = session();
             $session->destroy();
-            return redirect()->to(site_url('Gost/logovanje'));
+            return redirect()->to(site_url('Gost/prijava'));
         }
         
         public function kazna()

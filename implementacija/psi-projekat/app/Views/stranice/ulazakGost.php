@@ -3,7 +3,16 @@
                 <div class="row justify-content-center py-4">
                     <h4>Ulazak gosta</h4>
                 </div>
-                <form method="POST" action="" autocomplete="off">
+                <?php
+                  if(isset($poruka)) { ?>
+                    <div class="row justify-content-center">
+                      <div class="alert text-center alert-danger col-xl-6 col-md-9">
+                        <strong><?php echo $poruka; ?></strong>
+                      </div>
+                    </div> 
+                <?php unset($poruka); } ?>
+                
+                <form method="POST" action="<?php echo site_url('Operater/ulazakGosta'); ?>" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="brojTablica">AUTOMOBIL</label>
