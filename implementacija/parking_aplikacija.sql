@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: May 14, 2020 at 10:45 PM
--- Server version: 5.7.28
+-- Generation Time: May 17, 2020 at 11:59 AM
+-- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `parking_aplikacija`
 --
+CREATE DATABASE IF NOT EXISTS `parking_aplikacija` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `parking_aplikacija`;
 
 -- --------------------------------------------------------
 
@@ -34,13 +36,21 @@ CREATE TABLE IF NOT EXISTS `boravak` (
   `idKartice` int(11) NOT NULL,
   `datumUlaska` date NOT NULL,
   `vremeUlaska` time NOT NULL,
-  `datumIzlaska` date NOT NULL,
-  `vremeIzlaska` time NOT NULL,
-  `idRacuna` int(11) NOT NULL,
+  `datumIzlaska` date DEFAULT NULL,
+  `vremeIzlaska` time DEFAULT NULL,
+  `idRacuna` int(11) DEFAULT NULL,
   PRIMARY KEY (`idBoravka`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `boravak`
+--
+
+INSERT INTO `boravak` (`idBoravka`, `idKartice`, `datumUlaska`, `vremeUlaska`, `datumIzlaska`, `vremeIzlaska`, `idRacuna`) VALUES
+(1, 27, '2020-05-17', '13:55:22', '2020-05-17', '13:57:11', 171),
+(2, 8, '2020-05-17', '13:57:25', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -56,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `isplata` (
   PRIMARY KEY (`idIsplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `isplata`
@@ -78,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `izdavanje` (
   `idRacuna` int(11) NOT NULL,
   PRIMARY KEY (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `izdavanje`
@@ -96,13 +106,13 @@ INSERT INTO `izdavanje` (`idKartice`, `idRacuna`) VALUES
 DROP TABLE IF EXISTS `kartica`;
 CREATE TABLE IF NOT EXISTS `kartica` (
   `idKartice` int(11) NOT NULL AUTO_INCREMENT,
-  `automobil` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `idKorisnika` int(11) NOT NULL,
-  `vaziDo` date NOT NULL,
-  `stanje` decimal(10,2) NOT NULL,
+  `automobil` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `idKorisnika` int(11) DEFAULT NULL,
+  `vaziDo` date DEFAULT NULL,
+  `stanje` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`idKartice`),
   KEY `idKorisnika` (`idKorisnika`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `kartica`
@@ -114,7 +124,8 @@ INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `vaziDo`, `stanj
 (9, 'LO-980-PĐ', 2, '2020-07-11', '4000.00'),
 (10, 'LO-512-ĆŽ', 2, '2020-05-05', '1000.00'),
 (11, 'LO-678-QR', 2, '2020-04-18', '0.00'),
-(14, 'BG-500-AA', 5, '2020-05-14', '0.00');
+(14, 'BG-500-AA', 5, '2020-05-14', '0.00'),
+(27, 'tablice1', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,11 +137,11 @@ DROP TABLE IF EXISTS `kazna`;
 CREATE TABLE IF NOT EXISTS `kazna` (
   `idKazne` int(11) NOT NULL AUTO_INCREMENT,
   `idBoravka` int(11) NOT NULL,
-  `tipPrekrsaja` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `tipPrekrsaja` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `iznos` decimal(10,2) NOT NULL,
   PRIMARY KEY (`idKazne`),
   KEY `idBoravka` (`idBoravka`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -146,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `obnova` (
   PRIMARY KEY (`idObnove`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `obnova`
@@ -177,9 +188,9 @@ CREATE TABLE IF NOT EXISTS `racun` (
   `datum` date NOT NULL,
   `vreme` time NOT NULL,
   `iznos` decimal(10,2) NOT NULL,
-  `opis` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `opis` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `racun`
@@ -240,7 +251,8 @@ INSERT INTO `racun` (`idRacuna`, `datum`, `vreme`, `iznos`, `opis`) VALUES
 (167, '2020-05-15', '00:37:45', '3800.00', 'isplata zbog gubitka'),
 (168, '2020-05-15', '00:39:50', '1200.00', 'izdavanje i pocetna dopuna dan'),
 (169, '2020-05-15', '00:39:50', '3000.00', 'uplata'),
-(170, '2020-05-15', '00:40:01', '1800.00', 'isplata zbog gubitka');
+(170, '2020-05-15', '00:40:01', '1800.00', 'isplata zbog gubitka'),
+(171, '2020-05-17', '13:57:11', '60.00', 'placanje izlaska');
 
 -- --------------------------------------------------------
 
@@ -251,15 +263,15 @@ INSERT INTO `racun` (`idRacuna`, `datum`, `vreme`, `iznos`, `opis`) VALUES
 DROP TABLE IF EXISTS `registrovani`;
 CREATE TABLE IF NOT EXISTS `registrovani` (
   `idKorisnika` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `lozinka` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `ime` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `prezime` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `grad` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `adresa` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `telefon` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `lozinka` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `prezime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `grad` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `adresa` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `telefon` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`idKorisnika`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `registrovani`
@@ -286,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `uplata` (
   PRIMARY KEY (`idUplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `uplata`
@@ -305,12 +317,12 @@ INSERT INTO `uplata` (`idUplate`, `idKartice`, `idRacuna`) VALUES
 DROP TABLE IF EXISTS `zaposleni`;
 CREATE TABLE IF NOT EXISTS `zaposleni` (
   `idZaposlenog` int(11) NOT NULL AUTO_INCREMENT,
-  `korisnickoIme` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `lozinka` varchar(50) COLLATE utf8_general_ci NOT NULL,
-  `tip` varchar(20) COLLATE utf8_general_ci NOT NULL,
+  `korisnickoIme` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `lozinka` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `tip` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`idZaposlenog`),
   UNIQUE KEY `korisnickoIme` (`korisnickoIme`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `zaposleni`
