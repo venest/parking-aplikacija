@@ -43,4 +43,12 @@ class BoravakModel extends Model
         $this->update($idBoravka, $data);
     }
     
+    public function unutra($idK) {
+        return $this->where('idKartice', $idK)->where('datumIzlaska',null)->where('vremeIzlaska',null)->first();
+    }
+    
+    public function dohvatiUlazBezIzlaza($idK){
+        return $this->where('idKartice',$idK)->where('datumIzlaska',null)->first();
+    }
+    
 }

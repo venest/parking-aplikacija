@@ -3,11 +3,27 @@
                 <div class="row justify-content-center py-4">
                     <h4>Isplata</h4>
                 </div>
-                <form method="POST" action="" autocomplete="off">
+                <?php 
+                if(isset($poruka)) { ?>
+            <div class="row justify-content-center">
+                <div class="alert text-center alert-danger col-lg-9">
+                    <strong><?php echo $poruka; ?></strong>
+                </div>
+            </div> <?php
+            } ?>
+                <form method="POST" action="isplataSaKarticeSubmit" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="idKartice">ID KARTICE</label>
-                      <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice">
+                      <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice"
+                             value="<?php 
+                            if(isset($vrednost)){
+                             if(strcmp($poruka, "KARTICA SA DATIM ID NE POSTOJI U BAZI.")!=0 &&
+                                  strcmp($poruka, "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI ISPLATA")!=0 &&
+                                    strcmp($poruka, "NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUSAJTE ISPLATU MANJE SUME.")!=0)
+                                echo $vrednost;
+                            }
+                        ?>">
                     </div>
                   </div>
                   <div class="row justify-content-center">

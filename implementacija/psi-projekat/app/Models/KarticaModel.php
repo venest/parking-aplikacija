@@ -51,5 +51,9 @@ class KarticaModel extends Model {
     public function obrisi($kartica) {
         $this->delete($kartica->idKartice);   
     }
-
+    
+    public function nadjiKarticuTablice($tablice){
+         $kartice=$this->where('automobil',$tablice)->findAll();
+         return $kartice;
+    }
 }

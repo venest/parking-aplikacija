@@ -3,7 +3,15 @@
                 <div class="row justify-content-center py-4">
                     <h4>Kazna</h4>
                 </div>
-                <form method="POST" action="" autocomplete="off">
+                <?php 
+                if(isset($poruka)) { ?>
+            <div class="row justify-content-center">
+                <div class="alert text-center alert-danger col-lg-9">
+                    <strong><?php echo $poruka; ?></strong>
+                </div>
+            </div> <?php
+            } ?>
+                <form method="POST" action="evidentirajKaznu" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="col-lg-9 form-group">
                         <label for="tablice">AUTOMOBIL</label>

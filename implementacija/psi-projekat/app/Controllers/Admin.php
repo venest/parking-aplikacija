@@ -317,6 +317,115 @@ class Admin extends BaseController {
         
           
     }
+    
+    public function isplataSaKarticeSubmit() {
+        //dohvatanje id kartice i validacija unetih podataka
+        $idKartice = $this->request->getVar("idKartice");
+        $rules['iznos'] = 'required|decimal|greater_than[0.0]';
+        $messages['iznos']['required'] = 'UNESITE IZNOS';
+        $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS';
+        $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN';
+
+        $poruka = "";
+        if (!$this->validate($rules, $messages)) {
+            $poruka = $this->validator->getError('iznos');
+        } else {
+            //pravljenje modela za prihvatanje podataka iz baze
+            $km = new KarticaModel();
+            $rm = new RacunModel();
+            $im = new IsplataModel();
+
+
+            $karticaIsplata = $km->dohvatiKarticu($idKartice);
+            $iznos = (double) $this->request->getVar('iznos');
+
+            if ($karticaIsplata != null) {
+                //ako je pronadjena kartica u bazi onda vrsi dalju proveru
+
+                if ($karticaIsplata->stanje != null) { //u slucaju da je u pitanju kartica gosta ispisi poruku o gresci
+                    if ($karticaIsplata->stanje >= $iznos) {
+                        //promena stanja u bazi za karticu sa datim ID-em
+                        $km->izmeniStanje($idKartice, $karticaIsplata->stanje - $iznos);
+
+                        //izdavanje racuna i upis u bazu tabelu Racun
+
+                        $data['datum'] = date("Y-m-d");
+                        $data['vreme'] = date("H:i:s");
+                        $data['iznos'] = $iznos;
+                        $data['opis'] = "Isplata sa kartice";
+                        $idRacuna = $rm->dodajRacun($data);
+
+                        //dodavanje isplate i upis u bazu u tabelu Isplata 
+                        $data['idKartice'] = $idKartice;
+                        $data['idRacuna'] = $idRacuna;
+                        $im->dodajIsplatu($data);
+                        return redirect()->to(site_url('Admin/uspehAdmin/4'));
+                    } else
+                        $poruka = "NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUSAJTE ISPLATU MANJE SUME.";
+                } else
+                    $poruka = "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI ISPLATA";
+            } else
+                $poruka = "KARTICA SA DATIM ID NE POSTOJI U BAZI.";
+        }
+        $session = session();
+        $data['vrednost']=$idKartice;
+        $data['naslov'] = 'ISPLATA SREDSTAVA SA KARTICE';
+        $data['poruka'] = $poruka;
+        $this->prikazi('isplata', $data);
+    }
+    
+    public function uplataNaKarticuSubmit() {
+        //dohvatanje id kartice i validacija unetih podataka
+        $idKartice = $this->request->getVar('idKartice');
+        $rules['iznos'] = 'required|decimal|greater_than[0.0]';
+        $messages['iznos']['required'] = 'UNESITE IZNOS.';
+        $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS.';
+        $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN.';
+
+        $poruka = "";
+        if (!$this->validate($rules, $messages)) {
+            $poruka = $this->validator->getError('iznos');
+        } else {
+            //pravljenje modela za prihvatanje podataka iz baze
+            $km = new KarticaModel();
+            $rm = new RacunModel();
+            $um = new UplataModel();
+
+            $karticaUplata = $km->dohvatiKarticu($idKartice);
+            $iznos = (double) $this->request->getVar('iznos');
+            //azuriranje stanja na kartici
+            if ($karticaUplata != null) {
+                //ako je pronadjena kartica u bazi onda vrsi dalju proveru
+
+                if ($karticaUplata->stanje != null) {
+                    // u slucaju da je u pitanju gost kolona stanje u odgovarajucoj tabeli ima vrednost null
+
+                    $km->izmeniStanje($idKartice, $karticaUplata->stanje + $iznos);
+                    //izdavanje racuna i upis u tabelu
+                    $data['datum'] = date("Y-m-d");
+                    $data['vreme'] = date("H:i:s");
+                    $data['iznos'] = $iznos;
+                    $data['opis'] = "Uplata na karticu";
+                    $idRacuna = $rm->dodajRacun($data);
+
+                    //dodavanje uplate i upis u bazu u tabelu uplata 
+                    $data['idKartice'] = $idKartice;
+                    $data['idRacuna'] = $idRacuna;
+                    $um->dodajUplatu($data);
+                    return redirect()->to(site_url('Admin/uspehAdmin/3'));
+                } else {
+                    $poruka = "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA";
+                }
+            } else {
+                $poruka = "KARTICA SA DATIM ID NE POSTOJI U BAZI";
+            }
+        }
+        $session = session();
+        $data['vrednost']=$idKartice;
+        $data['naslov'] = 'UPLATA SREDSTAVA NA KARTICU';
+        $data['poruka'] = $poruka;
+        $this->prikazi('uplata', $data);
+    }
 
     public function uspehAdmin($id,$preostaliNovac=null) {
         $poruka=null;
