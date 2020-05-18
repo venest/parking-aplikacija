@@ -13,7 +13,7 @@ define('CENA_MESEC', 2000);
 
 date_default_timezone_set('Europe/Belgrade');
 
-class Registrovani extends BaseController
+class Registrovani extends Korisnik
 {
     
         public function prikazi($page, $data) {

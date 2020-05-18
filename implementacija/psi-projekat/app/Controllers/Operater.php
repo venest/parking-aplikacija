@@ -5,7 +5,7 @@ use App\Models\BoravakModel;
 use App\Models\KaznaModel;
 use App\Models\RacunModel;
 
-class Operater extends BaseController
+class Operater extends Korisnik
 {
     
         public function prikazi($page, $data) {
@@ -50,28 +50,6 @@ class Operater extends BaseController
 		$this->prikazi('izlazak', $data);
 	}
         
-        public function pocetna()
-	{
-                $data['naslov'] = 'POČETNA';
-		$this->prikazi('pocetna', $data);
-	}
-	public function tipoviKorisnika()
-	{
-                $data['naslov'] = 'TIPOVI KORISNIKA';
-		$this->prikazi('tipoviKorisnika', $data);
-	}
-
-        public function cenovnik()
-	{
-                $data['naslov'] = 'CENOVNIK';
-		$this->prikazi('cenovnik', $data);
-	}
-
-        public function kontakt()
-	{
-                $data['naslov'] = 'KONTAKT';
-		$this->prikazi('kontakt', $data);
-	}
 
 	private function proveraBoravka($kartice){
 

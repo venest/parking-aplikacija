@@ -4,7 +4,7 @@ use App\Models\BoravakModel;
 use App\Models\KarticaModel;
 use App\Models\KaznaModel;
 
-class Kontrolor extends BaseController
+class Kontrolor extends Korisnik
 {
     
         public function prikazi($page, $data) {
@@ -42,29 +42,7 @@ class Kontrolor extends BaseController
                 $data['naslov'] = 'PROVERA';
 		$this->prikazi('provera', $data);
 	}
-        
-        public function pocetna()
-	{
-                $data['naslov'] = 'POČETNA';
-		$this->prikazi('pocetna', $data);
-	}
-	public function tipoviKorisnika()
-	{
-                $data['naslov'] = 'TIPOVI KORISNIKA';
-		$this->prikazi('tipoviKorisnika', $data);
-	}
-
-        public function cenovnik()
-	{
-                $data['naslov'] = 'CENOVNIK';
-		$this->prikazi('cenovnik', $data);
-	}
-
-        public function kontakt()
-	{
-                $data['naslov'] = 'KONTAKT';
-		$this->prikazi('kontakt', $data);
-	}
+       
         
         public function proveraAutomobila() {
         //dohvatanje i provera unetih podataka

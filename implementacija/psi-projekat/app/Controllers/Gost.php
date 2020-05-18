@@ -3,7 +3,7 @@
 use App\Models\RegistrovaniModel;
 use App\Models\ZaposleniModel;
 
-class Gost extends BaseController
+class Gost extends Korisnik
 {
     
         public function prikazi($page, $data) {
@@ -17,29 +17,7 @@ class Gost extends BaseController
                 $data['naslov'] = 'POČETNA';
 		$this->prikazi('pocetna', $data);
 	}
-        
-        public function pocetna()
-	{
-                $data['naslov'] = 'POČETNA';
-		$this->prikazi('pocetna', $data);
-	}
-	public function tipoviKorisnika()
-	{
-                $data['naslov'] = 'TIPOVI KORISNIKA';
-		$this->prikazi('tipoviKorisnika', $data);
-	}
-
-        public function cenovnik()
-	{
-                $data['naslov'] = 'CENOVNIK';
-		$this->prikazi('cenovnik', $data);
-	}
-
-        public function kontakt()
-	{
-                $data['naslov'] = 'KONTAKT';
-		$this->prikazi('kontakt', $data);;
-	}
+       
 
         public function prijava()
 	{
@@ -150,7 +128,7 @@ class Gost extends BaseController
                     $korisnik['adresa'] = $this->request->getVar('adresa');
                     $korisnik['telefon'] = $this->request->getVar('telefon');
                     $rm->dodajKorisnika($korisnik);
-                    return redirect()->to(site_url('Gost/uspesnaRegistracija'));
+                    return redirect()->to(site_url('Gost/uspehRegistracija'));
                 }
             }
             $data['poruka'] = $poruka;
@@ -158,7 +136,7 @@ class Gost extends BaseController
             echo $this->prikazi('registracija', $data);
 	}
         
-        public function uspesnaRegistracija() {
+        public function uspehRegistracija() {
             $data['naslov'] = 'USPEŠNA REGISTRACIJA';
             echo $this->prikazi('uspehRegistracija', $data);
         }

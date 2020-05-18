@@ -18,7 +18,7 @@ define('CENA_IZDAVANJE', 1000);
 
 date_default_timezone_set('Europe/Belgrade');
 
-class Admin extends BaseController {
+class Admin extends Korisnik {
 
     public function prikazi($page, $data) {
         echo view('sabloni/header_admin', $data);
@@ -56,26 +56,6 @@ class Admin extends BaseController {
     public function gubitakKartice() {
         $data['naslov'] = 'GUBITAK KARTICE';
         $this->prikazi('gubitakKartice', $data);
-    }
-
-    public function pocetna() {
-        $data['naslov'] = 'POČETNA';
-        $this->prikazi('pocetna', $data);
-    }
-
-    public function tipoviKorisnika() {
-        $data['naslov'] = 'TIPOVI KORISNIKA';
-        $this->prikazi('tipoviKorisnika', $data);
-    }
-
-    public function cenovnik() {
-        $data['naslov'] = 'CENOVNIK';
-        $this->prikazi('cenovnik', $data);
-    }
-
-    public function kontakt() {
-        $data['naslov'] = 'KONTAKT';
-        $this->prikazi('kontakt', $data);
     }
 
     public function izdavanjeKartice() {
