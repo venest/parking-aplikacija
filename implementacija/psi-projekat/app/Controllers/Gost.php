@@ -46,10 +46,10 @@ class Gost extends Korisnik
                 $lozinka = $this->request->getVar('lozinka');
                 $rm = new RegistrovaniModel();
                 $zm = new ZaposleniModel();
-                $korisnik = $rm->dohvatiKorisnika($korisnickoIme);
+                $registrovani = $rm->dohvatiKorisnika($korisnickoIme);
                 $zaposleni = $zm->dohvatiZaposlenog($korisnickoIme);
-                if($korisnik != null) {
-                    if($korisnik->lozinka == $lozinka) {
+                if($registrovani != null) {
+                    if($registrovani->lozinka == $lozinka) {
                         $session = session();
                         $session->set('ulogovan', true);
                         $session->set('tip', 'rk');
