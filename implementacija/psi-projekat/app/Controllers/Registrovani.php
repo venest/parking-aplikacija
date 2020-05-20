@@ -83,30 +83,6 @@ class Registrovani extends Korisnik
 		$this->prikazi('transfer', $data);
 	}
         
-        public function pocetna()
-	{
-                $data['naslov'] = 'POČETNA';
-		$this->prikazi('pocetna', $data);
-	}
-        
-        public function tipoviKorisnika()
-	{
-                $data['naslov'] = 'TIPOVI KORISNIKA';
-		$this->prikazi('tipoviKorisnika', $data);
-	}
-        
-        public function cenovnik()
-	{
-                $data['naslov'] = 'CENOVNIK';
-		$this->prikazi('cenovnik', $data);
-	}
-        
-        public function kontakt()
-	{
-                $data['naslov'] = 'KONTAKT';
-		$this->prikazi('kontakt', $data);
-	}
-        
         public function promenaLozinkeSubmit() {
             $session = session();
             $email = $session->get('korisnickoIme');
@@ -150,13 +126,13 @@ class Registrovani extends Korisnik
                 $poruka = $this->validator->getError('iznos');
             } else if($idSa != $idNa) {
                 $km = new KarticaModel();
-                $rm = new RacunModel();
-                $um = new UplataModel();
-                $im = new IsplataModel();
                 $karticaSa = $km->dohvatiKarticu($idSa);
                 $karticaNa = $km->dohvatiKarticu($idNa);
                 $iznos = (double) $this->request->getVar('iznos');
                 if($karticaSa->stanje >= $iznos) {
+                    $rm = new RacunModel();
+                    $um = new UplataModel();
+                    $im = new IsplataModel();
                     // azuriranje stanja na karticama
                     $km->izmeniStanje($idSa, $karticaSa->stanje - $iznos);
                     $km->izmeniStanje($idNa, $karticaNa->stanje + $iznos);
@@ -220,7 +196,7 @@ class Registrovani extends Korisnik
                 if($datumDoUnix > $datumTekuciUnix) {
                     $datum = $datumDoUnix;
                     $dan = $danDo;
-                    $mesec = $mesecDo;
+                    $mesec = $mesecDo;dodaj;
                     $godina = $godinaDo;
                 } else {
                     $datum = $datumTekuciUnix;
