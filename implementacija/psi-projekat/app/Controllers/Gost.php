@@ -48,17 +48,14 @@ class Gost extends Korisnik
                 $zm = new ZaposleniModel();
                 $registrovani = $rm->dohvatiKorisnika($korisnickoIme);
                 $zaposleni = $zm->dohvatiZaposlenog($korisnickoIme);
-                if($registrovani != null) {
-                    if($registrovani->lozinka == $lozinka) {
+                if($registrovani != null && $registrovani->lozinka == $lozinka) {
                         $session = session();
                         $session->set('ulogovan', true);
                         $session->set('tip', 'rk');
                         $session->set('korisnickoIme', $korisnickoIme);
                         $session->set('lozinka', $lozinka);
                         return redirect()->to(site_url('Registrovani/'));
-                    } else $poruka = 'KORISNIČKO IME I/ILI LOZINKA SU POGREŠNI.';
-                } else if($zaposleni != null) {
-                    if($zaposleni->lozinka == $lozinka) {
+                } else if($zaposleni != null && $zaposleni->lozinka == $lozinka) {
                         $tip = $zaposleni->tip;
                         $session = session();
                         $session->set('ulogovan', true);
@@ -70,7 +67,6 @@ class Gost extends Korisnik
                             case 'o': return redirect()->to(site_url('Operater/')); break; 
                             case 'k': return redirect()->to(site_url('Kontrolor/')); break; 
                         }
-                    } else $poruka = 'KORISNIČKO IME I/ILI LOZINKA SU POGREŠNI.';
                 } else $poruka = 'KORISNIČKO IME I/ILI LOZINKA SU POGREŠNI.';
             }
             $data['poruka'] = $poruka;
