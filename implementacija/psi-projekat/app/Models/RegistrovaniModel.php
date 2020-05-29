@@ -2,6 +2,18 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * RegistrovaniModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom REGISTROVANI
+ * 
+ * 
+ */
+
+
 class RegistrovaniModel extends Model
 {
     protected $table      = 'registrovani';

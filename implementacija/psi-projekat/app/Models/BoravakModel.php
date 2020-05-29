@@ -4,6 +4,18 @@ use CodeIgniter\Model;
 
 date_default_timezone_set('Europe/Belgrade');
 
+
+/*
+ * 
+ * BoravakModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom BORAVAK
+ * 
+ * 
+ */
+
 class BoravakModel extends Model
 {
   

@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * KaznaModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom KAZNA
+ * 
+ * 
+ */
+
 class KaznaModel extends Model
 {
     protected $table      = 'kazna';

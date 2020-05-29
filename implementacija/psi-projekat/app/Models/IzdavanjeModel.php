@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * IzdavanjeModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom IZDAVANJE
+ * 
+ * 
+ */
+
 class IzdavanjeModel extends Model
 {
     protected $table      = 'izdavanje';

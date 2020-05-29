@@ -5,6 +5,29 @@ use App\Models\BoravakModel;
 use App\Models\KaznaModel;
 use App\Models\RacunModel;
 
+
+/* 
+ * 
+ * autor: MIRKO STOJANOVIĆ 0703/2017
+ * 
+ * 
+ * 
+ * 
+ * Operater controller 
+ * 
+ * 
+ * 
+ * klasa sadrži metode za prikaz odgovarajućih php stranica: 
+ * 
+ * kontrolnaTabla(), ulazakGost(), ulazakRegistrovani(), izlazak(),
+ * 
+ * kao i metode za sprovođenje samih funkcionalnosti: 
+ * 
+ * ulazakGosta(), ulazakRegistrovanog(), izlazakIzGaraze()
+ * 
+ * 
+*/
+
 class Operater extends Korisnik
 {
     

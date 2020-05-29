@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     
     <?php
-    if($naslov != 'POČETNA' && $naslov != 'TIPOVI KORISNIKA' && $naslov != 'CENOVNIK' && $naslov != 'KONATKT') { ?>
+    if($naslov != 'POČETNA' && $naslov != 'TIPOVI KORISNIKA' && $naslov != 'CENOVNIK' && $naslov != 'KONTAKT') { ?>
           </div>
         </div>  <?php
     } ?>

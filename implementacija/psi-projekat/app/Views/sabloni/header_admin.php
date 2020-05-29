@@ -26,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'POČETNA') echo 'active'; ?>" href=<?php echo site_url('Admin/pocetna'); ?>>Početna</a>
+              <a class="nav-link <?php if($naslov == 'POČETNA') echo 'active'; ?>" href="<?php echo site_url('Admin/pocetna'); ?>">Početna</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'TIPOVI KORISNIKA') echo 'active'; ?>" href=<?php echo site_url('Admin/tipoviKorisnika'); ?>>Tipovi korisnika</a>
+              <a class="nav-link <?php if($naslov == 'TIPOVI KORISNIKA') echo 'active'; ?>" href="<?php echo site_url('Admin/tipoviKorisnika'); ?>">Tipovi korisnika</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'CENOVNIK') echo 'active'; ?>" href=<?php echo site_url('Admin/cenovnik'); ?>>Cenovnik</a>
+              <a class="nav-link <?php if($naslov == 'CENOVNIK') echo 'active'; ?>" href="<?php echo site_url('Admin/cenovnik'); ?>">Cenovnik</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'KONTAKT') echo 'active'; ?>" href=<?php echo site_url('Admin/kontakt'); ?>>Kontakt</a>
+              <a class="nav-link <?php if($naslov == 'KONTAKT') echo 'active'; ?>" href="<?php echo site_url('Admin/kontakt'); ?>">Kontakt</a>
             </li>
           </ul> 
           <ul class="navbar-nav ml-auto">
@@ -49,8 +49,8 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Admin/kontrolnaTabla'); ?>>KONTROLNA TABLA</a>
-                <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Admin/odjaviSe'); ?>>ODJAVI SE</a>
+                <a class="dropdown-item pt-3 pb-3" href="<?php echo site_url('Admin/kontrolnaTabla'); ?>">KONTROLNA TABLA</a>
+                <a class="dropdown-item pt-3 pb-3" href="<?php echo site_url('Admin/odjaviSe'); ?>">ODJAVI SE</a>
               </div>
             </div>
             </li>
@@ -71,11 +71,11 @@
         <div class="col-md-4 col-xs-12">
             <div class="collapse text-center d-md-block" id="side-nav">
                 <div class="list-group text-center mb-2">
-                    <a href=<?php echo site_url('Admin/izdavanjeKartice'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'IZDAVANJE KARTICE') echo 'active'; ?>">IZDAVANJE KARTICE</a>
-                    <a href=<?php echo site_url('Admin/obnovaKartice'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'OBNOVA KARTICE') echo 'active'; ?>">OBNOVA KARTICE</a>
-                    <a href=<?php echo site_url('Admin/uplata'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'UPLATA') echo 'active'; ?>">UPLATA</a>
-                    <a href=<?php echo site_url('Admin/isplata'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'ISPLATA') echo 'active'; ?>">ISPLATA</a>
-                    <a href=<?php echo site_url('Admin/gubitakKartice'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'GUBITAK KARTICE') echo 'active'; ?>">GUBITAK KARTICE</a>
+                    <a href="<?php echo site_url('Admin/izdavanjeKartice'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'IZDAVANJE KARTICE') echo 'active'; ?>">IZDAVANJE KARTICE</a>
+                    <a href="<?php echo site_url('Admin/obnovaKartice'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'OBNOVA KARTICE') echo 'active'; ?>">OBNOVA KARTICE</a>
+                    <a href="<?php echo site_url('Admin/uplata'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'UPLATA') echo 'active'; ?>">UPLATA</a>
+                    <a href="<?php echo site_url('Admin/isplata'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'ISPLATA') echo 'active'; ?>">ISPLATA</a>
+                    <a href="<?php echo site_url('Admin/gubitakKartice'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'GUBITAK KARTICE') echo 'active'; ?>">GUBITAK KARTICE</a>
                 </div>
             </div>
         </div> <?php

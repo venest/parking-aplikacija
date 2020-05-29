@@ -18,7 +18,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-xl navbar-light bg-white">
-        <a class="navbar-brand" href=<?php echo site_url('Kontrolor/pocetna'); ?>><i class="fas fa-parking fa-4x fa-nav font-plavi"></i></a>
+        <a class="navbar-brand" href="<?php echo site_url('Kontrolor/pocetna'); ?>"><i class="fas fa-parking fa-4x fa-nav font-plavi"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'POČETNA') echo 'active'; ?>" href=<?php echo site_url('Kontrolor/pocetna'); ?>>Početna</a>
+              <a class="nav-link <?php if($naslov == 'POČETNA') echo 'active'; ?>" href="<?php echo site_url('Kontrolor/pocetna'); ?>">Početna</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'TIPOVI KORISNIKA') echo 'active'; ?>" href=<?php echo site_url('Kontrolor/tipoviKorisnika'); ?>>Tipovi korisnika</a>
+              <a class="nav-link <?php if($naslov == 'TIPOVI KORISNIKA') echo 'active'; ?>" href="<?php echo site_url('Kontrolor/tipoviKorisnika'); ?>">Tipovi korisnika</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'CENOVNIK') echo 'active'; ?>" href=<?php echo site_url('Kontrolor/cenovnik'); ?>>Cenovnik</a>
+              <a class="nav-link <?php if($naslov == 'CENOVNIK') echo 'active'; ?>" href="<?php echo site_url('Kontrolor/cenovnik'); ?>">Cenovnik</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php if($naslov == 'KONTAKT') echo 'active'; ?>" href=<?php echo site_url('Kontrolor/kontakt'); ?>>Kontakt</a>
+              <a class="nav-link <?php if($naslov == 'KONTAKT') echo 'active'; ?>" href="<?php echo site_url('Kontrolor/kontakt'); ?>">Kontakt</a>
             </li>
           </ul> 
           <ul class="navbar-nav ml-auto">
@@ -49,8 +49,8 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Kontrolor/kontrolnaTabla'); ?>>KONTROLNA TABLA</a>
-                <a class="dropdown-item pt-3 pb-3" href=<?php echo site_url('Kontrolor/odjaviSe'); ?>>ODJAVI SE</a>
+                <a class="dropdown-item pt-3 pb-3" href="<?php echo site_url('Kontrolor/kontrolnaTabla'); ?>">KONTROLNA TABLA</a>
+                <a class="dropdown-item pt-3 pb-3" href="<?php echo site_url('Kontrolor/odjaviSe'); ?>">ODJAVI SE</a>
               </div>
             </div>
             </li>
@@ -71,8 +71,8 @@
         <div class="col-md-4 col-xs-12">
             <div class="collapse text-center d-md-block" id="side-nav">
                 <div class="list-group text-center mb-2">
-                    <a href=<?php echo site_url('Kontrolor/provera'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'PROVERA') echo 'active'; ?>">PROVERA</a>
-                    <a href=<?php echo site_url('Kontrolor/kazna'); ?> class="list-group-item list-group-item-action py-4 <?php if($naslov == 'KAZNA') echo 'active'; ?>">KAZNA</a>
+                    <a href="<?php echo site_url('Kontrolor/provera'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'PROVERA') echo 'active'; ?>">PROVERA</a>
+                    <a href="<?php echo site_url('Kontrolor/kazna'); ?>" class="list-group-item list-group-item-action py-4 <?php if($naslov == 'KAZNA') echo 'active'; ?>">KAZNA</a>
                 </div>
             </div>
         </div> <?php

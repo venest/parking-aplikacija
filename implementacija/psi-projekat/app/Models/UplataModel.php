@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * UplataModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom UPLATA
+ * 
+ * 
+ */
+
 class UplataModel extends Model
 {
     protected $table      = 'uplata';

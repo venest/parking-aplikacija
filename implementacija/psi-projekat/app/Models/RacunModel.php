@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * RacunModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom RACUN
+ * 
+ * 
+ */
+
 class RacunModel extends Model
 {
     protected $table      = 'racun';

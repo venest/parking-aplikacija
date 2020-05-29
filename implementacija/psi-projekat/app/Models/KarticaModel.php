@@ -4,6 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * KarticaModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom KARTICA
+ * 
+ * 
+ */
+
 class KarticaModel extends Model {
 
     protected $table = 'kartica';

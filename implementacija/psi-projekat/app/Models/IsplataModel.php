@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * IsplataModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom ISPLATA
+ * 
+ * 
+ */
+
 class IsplataModel extends Model
 {
     protected $table      = 'isplata';

@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * ObnovaModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom OBNOVA
+ * 
+ * 
+ */
+
 class ObnovaModel extends Model
 {
     protected $table      = 'obnova';

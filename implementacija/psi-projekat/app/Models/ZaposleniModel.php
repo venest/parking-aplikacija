@@ -2,6 +2,17 @@
 
 use CodeIgniter\Model;
 
+/*
+ * 
+ * ZaposleniModel
+ * 
+ * klasa sadrži metode koje služe za izvršavanje 
+ * 
+ * osnovnih upita nad tabelom ZAPOSLENI
+ * 
+ * 
+ */
+
 class ZaposleniModel extends Model
 {
     protected $table      = 'zaposleni';

@@ -1,5 +1,18 @@
 <?php namespace App\Controllers;
 
+/* 
+ * 
+ * Korisnik controller 
+ * 
+ * 
+ * 
+ * klasa sadrži metode za prikaz odgovarajućih php stranica: 
+ * 
+ * pocetna(), tipoviKorisnika(), cenovnik(), kontakt()
+ * 
+ * 
+*/
+
 class Korisnik extends BaseController
 {
         public function pocetna()

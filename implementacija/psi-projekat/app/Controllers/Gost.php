@@ -3,6 +3,29 @@
 use App\Models\RegistrovaniModel;
 use App\Models\ZaposleniModel;
 
+/* 
+ * 
+ * autor: VELJKO NESTOROVIĆ 0039/2017
+ * 
+ * 
+ * 
+ * 
+ * Gost controller 
+ * 
+ * 
+ * 
+ * klasa sadrži metode za prikaz odgovarajućih php stranica: 
+ * 
+ * prijava(), registracija(),
+ * 
+ * kao i metode za sprovođenje samih funkcionalnosti prijave i registracije: 
+ * 
+ * prijaviSe(), registrujSe()
+ * 
+ * 
+*/
+
+
 class Gost extends Korisnik
 {
     

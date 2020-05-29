@@ -25,22 +25,22 @@
       
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-          <li class="nav-item">
-          <a class="nav-link <?php if($naslov == 'POČETNA') echo 'active'; ?>" href=<?php echo site_url('Gost/pocetna'); ?>>Početna</a>
+        <li class="nav-item">
+          <a class="nav-link <?php if($naslov == 'POČETNA') echo 'active'; ?>" href="<?php echo site_url('Gost/pocetna'); ?>">Početna</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if($naslov == 'TIPOVI KORISNIKA') echo 'active'; ?>" href=<?php echo site_url('Gost/tipoviKorisnika'); ?>>Tipovi korisnika</a>
+          <a class="nav-link <?php if($naslov == 'TIPOVI KORISNIKA') echo 'active'; ?>" href="<?php echo site_url('Gost/tipoviKorisnika'); ?>">Tipovi korisnika</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if($naslov == 'CENOVNIK') echo 'active'; ?>" href=<?php echo site_url('Gost/cenovnik'); ?>>Cenovnik</a>
+          <a class="nav-link <?php if($naslov == 'CENOVNIK') echo 'active'; ?>" href="<?php echo site_url('Gost/cenovnik'); ?>">Cenovnik</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if($naslov == 'KONTAKT') echo 'active'; ?>" href=<?php echo site_url('Gost/kontakt'); ?>>Kontakt</a>
+          <a class="nav-link <?php if($naslov == 'KONTAKT') echo 'active'; ?>" href="<?php echo site_url('Gost/kontakt'); ?>">Kontakt</a>
         </li>
       </ul> 
       <ul class="navbar-nav ml-auto">
         <li>
-          <a class="nav-link <?php if($naslov == 'PRIJAVA') echo 'active'; ?>" href=<?php echo site_url('Gost/prijava'); ?>>Prijavi se</a>
+          <a class="nav-link <?php if($naslov == 'PRIJAVA') echo 'active'; ?>" href="<?php echo site_url('Gost/prijava'); ?>">Prijavi se</a>
         </li>
       </ul> 
     </div>

@@ -13,6 +13,32 @@ define('CENA_MESEC', 2000);
 
 date_default_timezone_set('Europe/Belgrade');
 
+
+/* 
+ * 
+ * autor: VELJKO NESTOROVIĆ 0039/2017
+ * 
+ * 
+ * 
+ * 
+ * Registrovani controller 
+ * 
+ * 
+ * 
+ * 
+ * klasa sadrži metode za prikaz odgovarajućih php stranica: 
+ * 
+ * kontrolnaTabla(), profil(), promenaLozinke(), kartice(), obnovaKartice(), transfer(),
+ * 
+ * kao i metode za sprovođenje samih funkcionalnosti: 
+ * 
+ * izmenaProfilaSubmit(), promenaLozinkeSubmit(), obnovaKarticeSubmit(), transferSubmit()
+ * 
+ * 
+*/
+
+
+
 class Registrovani extends Korisnik
 {
     
@@ -39,7 +65,18 @@ class Registrovani extends Korisnik
             $session->destroy();
             return redirect()->to(site_url('Gost/prijava'));
         }
-       
+        
+        public function profil()
+	{
+                $session = session();
+                $email = $session->get('korisnickoIme');
+                $rm = new RegistrovaniModel();
+                $korisnik = $rm->dohvatiKorisnika($email);
+                $data['naslov'] = 'PROFIL';
+                $data['korisnik'] = $korisnik;
+                $data['pritisnuoDugme'] = false;
+		$this->prikazi('profil', $data);
+	}
         
         public function promenaLozinke()
 	{
@@ -83,6 +120,59 @@ class Registrovani extends Korisnik
 		$this->prikazi('transfer', $data);
 	}
         
+        public function izmenaProfilaSubmit() {
+            $session = session();
+            $email = $session->get('korisnickoIme');
+            $rm = new RegistrovaniModel();
+            $korisnik = $rm->dohvatiKorisnika($email);
+            $rules['ime'] = 'required|alpha';
+            $rules['prezime'] = 'required|alpha';
+            $rules['grad'] = 'required|alpha_space';
+            $rules['adresa'] = 'required|alpha_numeric_space';
+            $rules['email'] = 'required|valid_email';
+            $rules['telefon'] = 'required|numeric';
+            $messages['ime']['required'] = 'UNESITE IME.';
+            $messages['ime']['alpha'] = 'NEKOREKTAN UNOS ZA IME.';
+            $messages['prezime']['required'] = 'UNESITE PREZIME.';
+            $messages['prezime']['alpha'] = 'NEKOREKTAN UNOS ZA PREZIME.';
+            $messages['grad']['required'] = 'UNESITE GRAD.';
+            $messages['grad']['alpha_space'] = 'NEKOREKTAN UNOS ZA GRAD.';
+            $messages['adresa']['required'] = 'UNESITE ADRESU.';
+            $messages['adresa']['alpha_numeric_space'] = 'NEKOREKTAN UNOS ZA ADRESU.';
+            $messages['email']['required'] = 'UNESITE EMAIL.';
+            $messages['email']['valid_email'] = 'POLJE EMAIL NE SADRŽI VALIDNU EMAIL ADRESU.';
+            $messages['telefon']['required'] = 'UNESITE TELEFON.';
+            $messages['telefon']['numeric'] = 'NEKOREKTAN UNOS ZA TELEFON.';
+            if(!$this->validate($rules, $messages)) {
+                if($this->validator->hasError('email')) $poruka = $this->validator->getError ('email');
+                else if($this->validator->hasError('telefon')) $poruka = $this->validator->getError ('telefon');
+                else if($this->validator->hasError('ime')) $poruka = $this->validator->getError ('ime');
+                else if($this->validator->hasError('prezime')) $poruka = $this->validator->getError ('prezime');
+                else if($this->validator->hasError('grad')) $poruka = $this->validator->getError ('grad');
+                else if($this->validator->hasError('adresa')) $poruka = $this->validator->getError ('adresa');
+            } else {
+                if(!$rm->dohvatiKorisnika($this->request->getVar('email')) || $korisnik->email == $this->request->getVar('email')) {
+                    $data['email'] = $this->request->getVar('email');
+                    $data['telefon'] = $this->request->getVar('telefon');
+                    $data['ime'] = $this->request->getVar('ime');
+                    $data['prezime'] = $this->request->getVar('prezime');
+                    $data['grad'] = $this->request->getVar('grad');
+                    $data['adresa'] = $this->request->getVar('adresa');
+                    $rm->izmeniKorisnika($korisnik->idKorisnika, $data);
+                    
+                    return redirect()->to(site_url('Registrovani/uspehRegistrovani/1'));
+                    
+                }
+                else {
+                  $poruka = 'UNETI EMAIL VEĆ POSTOJI U SISTEMU.';  
+                }
+            }
+            $data['naslov'] = 'PROFIL';
+            $data['poruka'] = $poruka;
+            $data['pritisnuoDugme'] = true;
+            $this->prikazi('profil', $data);
+        }
+        
         public function promenaLozinkeSubmit() {
             $session = session();
             $email = $session->get('korisnickoIme');
@@ -112,58 +202,6 @@ class Registrovani extends Korisnik
             $data['naslov'] = 'PROMENA LOZINKE';
             $data['poruka'] = $poruka;
             $this->prikazi('promenaLozinke', $data);
-        }
-        
-        public function transferSubmit() {
-            $idSa = (int) $this->request->getVar('idKarticeSa');
-            $idNa = (int) $this->request->getVar('idKarticeNa');
-            $rules['iznos'] = 'required|decimal|greater_than[0.0]';
-            $messages['iznos']['required'] = 'UNESITE IZNOS.';
-            $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS.';
-            $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN.';
-            $poruka = '';
-            if(!$this->validate($rules, $messages)) {
-                $poruka = $this->validator->getError('iznos');
-            } else if($idSa != $idNa) {
-                $km = new KarticaModel();
-                $karticaSa = $km->dohvatiKarticu($idSa);
-                $karticaNa = $km->dohvatiKarticu($idNa);
-                $iznos = (double) $this->request->getVar('iznos');
-                if($karticaSa->stanje >= $iznos) {
-                    $rm = new RacunModel();
-                    $um = new UplataModel();
-                    $im = new IsplataModel();
-                    // azuriranje stanja na karticama
-                    $km->izmeniStanje($idSa, $karticaSa->stanje - $iznos);
-                    $km->izmeniStanje($idNa, $karticaNa->stanje + $iznos);
-                    // dodavanje racuna
-                    $data['datum'] = date('Y-m-d');
-                    $data['vreme'] = date('H:i:s');
-                    $data['iznos'] = $iznos;
-                    $data['opis'] = 'transfer';
-                    $idRacuna = $rm->dodajRacun($data);
-                    // dodavanje uplate
-                    $data['idKartice'] = $idNa;
-                    $data['idRacuna'] = $idRacuna;
-                    $um->dodajUplatu($data);
-                    // dodavanje isplate
-                    $data['idKartice'] = $idSa;
-                    $data['idRacuna'] = $idRacuna;
-                    $im->dodajIsplatu($data);
-                    
-                    return redirect()->to(site_url('Registrovani/uspehRegistrovani/4'));
-                    
-                } else $poruka = 'NEMATE DOVOLJNO SREDSTAVA ZA OZNAČENI TRANSFER.';
-            } else $poruka = 'KARTICA SA I KARTICA NA MORAJU BITI RAZLIČITE.';
-            $session = session();
-            $email = $session->get('korisnickoIme');
-            $rm = new RegistrovaniModel();
-            $km = new KarticaModel();
-            $idKorisnika = $rm->dohvatiKorisnika($email)->idKorisnika;
-            $data['kartice'] = $km->dohvatiSveKartice($idKorisnika);
-            $data['naslov'] = 'TRANSFER';
-            $data['poruka'] = $poruka;
-            $this->prikazi('transfer', $data);
         }
         
         public function obnovaKarticeSubmit() {
@@ -240,69 +278,56 @@ class Registrovani extends Korisnik
             $this->prikazi('obnovaKartice', $data);
         }
         
-        public function profil()
-	{
-                $session = session();
-                $email = $session->get('korisnickoIme');
-                $rm = new RegistrovaniModel();
-                $korisnik = $rm->dohvatiKorisnika($email);
-                $data['naslov'] = 'PROFIL';
-                $data['korisnik'] = $korisnik;
-                $data['pritisnuoDugme'] = false;
-		$this->prikazi('profil', $data);
-	}
-        
-        public function izmenaProfilaSubmit() {
+        public function transferSubmit() {
+            $idSa = (int) $this->request->getVar('idKarticeSa');
+            $idNa = (int) $this->request->getVar('idKarticeNa');
+            $rules['iznos'] = 'required|decimal|greater_than[0.0]';
+            $messages['iznos']['required'] = 'UNESITE IZNOS.';
+            $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS.';
+            $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN.';
+            $poruka = '';
+            if(!$this->validate($rules, $messages)) {
+                $poruka = $this->validator->getError('iznos');
+            } else if($idSa != $idNa) {
+                $km = new KarticaModel();
+                $karticaSa = $km->dohvatiKarticu($idSa);
+                $karticaNa = $km->dohvatiKarticu($idNa);
+                $iznos = (double) $this->request->getVar('iznos');
+                if($karticaSa->stanje >= $iznos) {
+                    $rm = new RacunModel();
+                    $um = new UplataModel();
+                    $im = new IsplataModel();
+                    // azuriranje stanja na karticama
+                    $km->izmeniStanje($idSa, $karticaSa->stanje - $iznos);
+                    $km->izmeniStanje($idNa, $karticaNa->stanje + $iznos);
+                    // dodavanje racuna
+                    $data['datum'] = date('Y-m-d');
+                    $data['vreme'] = date('H:i:s');
+                    $data['iznos'] = $iznos;
+                    $data['opis'] = 'transfer';
+                    $idRacuna = $rm->dodajRacun($data);
+                    // dodavanje uplate
+                    $data['idKartice'] = $idNa;
+                    $data['idRacuna'] = $idRacuna;
+                    $um->dodajUplatu($data);
+                    // dodavanje isplate
+                    $data['idKartice'] = $idSa;
+                    $data['idRacuna'] = $idRacuna;
+                    $im->dodajIsplatu($data);
+                    
+                    return redirect()->to(site_url('Registrovani/uspehRegistrovani/4'));
+                    
+                } else $poruka = 'NEMATE DOVOLJNO SREDSTAVA ZA OZNAČENI TRANSFER.';
+            } else $poruka = 'KARTICA SA I KARTICA NA MORAJU BITI RAZLIČITE.';
             $session = session();
             $email = $session->get('korisnickoIme');
             $rm = new RegistrovaniModel();
-            $korisnik = $rm->dohvatiKorisnika($email);
-            $rules['ime'] = 'required|alpha';
-            $rules['prezime'] = 'required|alpha';
-            $rules['grad'] = 'required|alpha_space';
-            $rules['adresa'] = 'required|alpha_numeric_space';
-            $rules['email'] = 'required|valid_email';
-            $rules['telefon'] = 'required|numeric';
-            $messages['ime']['required'] = 'UNESITE IME.';
-            $messages['ime']['alpha'] = 'NEKOREKTAN UNOS ZA IME.';
-            $messages['prezime']['required'] = 'UNESITE PREZIME.';
-            $messages['prezime']['alpha'] = 'NEKOREKTAN UNOS ZA PREZIME.';
-            $messages['grad']['required'] = 'UNESITE GRAD.';
-            $messages['grad']['alpha_space'] = 'NEKOREKTAN UNOS ZA GRAD.';
-            $messages['adresa']['required'] = 'UNESITE ADRESU.';
-            $messages['adresa']['alpha_numeric_space'] = 'NEKOREKTAN UNOS ZA ADRESU.';
-            $messages['email']['required'] = 'UNESITE EMAIL.';
-            $messages['email']['valid_email'] = 'POLJE EMAIL NE SADRŽI VALIDNU EMAIL ADRESU.';
-            $messages['telefon']['required'] = 'UNESITE TELEFON.';
-            $messages['telefon']['numeric'] = 'NEKOREKTAN UNOS ZA TELEFON.';
-            if(!$this->validate($rules, $messages)) {
-                if($this->validator->hasError('email')) $poruka = $this->validator->getError ('email');
-                else if($this->validator->hasError('telefon')) $poruka = $this->validator->getError ('telefon');
-                else if($this->validator->hasError('ime')) $poruka = $this->validator->getError ('ime');
-                else if($this->validator->hasError('prezime')) $poruka = $this->validator->getError ('prezime');
-                else if($this->validator->hasError('grad')) $poruka = $this->validator->getError ('grad');
-                else if($this->validator->hasError('adresa')) $poruka = $this->validator->getError ('adresa');
-            } else {
-                if(!$rm->dohvatiKorisnika($this->request->getVar('email')) || $korisnik->email == $this->request->getVar('email')) {
-                    $data['email'] = $this->request->getVar('email');
-                    $data['telefon'] = $this->request->getVar('telefon');
-                    $data['ime'] = $this->request->getVar('ime');
-                    $data['prezime'] = $this->request->getVar('prezime');
-                    $data['grad'] = $this->request->getVar('grad');
-                    $data['adresa'] = $this->request->getVar('adresa');
-                    $rm->izmeniKorisnika($korisnik->idKorisnika, $data);
-                    
-                    return redirect()->to(site_url('Registrovani/uspehRegistrovani/1'));
-                    
-                }
-                else {
-                  $poruka = 'UNETI EMAIL VEĆ POSTOJI U SISTEMU.';  
-                }
-            }
-            $data['naslov'] = 'PROFIL';
+            $km = new KarticaModel();
+            $idKorisnika = $rm->dohvatiKorisnika($email)->idKorisnika;
+            $data['kartice'] = $km->dohvatiSveKartice($idKorisnika);
+            $data['naslov'] = 'TRANSFER';
             $data['poruka'] = $poruka;
-            $data['pritisnuoDugme'] = true;
-            $this->prikazi('profil', $data);
+            $this->prikazi('transfer', $data);
         }
         
         public function uspehRegistrovani($id) {

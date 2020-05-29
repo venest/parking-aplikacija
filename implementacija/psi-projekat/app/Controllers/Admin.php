@@ -18,6 +18,35 @@ define('CENA_IZDAVANJE', 1000);
 
 date_default_timezone_set('Europe/Belgrade');
 
+
+/* 
+ * 
+ * autori:
+ * 
+ * MARINA SPASIĆ 0689/2017
+ * 
+ * PETAR PETROVIĆ 0538/2017
+ * 
+ * 
+ * 
+ * Admin controller 
+ * 
+ * 
+ * 
+ * klasa sadrži metode za prikaz odgovarajućih php stranica: 
+ * 
+ * kontrolnaTabla(), izdavanjeKartice(), obnovaKartice(), uplata(), isplata(), gubitakKartice(), 
+ * 
+ * kao i metode za sprovođenje samih funkcionalnosti: 
+ * 
+ * izdavanjeKarticeSubmit(), obnovaKarticeSubmit(), gubitakKarticeSubmit(),
+ * 
+ * uplataNaKarticuSubmit(), isplataSaKarticeSubmit()
+ * 
+ * 
+*/
+
+
 class Admin extends Korisnik {
 
     public function prikazi($page, $data) {
@@ -42,6 +71,16 @@ class Admin extends Korisnik {
         $session->destroy();
         return redirect()->to(site_url('Gost/prijava'));
     }
+    
+    public function izdavanjeKartice() {
+        $data['naslov'] = 'IZDAVANJE KARTICE';
+        $this->prikazi('izdavanjeKartice', $data);
+    }
+
+    public function obnovaKartice() {
+        $data['naslov'] = 'OBNOVA KARTICE';
+        $this->prikazi('obnovaKarticeOperater', $data);
+    }
 
     public function uplata() {
         $data['naslov'] = 'UPLATA';
@@ -56,16 +95,6 @@ class Admin extends Korisnik {
     public function gubitakKartice() {
         $data['naslov'] = 'GUBITAK KARTICE';
         $this->prikazi('gubitakKartice', $data);
-    }
-
-    public function izdavanjeKartice() {
-        $data['naslov'] = 'IZDAVANJE KARTICE';
-        $this->prikazi('izdavanjeKartice', $data);
-    }
-
-    public function obnovaKartice() {
-        $data['naslov'] = 'OBNOVA KARTICE';
-        $this->prikazi('obnovaKarticeOperater', $data);
     }
 
     public function izdavanjeKarticeSubmit() {
