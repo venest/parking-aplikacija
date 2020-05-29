@@ -159,6 +159,7 @@ class Registrovani extends Korisnik
                     $data['grad'] = $this->request->getVar('grad');
                     $data['adresa'] = $this->request->getVar('adresa');
                     $rm->izmeniKorisnika($korisnik->idKorisnika, $data);
+                    $session->set('korisnickoIme', $this->request->getVar('email'));
                     
                     return redirect()->to(site_url('Registrovani/uspehRegistrovani/1'));
                     
