@@ -23,14 +23,14 @@
             izmena profila, promena lozinke, pregled svih kartica sa detaljnim podacima o svakoj od njih, 
             transfer sredstava sa jedne svoje kartice na drugu i kao što je već rečeno obnova kartice na određeni period 
             (dan, sedmica, mesec). <br>
-            Registrovani korisnik može uplatiti izvestan novčani iznos na svoju karticu plaćanjem kod admina. 
-            On takođe može tražiti i isplatu određenih sredstava sa svoje parking kartice, za šta je takođe zadužen admin. <br>
+            Registrovani korisnik može uplatiti izvestan novčani iznos na svoju karticu plaćanjem kod admina ili 
+            tražiti isplatu određenih sredstava sa svoje parking kartice, za šta je takođe zadužen admin. <br>
             U slučaju gubitka kartice, i gost i registrovani korisnik treba da se obrate adminu. <br>
             Sistem će omogućiti i kontrolu parkiranja, koju obavlja zaposleni sa ulogom kontrolora. <br>
             Kontrolor može, na osnovu broja registarskih tablica automobila, da proveri da li postoji validna kartica 
             registrovanog korisnika koja se odnosi na taj automobil. 
-            U slučaju da kartica nije validna u sistemu se evidentira kazna, koja će biti dodata na račun koji 
-            registrovani korisnik plaća prilikom izlaska. <br>
+            U slučaju da se prilikom provere ispostavi da kartica nije validna, u sistemu se evidentira kazna, 
+            koja će biti dodata na račun koji registrovani korisnik plaća prilikom izlaska. <br>
             Još jedan zadatak kontrolora jeste da vrši proveru da li su automobili regularno parkirani 
             (parkiranje na mestu za invalide, parkiranje na mestu za trudnice, zauzimanje više parking mesta). 
             Za svaki od ovih prekršaja kontrolor takođe evidentira kaznu. 

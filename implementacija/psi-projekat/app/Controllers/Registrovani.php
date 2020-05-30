@@ -235,7 +235,7 @@ class Registrovani extends Korisnik
                 if($datumDoUnix > $datumTekuciUnix) {
                     $datum = $datumDoUnix;
                     $dan = $danDo;
-                    $mesec = $mesecDo;dodaj;
+                    $mesec = $mesecDo;
                     $godina = $godinaDo;
                 } else {
                     $datum = $datumTekuciUnix;

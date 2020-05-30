@@ -46,11 +46,11 @@
             <div class="row justify-content-center">
               <div class="form-group col-lg-6">
                 <label for="password">LOZINKA</label>
-                <input type="password" name="lozinka" class="form-control form-control-lg" id="lozinkaRegistracija">
+                <input type="password" name="lozinka" class="form-control form-control-lg" id="lozinkaRegistracija" value="<?php echo set_value('lozinka'); ?>">
               </div>
               <div class="form-group col-lg-6">
                 <label for="ponovljenPassword">PONOVITE LOZINKU</label>
-                <input type="password" name="ponovljenaLozinka" class="form-control form-control-lg" id="ponovljenaLozinkaRegistracija">
+                <input type="password" name="ponovljenaLozinka" class="form-control form-control-lg" id="ponovljenaLozinkaRegistracija" value="<?php echo set_value('ponovljenaLozinka'); ?>">
               </div>
             </div>
             <div class="row justify-content-center">
