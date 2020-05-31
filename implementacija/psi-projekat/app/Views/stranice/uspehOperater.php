@@ -5,7 +5,11 @@
                 switch ($naslov) {
                     case 'ULAZAK GOST': echo 'USPESNO USAO GOST'; break;
                     case 'ULAZAK REGISTROVANI': echo 'USPESNO USAO REGISTROVANI'; break;
-                    case 'IZLAZAK': echo 'USPESNO IZASAO'; break;
+                    case 'IZLAZAK':
+                        echo 'USPESNO IZASAO';
+                        echo "</br>";
+                        echo 'Placen racun od: '.$cena.'.00 dinara!';
+                        break;
                    
                 }
             ?>
