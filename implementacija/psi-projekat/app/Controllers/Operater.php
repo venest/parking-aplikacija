@@ -222,7 +222,7 @@ class Operater extends Korisnik
 						$boravakM->updateRacun($boravak->idBoravka, $idRacuna);
 					}
 					$boravakM->izlazak($boravak->idBoravka);
-					return redirect()->to(site_url('Operater/uspehOperater/3'));
+					return redirect()->to(site_url("Operater/uspehOperater/3/$cena"));
 				}
 			}
 
@@ -234,13 +234,14 @@ class Operater extends Korisnik
 		$this->prikazi('izlazak', $data);
 	}
 	
-	public function uspehOperater($id) {
+	public function uspehOperater($id, $cena = null) {
 		switch($id) {
 			case '1': $naslov = 'ULAZAK GOST'; break;
 			case '2': $naslov = 'ULAZAK REGISTROVANI'; break;
 			case '3': $naslov = 'IZLAZAK'; break;
 		}
 		$data['naslov'] = $naslov;
+		$data['cena'] = $cena;
 		$this->prikazi('uspehOperater', $data);
 	}
 	//--------------------------------------------------------------------
