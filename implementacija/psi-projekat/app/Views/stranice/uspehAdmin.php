@@ -1,6 +1,6 @@
 <div class="col-md-8 col-xs-12">
     <div class="alert alert-success text-center py-5">
-        <h1>
+        <h2>
             <?php
                 switch ($naslov) {
                     case 'IZDAVANJE KARTICE - USPEH': echo 'USPEŠNO STE IZDALI KARTICU.'; break;
@@ -14,7 +14,7 @@
                         break;
                 }
             ?>
-        </h1>
+        </h2>
     </div>
 </div>
 

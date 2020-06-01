@@ -74,15 +74,23 @@ class Operater extends Korisnik
 	}
         
 
-	private function proveraBoravka($kartice){
-
+	private function proveraBoravka($tablice){
+		$bm = new BoravakModel();
+		$km = new KarticaModel();
+		$kartice = $km->nadjiKarticuTablice($tablice);
+		
+		foreach($kartice as $kartica){
+			if($bm->dohvatiBoravak($kartica->idKartice)) return true; //ako nadje nekog da boravi vraca true
+		}
+		return false;
 	}
+
 
 	public function ulazakGosta(){
 		$tablice = $this->request->getVar('brojTablica');
 
 		$rules['brojTablica'] = 'required';
-		$messages['brojTablica']['required'] = 'TABLICE NISU UNETE!';
+		$messages['brojTablica']['required'] = 'UNESITE TABLICE.';
 		$poruka = '';
 		$data['naslov'] = "ULAZAK GOST";
 
@@ -90,18 +98,22 @@ class Operater extends Korisnik
 			$poruka = $this->validator->getError('brojTablica');
 		}
 		else{
-			//provera da li postoje te tablice u boravku ???? DA LI SE PODRAZUMEVA ISPRAVAN UNOS?
-			$karticaModel = new KarticaModel();
 
-			//insert kartice
-			$idKartice = $karticaModel->dodajKarticu(null, null, null, $tablice);
+			if($this->proveraBoravka($tablice)) $poruka = "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI.";
+			else{
+				$karticaModel = new KarticaModel();
 
-			$data['usaoGost'] = $idKartice;
+				//insert kartice
+				$idKartice = $karticaModel->dodajKarticu(null, null, null, $tablice);
 
-			//insert boravka
-			$ulazakModel = new BoravakModel();
-			$ulazakModel->dodajBoravak($idKartice);
-			return redirect()->to(site_url('Operater/uspehOperater/1'));
+				$data['usaoGost'] = $idKartice;
+
+				//insert boravka
+				$ulazakModel = new BoravakModel();
+				$ulazakModel->dodajBoravak($idKartice);
+				$_SESSION['ID'] = $idKartice;
+				return redirect()->to(site_url('Operater/uspehOperater/1'));
+			}
 		}
 
 		
@@ -114,29 +126,33 @@ class Operater extends Korisnik
 		$idKartice = $this->request->getVar('idKartice');
 
 		$rules['idKartice'] = 'required';
-		$messages['idKartice']['required'] = 'ID KARTICE NIJE UNET!';
+		$messages['idKartice']['required'] = 'UNESITE ID KARTICE.';
 		$poruka = '';
 
 		if(!$this->validate($rules, $messages)){
 			$poruka = $this->validator->getError('idKartice');
 		}
 		else{
-			//provera da li postoji registrovani korisnik sa ovim ID-em
-			$karticaModel = new KarticaModel();
-			$kartica = $karticaModel->dohvatiKarticu($idKartice);
+			$bm = new BoravakModel();
 
-			if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-em';
+			if($bm->dohvatiBoravak($idKartice)) $poruka = "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI.";
 			else{
-				if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA';
+				//provera da li postoji registrovani korisnik sa ovim ID-em
+				$karticaModel = new KarticaModel();
+				$kartica = $karticaModel->dohvatiKarticu($idKartice);
+
+				if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-JEM.';
 				else{
-					//insert boravka
-					$ulazakModel = new BoravakModel();
-					$ulazakModel->dodajBoravak($idKartice);
-					$data['usaoRegistrovani'] = 'Uspesan ulazak';
-					return redirect()->to(site_url('Operater/uspehOperater/2'));
+					if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
+					else{
+						//insert boravka
+						$ulazakModel = new BoravakModel();
+						$ulazakModel->dodajBoravak($idKartice);
+						$data['usaoRegistrovani'] = 'Uspesan ulazak';
+						return redirect()->to(site_url('Operater/uspehOperater/2'));
+					}
 				}
 			}
-
 		}
 
 		$data['naslov'] = "ULAZAK REGISTROVANI";
@@ -149,7 +165,7 @@ class Operater extends Korisnik
 		$idKartice = $this->request->getVar('idKartice');
 
 		$rules['idKartice'] = 'required';
-		$messages['idKartice']['required'] = 'ID KARTICE NIJE UNET!';
+		$messages['idKartice']['required'] = 'UNESITE ID KARTICE.';
 		$poruka = '';
 
 		if(!$this->validate($rules, $messages)){
@@ -160,15 +176,14 @@ class Operater extends Korisnik
 			$karticaModel = new KarticaModel();
 			$postojiKor = $karticaModel->dohvatiKarticu($idKartice);
 
-			if($postojiKor == null) $poruka = 'NE POSTOJI KORISNIK SA OVIM ID-em!';
+			if($postojiKor == null) $poruka = 'NE POSTOJI KORISNIK SA UNETIM ID-JEM.';
 			else{
 				$boravakM = new BoravakModel();
 				$boravak = $boravakM->dohvatiBoravak($idKartice);
 				if($boravak == null) {
-					$data['poruka'] = "KORISNIK NIJE PARKIRAN!";
+					$data['poruka'] = "KORISNIK NIJE U GARAŽI.";
 				}
 				else{
-					$poruka = 'Korisnik izasao';
 					//provera da li registrovan ili ne
 					if($postojiKor->idKorisnika == null) {
 
@@ -193,13 +208,16 @@ class Operater extends Korisnik
 
 						$cena = $brsati*60; //60din sat
 						$data['cena'] = $cena;
-
+						$_SESSION['cenaBoravka'] = $cena;
+						
 						//cena se sabira sa kaznama ako ih ima
 						$kaznaM = new KaznaModel();
 						$kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
 
 						foreach($kazne as $kazna){
 							$cena += $kazna->iznos;
+							$_SESSION['tipKazne'] ="{$kazna->tipPrekrsaja}";
+							$_SESSION['iznosKazne'] ="Iznos: {$kazna->iznos}";
 						}
 					}
 					else{
@@ -210,6 +228,8 @@ class Operater extends Korisnik
 						$cena = 0;
 						foreach($kazne as $kazna){
 							$cena += $kazna->iznos;
+							$_SESSION['tipKazne'] ="Tip prekrsaja: {$kazna->tipPrekrsaja}<br/>";
+							$_SESSION['iznosKazne'] ="Iznos: {$kazna->iznos}<br/>";
 						}
 
 						$data['cena'] = $cena;
@@ -225,6 +245,8 @@ class Operater extends Korisnik
 						$boravakM->updateRacun($boravak->idBoravka, $idRacuna);
 					}
 					$boravakM->izlazak($boravak->idBoravka);
+					$_SESSION['ID'] = $idKartice."<br/>";
+			
 					return redirect()->to(site_url("Operater/uspehOperater/3/$cena"));
 				}
 			}
@@ -236,7 +258,7 @@ class Operater extends Korisnik
 		
 		$this->prikazi('izlazak', $data);
 	}
-	
+
 	public function uspehOperater($id, $cena = null) {
 		switch($id) {
 			case '1': $naslov = 'ULAZAK GOST'; break;
@@ -247,6 +269,5 @@ class Operater extends Korisnik
 		$data['cena'] = $cena;
 		$this->prikazi('uspehOperater', $data);
 	}
-	//--------------------------------------------------------------------
 
 }

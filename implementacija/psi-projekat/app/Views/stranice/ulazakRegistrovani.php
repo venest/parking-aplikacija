@@ -6,7 +6,7 @@
                 <?php
                   if(isset($poruka)) { ?>
                     <div class="row justify-content-center">
-                      <div class="alert text-center alert-danger col-xl-6 col-md-9">
+                      <div class="alert text-center alert-danger col-lg-9 py-4">
                         <strong><?php echo $poruka; ?></strong>
                       </div>
                     </div> 
@@ -15,7 +15,7 @@
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="idKartice">ID KARTICE</label>
-                      <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice">
+                      <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice" value="<?php echo set_value('idKartice'); ?>">
                     </div>
                   </div>
                   <div class="row justify-content-center">

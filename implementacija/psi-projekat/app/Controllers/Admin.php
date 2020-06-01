@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Controllers;
 
 use App\Models\RegistrovaniModel;
@@ -9,6 +10,8 @@ use App\Models\UplataModel;
 use App\Models\IsplataModel;
 use App\Models\ObnovaModel;
 use App\Models\IzdavanjeModel;
+use App\Models\BoravakModel;
+use App\Models\KaznaModel;
 
 define('CENA_DAN', 200);
 define('CENA_SEDMICA', 800);
@@ -79,7 +82,7 @@ class Admin extends Korisnik {
 
     public function obnovaKartice() {
         $data['naslov'] = 'OBNOVA KARTICE';
-        $this->prikazi('obnovaKarticeOperater', $data);
+        $this->prikazi('obnovaKarticeAdmin', $data);
     }
 
     public function uplata() {
@@ -196,9 +199,15 @@ class Admin extends Korisnik {
 
         $idKartice = $this->request->getVar('idKartice');
         $period = $this->request->getVar('period');
-
-
-        switch ($period) {
+        
+        $rules['idKartice'] = 'required';
+        $messages['idKartice']['required'] = 'UNESITE ID KARTICE.';
+        
+        $poruka = '';
+        if(!$this->validate($rules, $messages)) {
+            if($this->validator->hasError('idKartice')) $poruka = $this->validator->getError ('idKartice');
+        } else {
+                    switch ($period) {
             case 'dan': $cena = CENA_DAN;
                 break;
             case 'sedmica': $cena = CENA_SEDMICA;
@@ -208,69 +217,70 @@ class Admin extends Korisnik {
         }
         $km = new KarticaModel();
         $kartica = $km->dohvatiKarticu($idKartice);
-        $poruka = '';
-        //if($kartica==null)
-        if ($kartica->stanje < $cena) {
-            $poruka = 'NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI.';
-        } else {
-            // azuriranje stanja na kartici
-            $km->izmeniStanje($idKartice, $kartica->stanje - $cena);
-            // azuriranje datuma vazenja
-            $datumDo = explode('-', $kartica->vaziDo);
-            $danDo = (int) $datumDo[2];
-            $mesecDo = (int) $datumDo[1];
-            $godinaDo = (int) $datumDo[0];
-            $datumDoUnix = mktime(0, 0, 0, $mesecDo, $danDo, $godinaDo);
-            $datumTekuci = explode('-', date('Y-m-d'));
-            $danTekuci = (int) $datumTekuci[2];
-            $mesecTekuci = (int) $datumTekuci[1];
-            $godinaTekuca = (int) $datumTekuci[0];
-            $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
-            if ($datumDoUnix > $datumTekuciUnix) {
-                $datum = $datumDoUnix;
-                $dan = $danDo;
-                $mesec = $mesecDo;
-                $godina = $godinaDo;
-            } else {
-                $datum = $datumTekuciUnix;
-                $dan = $danTekuci;
-                $mesec = $mesecTekuci;
-                $godina = $godinaTekuca;
-            }
-            switch ($period) {
-                case 'dan': $sekunde = 24 * 60 * 60;
-                    $datum += $sekunde;
-                    break;
-                case 'sedmica': $sekunde = 7 * 24 * 60 * 60;
-                    $datum += $sekunde;
-                    break;
-                case 'mesec':
-                    if ($mesec == 12)
-                        $godina++;
-                    $mesec = ($mesec + 1) % 12;
-                    $datum = mktime(0, 0, 0, $mesec, $dan, $godina);
-                    break;
-            }
-            $km->izmeniDatumVazenja($idKartice, date('Y-m-d', $datum));
-            // dodavanje racuna
-            $data['datum'] = date('Y-m-d');
-            $data['vreme'] = date('H:i:s');
-            $data['iznos'] = $cena;
-            $data['opis'] = 'obnova ' . $period;
-            $rm = new RacunModel();
-            $idRacuna = $rm->dodajRacun($data);
-            // dodavanje obnove
-            $om = new ObnovaModel();
-            $data['idRacuna'] = $idRacuna;
-            $data['idKartice'] = $idKartice;
-            $om->dodajObnovu($data);
+            if($kartica != null) {
+                            if ($kartica->stanje < $cena) {
+                      $poruka = 'NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI.';
+                }  else {
+                // azuriranje stanja na kartici
+                $km->izmeniStanje($idKartice, $kartica->stanje - $cena);
+                // azuriranje datuma vazenja
+                $datumDo = explode('-', $kartica->vaziDo);
+                $danDo = (int) $datumDo[2];
+                $mesecDo = (int) $datumDo[1];
+                $godinaDo = (int) $datumDo[0];
+                $datumDoUnix = mktime(0, 0, 0, $mesecDo, $danDo, $godinaDo);
+                $datumTekuci = explode('-', date('Y-m-d'));
+                $danTekuci = (int) $datumTekuci[2];
+                $mesecTekuci = (int) $datumTekuci[1];
+                $godinaTekuca = (int) $datumTekuci[0];
+                $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
+                if ($datumDoUnix > $datumTekuciUnix) {
+                    $datum = $datumDoUnix;
+                    $dan = $danDo;
+                    $mesec = $mesecDo;
+                    $godina = $godinaDo;
+                } else {
+                    $datum = $datumTekuciUnix;
+                    $dan = $danTekuci;
+                    $mesec = $mesecTekuci;
+                    $godina = $godinaTekuca;
+                }
+                switch ($period) {
+                    case 'dan': $sekunde = 24 * 60 * 60;
+                        $datum += $sekunde;
+                        break;
+                    case 'sedmica': $sekunde = 7 * 24 * 60 * 60;
+                        $datum += $sekunde;
+                        break;
+                    case 'mesec':
+                        if ($mesec == 12)
+                            $godina++;
+                        $mesec = ($mesec + 1) % 12;
+                        $datum = mktime(0, 0, 0, $mesec, $dan, $godina);
+                        break;
+                }
+                $km->izmeniDatumVazenja($idKartice, date('Y-m-d', $datum));
+                // dodavanje racuna
+                $data['datum'] = date('Y-m-d');
+                $data['vreme'] = date('H:i:s');
+                $data['iznos'] = $cena;
+                $data['opis'] = 'obnova ' . $period;
+                $rm = new RacunModel();
+                $idRacuna = $rm->dodajRacun($data);
+                // dodavanje obnove
+                $om = new ObnovaModel();
+                $data['idRacuna'] = $idRacuna;
+                $data['idKartice'] = $idKartice;
+                $om->dodajObnovu($data);
 
-            return redirect()->to(site_url('Admin/uspehAdmin/2'));
+                return redirect()->to(site_url('Admin/uspehAdmin/2'));
+                }
+            }  else $poruka = 'KARTICA SA UNETIM ID-JEM NE POSTOJI.';
         }
 
         $data['naslov'] = 'OBNOVA KARTICE';
         $data['poruka'] = $poruka;
-        $this->prikazi('obnovaKarticeOperater', $data);
+        $this->prikazi('obnovaKarticeAdmin', $data);
     }
 
     public function gubitakKarticeSubmit() {
@@ -297,6 +307,45 @@ class Admin extends Korisnik {
                     if ($kartica==null){
                         $poruka='NE POSTOJI KARTICA ZA UNETE PODATKE.';
                     } else{
+                        
+                        //proveriIzlazak($kartica->idKartice); 
+                         $idKartice = $kartica->idKartice;
+
+				$boravakM = new BoravakModel();
+				$boravak = $boravakM->dohvatiBoravak($idKartice);
+                                $cena = 0;
+				if($boravak == null) {
+					$data['poruka0'] = "KORISNIK NIJE PARKIRAN!";
+                                        $poruka0="KORISNIK NIJE PARKIRAN!";
+				}
+				else{
+					$data['poruka0'] = 'Korisnik izasao iz garaze';
+                                        $poruka0= 'Korisnik izasao iz garaze';
+					//registrovani
+						$kaznaM = new KaznaModel();
+						$kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
+
+						
+						foreach($kazne as $kazna){
+							$cena += $kazna->iznos;
+						}
+
+						$data['cena'] = $cena;
+					
+					
+					if($cena > 0){
+						$data['datum'] = date('Y-m-d');
+						$data['vreme'] = date('H:i:s');
+						$data['iznos'] = $cena;
+						$data['opis'] = "placanje izlaska";
+						$rm = new RacunModel();
+						$idRacuna = $rm->dodajRacun($data);
+						$boravakM->updateRacun($boravak->idBoravka, $idRacuna);
+					}
+					$boravakM->izlazak($boravak->idBoravka);
+					//return redirect()->to(site_url("Operater/uspehOperater/3/$cena"));
+				}
+			
                         $preostaliNovac=$kartica->stanje;
                         if($preostaliNovac>0){
                         $data['datum'] = date('Y-m-d');
@@ -309,13 +358,16 @@ class Admin extends Korisnik {
                         $data['idKartice']=$kartica->idKartice;
                         $data['idRacuna']=$idRacuna;
                         $im->dodajIsplatu($data);
+                        
                         //$im->dodajIsplatu($kartica->idKartice,$idRacuna); //bolje je da se data sklapa u samom modelu, a ne ovde
                       }
                       
-                      $km->obrisi($kartica); //bolje bi bilo da se status postavi na izgubljena
+                      $km->obrisi($kartica); 
+                      
+                     //$preostaliNovac= -$cena;
                       
                       //$this->uspehAdmin(5, $poruka);
-                      return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac"));
+                      return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
                     }
                 }
            }
@@ -330,14 +382,17 @@ class Admin extends Korisnik {
     public function isplataSaKarticeSubmit() {
         //dohvatanje id kartice i validacija unetih podataka
         $idKartice = $this->request->getVar("idKartice");
+        $rules['idKartice'] = 'required';
+        $messages['idKartice']['required'] = 'UNESITE ID KARTICE.';
         $rules['iznos'] = 'required|decimal|greater_than[0.0]';
-        $messages['iznos']['required'] = 'UNESITE IZNOS';
-        $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS';
-        $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN';
+        $messages['iznos']['required'] = 'UNESITE IZNOS.';
+        $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS.';
+        $messages['iznos']['greater_than'] = 'IZNOS MORA BITI POZITIVAN.';
 
         $poruka = "";
         if (!$this->validate($rules, $messages)) {
-            $poruka = $this->validator->getError('iznos');
+            if ($this->validator->hasError('idKartice')) $poruka = $this->validator->getError('idKartice');
+            else if ($this->validator->hasError('iznos')) $poruka = $this->validator->getError('iznos');
         } else {
             //pravljenje modela za prihvatanje podataka iz baze
             $km = new KarticaModel();
@@ -361,7 +416,7 @@ class Admin extends Korisnik {
                         $data['datum'] = date("Y-m-d");
                         $data['vreme'] = date("H:i:s");
                         $data['iznos'] = $iznos;
-                        $data['opis'] = "Isplata sa kartice";
+                        $data['opis'] = "isplata";
                         $idRacuna = $rm->dodajRacun($data);
 
                         //dodavanje isplate i upis u bazu u tabelu Isplata 
@@ -370,15 +425,14 @@ class Admin extends Korisnik {
                         $im->dodajIsplatu($data);
                         return redirect()->to(site_url('Admin/uspehAdmin/4'));
                     } else
-                        $poruka = "NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUSAJTE ISPLATU MANJE SUME.";
+                        $poruka = "NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUŠAJTE ISPLATU MANJE SUME.";
                 } else
-                    $poruka = "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI ISPLATA";
+                    $poruka = "KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.";
             } else
-                $poruka = "KARTICA SA DATIM ID NE POSTOJI U BAZI.";
+                $poruka = "KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI.";
         }
-        $session = session();
         $data['vrednost']=$idKartice;
-        $data['naslov'] = 'ISPLATA SREDSTAVA SA KARTICE';
+        $data['naslov'] = 'ISPLATA';
         $data['poruka'] = $poruka;
         $this->prikazi('isplata', $data);
     }
@@ -386,6 +440,8 @@ class Admin extends Korisnik {
     public function uplataNaKarticuSubmit() {
         //dohvatanje id kartice i validacija unetih podataka
         $idKartice = $this->request->getVar('idKartice');
+        $rules['idKartice'] = 'required';
+        $messages['idKartice']['required'] = 'UNESITE ID KARTICE.';
         $rules['iznos'] = 'required|decimal|greater_than[0.0]';
         $messages['iznos']['required'] = 'UNESITE IZNOS.';
         $messages['iznos']['decimal'] = 'NEKOREKTAN UNOS ZA IZNOS.';
@@ -393,7 +449,8 @@ class Admin extends Korisnik {
 
         $poruka = "";
         if (!$this->validate($rules, $messages)) {
-            $poruka = $this->validator->getError('iznos');
+            if ($this->validator->hasError('idKartice')) $poruka = $this->validator->getError('idKartice');
+            else if ($this->validator->hasError('iznos')) $poruka = $this->validator->getError('iznos');
         } else {
             //pravljenje modela za prihvatanje podataka iz baze
             $km = new KarticaModel();
@@ -414,7 +471,7 @@ class Admin extends Korisnik {
                     $data['datum'] = date("Y-m-d");
                     $data['vreme'] = date("H:i:s");
                     $data['iznos'] = $iznos;
-                    $data['opis'] = "Uplata na karticu";
+                    $data['opis'] = "uplata";
                     $idRacuna = $rm->dodajRacun($data);
 
                     //dodavanje uplate i upis u bazu u tabelu uplata 
@@ -423,20 +480,19 @@ class Admin extends Korisnik {
                     $um->dodajUplatu($data);
                     return redirect()->to(site_url('Admin/uspehAdmin/3'));
                 } else {
-                    $poruka = "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA";
+                    $poruka = "KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA.";
                 }
             } else {
-                $poruka = "KARTICA SA DATIM ID NE POSTOJI U BAZI";
+                $poruka = "KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI.";
             }
         }
-        $session = session();
         $data['vrednost']=$idKartice;
-        $data['naslov'] = 'UPLATA SREDSTAVA NA KARTICU';
+        $data['naslov'] = 'UPLATA';
         $data['poruka'] = $poruka;
         $this->prikazi('uplata', $data);
     }
 
-    public function uspehAdmin($id,$preostaliNovac=null) {
+    public function uspehAdmin($id,$preostaliNovac=null,$cena=null) {
         $poruka=null;
         switch ($id) {
 
@@ -449,7 +505,11 @@ class Admin extends Korisnik {
             case '4': $naslov = 'ISPLATA - USPEH';
                 break;
             case '5': $naslov = 'GUBITAK KARTICE - USPEH';
-                $poruka='Novac za isplatu: '.$preostaliNovac.' DIN';
+                
+                
+                     $poruka='Novac za uplatu: '.$cena. ' DIN'.' Novac za isplatu: '.$preostaliNovac.' DIN';
+              
+               
                 break;
         }
         

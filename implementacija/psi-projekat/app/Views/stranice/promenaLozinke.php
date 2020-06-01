@@ -5,7 +5,7 @@
                 </div> <?php
             if(isset($poruka)) { ?>
             <div class="row justify-content-center">
-                <div class="alert text-center alert-danger col-lg-9">
+                <div class="alert text-center alert-danger col-lg-9 py-4">
                     <strong><?php echo $poruka; ?></strong>
                 </div>
             </div> <?php

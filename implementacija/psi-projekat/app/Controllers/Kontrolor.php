@@ -72,6 +72,7 @@ class Kontrolor extends Korisnik
         $messages['tablice']['required'] = "UNESITE REGISTARSKI BROJ TABLICA.";
         $poruka = "";
         $boravak = null;
+        $_SESSION['kaznjen'] = false;
         if (!$this->validate($rules, $messages)) {
             $poruka = $this->validator->getError('tablice');
         } else {
@@ -98,7 +99,7 @@ class Kontrolor extends Korisnik
 
                     if ($kartica->stanje != null) {
 
-                        $_SESSION['poruka'] .= "Trajanje kartice: {$kartica->vaziDo}<br/><br/>";
+                        $_SESSION['poruka'] .= "Kartica važi do: {$kartica->vaziDo}<br/><br/>";
 
                         //tekuci datum
                         $datumTekuci = explode('-', date('Y-m-d'));
@@ -117,17 +118,18 @@ class Kontrolor extends Korisnik
                             //izvrsi kaznu ako je nevalidna kartica
                             $this->kazniNevalidnog($boravak);
                             $_SESSION['poruka'] .= "KORISNIK JE KAŽNJEN ZBOG ISTEKA VALIDNOSTI KARTICE.<br/>";
+                            $_SESSION['kaznjen'] = true;
                         } else {
                             $_SESSION['poruka'] .= "KORISNIK IMA VALIDNU KARTICU.<br/>";
                         }
                     } else {
-                        $_SESSION['poruka'] .= "Trajanje kartice: Kartica je izdata gostu<br/>";
+                        $_SESSION['poruka'] .= "Kartica važi do: Kartica je izdata gostu<br/>";
                     }
 
                     return redirect()->to(site_url("Kontrolor/uspehKontrolor/1"));
                 }
             }
-            $poruka = "Automobil registarski oznaka {$tablice} nije evidentiran da trenutno boravi u garaži.";
+            $poruka = "AUTOMOBIL UNETIH REGISTARSKIH OZNAKA TRENUTNO NE BORAVI U GARAŽI.";
         }
         $data['naslov'] = 'PROVERA';
         $data['poruka'] = $poruka;
@@ -176,7 +178,7 @@ class Kontrolor extends Korisnik
                     return redirect()->to(site_url("Kontrolor/uspehKontrolor/2"));
                 }
             }
-            $poruka = "Automobil registarskih oznaka {$tablice} nije evidentiran da trenutno boravi u garaži.";
+            $poruka = "AUTOMOBIL UNETIH REGISTARSKIH OZNAKA TRENUTNO NE BORAVI U GARAŽI.";
         }
         
         $data['naslov'] = 'KAZNA';

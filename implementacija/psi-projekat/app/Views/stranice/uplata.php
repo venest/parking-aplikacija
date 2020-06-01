@@ -6,7 +6,7 @@
                 <?php
                 if(isset($poruka)) { ?>
             <div class="row justify-content-center">
-                <div class="alert text-center alert-danger col-lg-9">
+                <div class="alert text-center alert-danger col-lg-9 py-4">
                     <strong><?php echo $poruka; ?></strong>
                 </div>
             </div> <?php
@@ -15,21 +15,14 @@
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="idKartice">ID KARTICE</label>
-                      <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice"
-                             value="<?php 
-                            if(isset($vrednost)){
-                             if(strcmp($poruka, "KARTICA SA DATIM ID NE POSTOJI U BAZI")!=0 &&
-                                  strcmp($poruka, "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA")!=0)
-                                echo $vrednost;
-                            }
-                        ?>">
+                      <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice" value="<?php echo set_value('idKartice'); ?>">
                     </div>
                   </div>
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="iznos">IZNOS UPLATE</label>
                       <div class="input-group">
-                        <input type="text" class="form-control form-control-lg" name="iznos" id="iznos">
+                        <input type="text" class="form-control form-control-lg" name="iznos" id="iznos" value="<?php echo set_value('iznos'); ?>">
                         <div class="input-group-append">
                           <span class="input-group-text">RSD</span>
                         </div>
