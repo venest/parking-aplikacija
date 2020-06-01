@@ -8,7 +8,7 @@
                     case 'IZLAZAK':
                         echo 'USPESNO IZASAO';
                         echo "</br>";
-                        echo 'Placen racun od: '.$cena.'.00 dinara!';
+                        if($cena > 0) echo 'Placen racun od: '.$cena.'.00 dinara!';
                         break;
                    
                 }

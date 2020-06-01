@@ -90,9 +90,11 @@ class Kontrolor extends Korisnik
                     //pravljenje poruke za ispis kontroloru
                     $_SESSION['poruka'] = "ID kartice: {$boravak->idKartice}<br/>";
                     $_SESSION['poruka'] .= "Datum i vreme ulaska: {$boravak->datumUlaska}" . " " . "{$boravak->vremeUlaska}<br/>";
+
                     if($boravak->datumIzlaska && $boravak->vremeIzlaska){
-                    $_SESSION['poruka'] .= "Datum i vreme izlaska: {$boravak->datumIzlaska}" . " " . "{$boravak->vremeIzlaska}<br/>";}
-                    else {$_SESSION['poruka'] .= "Datum i vreme izlaska: Automobil se nalazi u garazi<br/>";}
+                        $_SESSION['poruka'] .= "Datum i vreme izlaska: {$boravak->datumIzlaska}" . " " . "{$boravak->vremeIzlaska}<br/>";
+                    }
+                   
 
                     if ($kartica->stanje != null) {
 
@@ -114,7 +116,7 @@ class Kontrolor extends Korisnik
                         if ($datumVazenjaUnix < $datumTekuciUnix) {
                             //izvrsi kaznu ako je nevalidna kartica
                             $this->kazniNevalidnog($boravak);
-                            $_SESSION['poruka'] .= "KORISNIK JE KAZNJEN ZBOG ISTEKA VALIDNOSTI KARTICE.<br/>";
+                            $_SESSION['poruka'] .= "KORISNIK JE KAŽNJEN ZBOG ISTEKA VALIDNOSTI KARTICE.<br/>";
                         } else {
                             $_SESSION['poruka'] .= "KORISNIK IMA VALIDNU KARTICU.<br/>";
                         }

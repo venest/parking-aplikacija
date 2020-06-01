@@ -277,7 +277,7 @@ class Admin extends Korisnik {
           $email = $this->request->getVar('email');
           $tablice = $this->request->getVar('tablice');
           $rules['email'] = 'required';
-          $messages['email']['required'] = 'UNESITE EMAIL.';
+          $messages['email']['required'] = 'UNESITE EMAIL.'; 
           $rules['tablice'] = 'required';
           $messages['tablice']['required'] = 'UNESITE TABLICE.';
           $poruka='';
@@ -291,25 +291,25 @@ class Admin extends Korisnik {
                 if ($kor==null){
                     $poruka = 'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.';
                 } else {
-                     $idKor=$kor->idKorisnika;
+                    $idKor=$kor->idKorisnika;
                     $km=new KarticaModel();
                     $kartica=$km->nadjiKarticu($tablice, $idKor);
                     if ($kartica==null){
                         $poruka='NE POSTOJI KARTICA ZA UNETE PODATKE.';
                     } else{
-                      $preostaliNovac=$kartica->stanje;
-                      if($preostaliNovac>0){
-                       $data['datum'] = date('Y-m-d');
-                       $data['vreme'] = date('H:i:s');
-                       $data['iznos'] = $preostaliNovac;
-                       $data['opis'] = 'isplata zbog gubitka';
-                       $rm = new RacunModel();
-                      $idRacuna = $rm->dodajRacun($data);
-                      $im=new IsplataModel();
-                      $data['idKartice']=$kartica->idKartice;
-                      $data['idRacuna']=$idRacuna;
-                      $im->dodajIsplatu($data);
-                     //$im->dodajIsplatu($kartica->idKartice,$idRacuna); //bolje je da se data sklapa u samom modelu, a ne ovde
+                        $preostaliNovac=$kartica->stanje;
+                        if($preostaliNovac>0){
+                        $data['datum'] = date('Y-m-d');
+                        $data['vreme'] = date('H:i:s');
+                        $data['iznos'] = $preostaliNovac;
+                        $data['opis'] = 'isplata zbog gubitka';
+                        $rm = new RacunModel();
+                        $idRacuna = $rm->dodajRacun($data);
+                        $im=new IsplataModel();
+                        $data['idKartice']=$kartica->idKartice;
+                        $data['idRacuna']=$idRacuna;
+                        $im->dodajIsplatu($data);
+                        //$im->dodajIsplatu($kartica->idKartice,$idRacuna); //bolje je da se data sklapa u samom modelu, a ne ovde
                       }
                       
                       $km->obrisi($kartica); //bolje bi bilo da se status postavi na izgubljena

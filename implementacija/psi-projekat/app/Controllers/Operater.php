@@ -123,20 +123,23 @@ class Operater extends Korisnik
 		else{
 			//provera da li postoji registrovani korisnik sa ovim ID-em
 			$karticaModel = new KarticaModel();
-			$postojiKor = $karticaModel->dohvatiKarticu($idKartice);
+			$kartica = $karticaModel->dohvatiKarticu($idKartice);
 
-			if($postojiKor == null) $poruka = 'NE POSTOJI REGISTROVANI KORISNIK';
+			if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-em';
 			else{
-				//insert boravka
-				$ulazakModel = new BoravakModel();
-				$ulazakModel->dodajBoravak($idKartice);
-				$data['usaoRegistrovani'] = 'Uspesan ulazak';
-				return redirect()->to(site_url('Operater/uspehOperater/2'));
+				if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA';
+				else{
+					//insert boravka
+					$ulazakModel = new BoravakModel();
+					$ulazakModel->dodajBoravak($idKartice);
+					$data['usaoRegistrovani'] = 'Uspesan ulazak';
+					return redirect()->to(site_url('Operater/uspehOperater/2'));
+				}
 			}
 
 		}
 
-		$data['naslov'] = "ULAZAK GOST";
+		$data['naslov'] = "ULAZAK REGISTROVANI";
 		if($poruka) $data['poruka'] = $poruka;
 		
 		$this->prikazi('ulazakRegistrovani', $data);

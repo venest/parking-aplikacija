@@ -18,9 +18,8 @@
                       <input type="text" class="form-control form-control-lg" name="idKartice" id="idKartice"
                              value="<?php 
                             if(isset($vrednost)){
-                             if(strcmp($poruka, "KARTICA SA DATIM ID NE POSTOJI U BAZI.")!=0 &&
-                                  strcmp($poruka, "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI ISPLATA")!=0 &&
-                                    strcmp($poruka, "NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUSAJTE ISPLATU MANJE SUME.")!=0)
+                              if(strcmp($poruka, "KARTICA SA DATIM ID NE POSTOJI U BAZI.")!=0 &&
+                                strcmp($poruka, "KARTICA SA DATIM ID PRIPADA GOSTU I NE MOZE SE IZVRSITI ISPLATA")!=0 )
                                 echo $vrednost;
                             }
                         ?>">
