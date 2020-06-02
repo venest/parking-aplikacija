@@ -282,102 +282,6 @@ class Admin extends Korisnik {
         $data['poruka'] = $poruka;
         $this->prikazi('obnovaKarticeAdmin', $data);
     }
-
-    public function gubitakKarticeSubmit() {
-          $email = $this->request->getVar('email');
-          $tablice = $this->request->getVar('tablice');
-          $rules['email'] = 'required';
-          $messages['email']['required'] = 'UNESITE EMAIL.'; 
-          $rules['tablice'] = 'required';
-          $messages['tablice']['required'] = 'UNESITE TABLICE.';
-          $poruka='';
-           if(!$this->validate($rules, $messages)) {
-                if($this->validator->hasError('email')) $poruka = $this->validator->getError ('email');
-                else if($this->validator->hasError('tablice')) $poruka = $this->validator->getError ('tablice');
-           } else{
-                $rm = new RegistrovaniModel();
-                $kor = $rm->dohvatiKorisnika($email);
-          
-                if ($kor==null){
-                    $poruka = 'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.';
-                } else {
-                    $idKor=$kor->idKorisnika;
-                    $km=new KarticaModel();
-                    $kartica=$km->nadjiKarticu($tablice, $idKor);
-                    if ($kartica==null){
-                        $poruka='NE POSTOJI KARTICA ZA UNETE PODATKE.';
-                    } else{
-                        
-                        //proveriIzlazak($kartica->idKartice); 
-                         $idKartice = $kartica->idKartice;
-
-				$boravakM = new BoravakModel();
-				$boravak = $boravakM->dohvatiBoravak($idKartice);
-                                $cena = 0;
-				if($boravak == null) {
-					$data['poruka0'] = "KORISNIK NIJE PARKIRAN!";
-                                        $poruka0="KORISNIK NIJE PARKIRAN!";
-				}
-				else{
-					$data['poruka0'] = 'Korisnik izasao iz garaze';
-                                        $poruka0= 'Korisnik izasao iz garaze';
-					//registrovani
-						$kaznaM = new KaznaModel();
-						$kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
-
-						
-						foreach($kazne as $kazna){
-							$cena += $kazna->iznos;
-						}
-
-						$data['cena'] = $cena;
-					
-					
-					if($cena > 0){
-						$data['datum'] = date('Y-m-d');
-						$data['vreme'] = date('H:i:s');
-						$data['iznos'] = $cena;
-						$data['opis'] = "placanje izlaska";
-						$rm = new RacunModel();
-						$idRacuna = $rm->dodajRacun($data);
-						$boravakM->updateRacun($boravak->idBoravka, $idRacuna);
-					}
-					$boravakM->izlazak($boravak->idBoravka);
-					//return redirect()->to(site_url("Operater/uspehOperater/3/$cena"));
-				}
-			
-                        $preostaliNovac=$kartica->stanje;
-                        if($preostaliNovac>0){
-                        $data['datum'] = date('Y-m-d');
-                        $data['vreme'] = date('H:i:s');
-                        $data['iznos'] = $preostaliNovac;
-                        $data['opis'] = 'isplata zbog gubitka';
-                        $rm = new RacunModel();
-                        $idRacuna = $rm->dodajRacun($data);
-                        $im=new IsplataModel();
-                        $data['idKartice']=$kartica->idKartice;
-                        $data['idRacuna']=$idRacuna;
-                        $im->dodajIsplatu($data);
-                        
-                        //$im->dodajIsplatu($kartica->idKartice,$idRacuna); //bolje je da se data sklapa u samom modelu, a ne ovde
-                      }
-                      
-                      $km->obrisi($kartica); 
-                      
-                     //$preostaliNovac= -$cena;
-                      
-                      //$this->uspehAdmin(5, $poruka);
-                      return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
-                    }
-                }
-           }
-           
-        $data['naslov'] = 'GUBITAK KARTICE';
-        $data['poruka'] = $poruka;
-        $this->prikazi('gubitakKartice', $data);
-        
-          
-    }
     
     public function isplataSaKarticeSubmit() {
         //dohvatanje id kartice i validacija unetih podataka
@@ -492,6 +396,172 @@ class Admin extends Korisnik {
         $this->prikazi('uplata', $data);
     }
 
+
+    public function gubitakKarticeSubmit() {
+        $email = $this->request->getVar('email');
+        $tablice = $this->request->getVar('tablice');
+        //  $rules['email'] = 'required';
+        //$messages['email']['required'] = 'UNESITE EMAIL.'; 
+        $rules['tablice'] = 'required';
+        $messages['tablice']['required'] = 'UNESITE TABLICE.';
+        $poruka = '';
+        if (!$this->validate($rules, $messages)) {
+            //  if($this->validator->hasError('email')) $poruka = $this->validator->getError ('email');
+            if ($this->validator->hasError('tablice'))
+                $poruka = $this->validator->getError('tablice');
+        } else {
+
+            if ($email != null) {
+
+                $rm = new RegistrovaniModel();
+                $kor = $rm->dohvatiKorisnika($email);
+
+                if ($kor == null) {
+                    $poruka = 'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.';
+                } else {
+                    $idKor = $kor->idKorisnika;
+                    $km = new KarticaModel();
+                    $kartica = $km->nadjiKarticu($tablice, $idKor);
+                    if ($kartica == null) {
+                        $poruka = 'NE POSTOJI KARTICA ZA UNETE PODATKE.';
+                    } else {
+
+                        //proveriIzlazak($kartica->idKartice); 
+                        $idKartice = $kartica->idKartice;
+
+                        $boravakM = new BoravakModel();
+                        $boravak = $boravakM->dohvatiBoravak($idKartice);
+                        $cena = 0;
+                        if ($boravak == null) {
+                            $data['poruka0'] = "KORISNIK NIJE PARKIRAN!";
+                            $poruka0 = "KORISNIK NIJE PARKIRAN!";
+                        } else {
+                            $data['poruka0'] = 'Korisnik izasao iz garaze';
+                            $poruka0 = 'Korisnik izasao iz garaze';
+                            //registrovani
+                            $kaznaM = new KaznaModel();
+                            $kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
+
+
+                            foreach ($kazne as $kazna) {
+                                $cena += $kazna->iznos;
+                            }
+
+                            $data['cena'] = $cena;
+
+
+                            if ($cena > 0) {
+                                $data['datum'] = date('Y-m-d');
+                                $data['vreme'] = date('H:i:s');
+                                $data['iznos'] = $cena;
+                                $data['opis'] = "placanje izlaska";
+                                $rm = new RacunModel();
+                                $idRacuna = $rm->dodajRacun($data);
+                                $boravakM->updateRacun($boravak->idBoravka, $idRacuna);
+                            }
+                            $boravakM->izlazak($boravak->idBoravka);
+                            //return redirect()->to(site_url("Operater/uspehOperater/3/$cena"));
+                        }
+
+                        $preostaliNovac = $kartica->stanje;
+                        if ($preostaliNovac > 0) {
+                            $data['datum'] = date('Y-m-d');
+                            $data['vreme'] = date('H:i:s');
+                            $data['iznos'] = $preostaliNovac;
+                            $data['opis'] = 'isplata zbog gubitka';
+                            $rm = new RacunModel();
+                            $idRacuna = $rm->dodajRacun($data);
+                            $im = new IsplataModel();
+                            $data['idKartice'] = $kartica->idKartice;
+                            $data['idRacuna'] = $idRacuna;
+                            $im->dodajIsplatu($data);
+
+                            //$im->dodajIsplatu($kartica->idKartice,$idRacuna); //bolje je da se data sklapa u samom modelu, a ne ovde
+                        }
+
+                        $km->obrisi($kartica);
+
+                        $preostaliNovac = -$cena;
+
+                        //$this->uspehAdmin(5, $poruka);
+                        return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
+                    }
+                }
+            } else {  //gost
+                $mk = new KarticaModel();
+                $kartice = $mk->nadjiKarticuTablice($tablice);
+                if($kartice){
+
+                    $bm = new \App\Models\BoravakModel();
+                    $karticaUnutra = null;
+                    $boravak;
+                    foreach ($kartice as $kartica) {
+
+                        if ($bm->dohvatiBoravak($kartica->idKartice)){
+                            $karticaUnutra=$kartica;
+                            break;
+                        }
+                        
+                    }
+                    
+                    if($karticaUnutra){
+                    
+                        $boravak=$bm->dohvatiBoravak($karticaUnutra->idKartice);
+                        
+                        //vreme provedeno + kazne
+                        $datumUl = $boravak->datumUlaska;
+                        $datumUl = explode('-', $datumUl);
+                        $vremeUl = $boravak->vremeUlaska;
+                        $vremeUl = explode(':', $vremeUl);
+
+                        $danUl = (int) $datumUl[2];
+                        $mesUl = (int) $datumUl[1];
+                        $godUl = (int) $datumUl[0];
+
+                        $satUl = (int) $vremeUl[0];
+                        $minUl = (int) $vremeUl[1];
+                        $sekUl = (int) $vremeUl[2];
+
+                        $vremeUl = mktime($satUl, $minUl, $sekUl, $mesUl, $danUl, $godUl);
+                        $vremeIzl = mktime(date("H"), date("i"), date("s"), date("n"), date("j"), date("Y"));
+                        $brsati = round(($vremeIzl - $vremeUl) / 3600);
+                        if ($brsati == 0)
+                            $brsati = 1;
+
+                        $cena = $brsati * 60; //60din sat
+                        $data['cena'] = $cena;
+
+                        //cena se sabira sa kaznama ako ih ima
+                        $kaznaM = new KaznaModel();
+                        $kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
+
+                        foreach ($kazne as $kazna) {
+                            $cena += $kazna->iznos;
+                        }
+
+                        $km = new KarticaModel();
+                        $bm->izlazak($boravak->idBoravka);
+                        $km->obrisi($karticaUnutra);
+
+                        $preostaliNovac=0;
+                        return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
+                    }
+                    else{
+                        $poruka = "AUTOMOBIL SA UNETIM TABLICAMA NIJE U GARAŽI.";
+                    }
+                }
+                else {
+                    $poruka = "AUTOMOBIL SA UNETIM TABLICAMA NIJE U GARAŽI.";
+                }
+                
+            }
+        }
+
+        $data['naslov'] = 'GUBITAK KARTICE';
+        $data['poruka'] = $poruka;
+        $this->prikazi('gubitakKartice', $data);
+    }
+
     public function uspehAdmin($id,$preostaliNovac=null,$cena=null) {
         $poruka=null;
         switch ($id) {
@@ -506,9 +576,8 @@ class Admin extends Korisnik {
                 break;
             case '5': $naslov = 'GUBITAK KARTICE - USPEH';
                 
+                $poruka='Novac za uplatu: '.$cena. ' DIN<br/>'.' Novac za isplatu: '.$preostaliNovac.' DIN';
                 
-                     $poruka='Novac za uplatu: '.$cena. ' DIN'.' Novac za isplatu: '.$preostaliNovac.' DIN';
-              
                
                 break;
         }
