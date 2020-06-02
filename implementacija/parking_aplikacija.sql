@@ -362,7 +362,7 @@ ALTER TABLE `izdavanje`
 -- Constraints for table `kazna`
 --
 ALTER TABLE `kazna`
-  ADD CONSTRAINT `kazna_ibfk_1` FOREIGN KEY (`idBoravka`) REFERENCES `boravak` (`idBoravka`);
+  ADD CONSTRAINT `kazna_ibfk_1` FOREIGN KEY (`idBoravka`) REFERENCES `boravak` (`idBoravka`)ON DELETE CASCADE;
 
 --
 -- Constraints for table `obnova`
