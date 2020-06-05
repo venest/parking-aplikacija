@@ -1,0 +1,1516 @@
+{
+  "id": "c029faaf-8b25-458f-9c4f-33991bafb6db",
+  "version": "2.0",
+  "name": "Admin-mirko-test",
+  "url": "http://localhost:8080/Admin/gubitakKartice",
+  "tests": [{
+    "id": "89136f53-c57f-4141-8db0-a1a5f49b5889",
+    "name": "izdavanje kartice uspeh",
+    "commands": [{
+      "id": "8cfcb62d-429f-4c81-abe8-5e77f86aa80d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/izdavanjeKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2efdd40e-97ec-4d40-837d-3e188b446f8c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "914x759",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "edffb666-a70b-43c1-b60a-2ae3b4f5af83",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pera@etf.rs"
+    }, {
+      "id": "080ffee0-699b-4966-a284-f5504f55efbc",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b272cb2d-59cc-46df-855f-bfeee4b8a8fb",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "981c425d-1dc2-426f-964f-a5362809fbd0",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "tablice1"
+    }, {
+      "id": "476a84bf-b86b-4958-b48c-38d959e5c8da",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "1200"
+    }, {
+      "id": "b107bb61-d400-4a8e-b027-ba41a13ae1d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[5]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'IZDAVANJE KARTICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f91a8d69-14ff-4046-8a64-11469b9f5225",
+    "name": "prijava",
+    "commands": [{
+      "id": "d9438e3c-dfb7-48aa-87e7-9cf557a5f85b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "95f76fec-4892-4f6d-bd8c-840f518cf482",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "915x763",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e6c254ef-4314-4592-a5dd-7c5413a4ef1d",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5fbbfeb1-5ac7-4f89-9dce-702f8230b32b",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mika"
+    }, {
+      "id": "9c318e68-364e-4fd8-af66-863a89541fb3",
+      "comment": "",
+      "command": "type",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "d951ac08-9dd8-4a37-af00-18c0541b31b0",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }]
+  }, {
+    "id": "9241bccc-ea98-49c1-bba0-137579b2ba26",
+    "name": "izdavanje kartice prazno polje",
+    "commands": [{
+      "id": "01a988ce-e789-4b4c-bf70-75f93e5dcba3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/izdavanjeKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b53cee81-429b-4766-82f9-df5c1f900299",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6241a0e0-a725-4afc-bf20-70405f719cf7",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pera@etf.rs"
+    }, {
+      "id": "affb0571-89c8-4d3e-bdab-7d8e1f837e1b",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "1200"
+    }, {
+      "id": "70d23d4f-7fec-4b01-8c85-c53744121c43",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "b7074c12-da0b-4881-a315-09b7a95c31a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4413e4b3-f61e-4990-92db-93933426b657",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE TABLICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE TABLICE."
+    }, {
+      "id": "62b42b88-c671-4a72-a1cc-2c191218e04e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "31cb4fc7-fd4f-4b64-9ebd-96b5c954feb8",
+    "name": "izdavanje kartice nedovoljno novca",
+    "commands": [{
+      "id": "9dc8faa9-2029-4a88-8c4f-41e4d1fb12ac",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/izdavanjeKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "61628b72-5c53-46e9-bcff-87a3ea0e5dd4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2fa2a221-59ec-4a92-8fed-a7b123604e12",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "394a9956-c74f-416b-8dbf-3cd59078d10a",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pera@etf.rs"
+    }, {
+      "id": "864bc0ff-aa22-4577-bd3b-2616c0ab3f2e",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "LO-436-PR"
+    }, {
+      "id": "8bc13e58-9243-4f9f-93cb-c738473c6e1f",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "500"
+    }, {
+      "id": "707e3c8f-ade8-498d-8bf4-9279fc640d27",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[5]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'IZDAVANJE KARTICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a675db8-a309-461c-ab60-052225b1a351",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd4516bb-71db-40c9-9529-1acc4be75f95",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NEMA DOVOLJNO SREDSTAVA ZA ŽELJENE OPCIJE.')]", "xpath:innerText"]
+      ],
+      "value": "NEMA DOVOLJNO SREDSTAVA ZA ŽELJENE OPCIJE."
+    }]
+  }, {
+    "id": "c82a9778-5630-4f0e-ab4f-3b5c30587c1f",
+    "name": "uplata uspeh",
+    "commands": [{
+      "id": "8948444d-6538-465e-83d1-c14e5f614998",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a4fb7f8-e3cb-44ae-b518-63fe81d6bde9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d52c33da-f3a3-4667-944f-9185d992b327",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "883aa51a-b3c8-4327-af4a-7cf580cacb65",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "11"
+    }, {
+      "id": "28cbbbca-21a5-492d-aaaa-7157e68eb3f7",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "2000"
+    }, {
+      "id": "d313b056-1de8-4618-a471-8ee50c45e4cf",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "b0f06816-7d34-448d-a513-fd5012101880",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c474d1c7-502b-443e-a217-a97edaca711b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI UPLATU.')]", "xpath:innerText"]
+      ],
+      "value": "USPEŠNO STE IZVRŠILI UPLATU."
+    }]
+  }, {
+    "id": "389575d9-e9c9-46fe-ab7f-0157daa854df",
+    "name": "obnova uspeh",
+    "commands": [{
+      "id": "6651085a-c84c-4ae6-b583-f77a38383f17",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/obnovaKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f7d2af0f-d412-4fb1-9cd3-1329067e18b9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "461c88c4-1031-4927-8877-04fce7250a6e",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c239772b-a7c9-4d60-ac68-a9295557ac5d",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "11"
+    }, {
+      "id": "44e5a797-d687-4b06-9de6-926d3ba71dd3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c7cf052-ace1-4539-87f1-518f3291deee",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0a72716-c44b-4562-9467-ce660503e665",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d33c779-03b3-46d3-952d-f9b81dad8a0b",
+      "comment": "",
+      "command": "click",
+      "target": "id=bs-select-1-1",
+      "targets": [
+        ["id=bs-select-1-1", "id"],
+        ["linkText=SEDMICA, 800 RSD", "linkText"],
+        ["css=#bs-select-1-1", "css:finder"],
+        ["xpath=//a[@id='bs-select-1-1']", "xpath:attributes"],
+        ["xpath=//div[@id='bs-select-1']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//div/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'SEDMICA, 800 RSD')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4744f2a5-df81-49dd-9c46-c1641e80970b",
+      "comment": "",
+      "command": "select",
+      "target": "name=period",
+      "targets": [],
+      "value": "label=SEDMICA, 800 RSD"
+    }, {
+      "id": "abc7caa4-2510-466d-b67e-1d4d00b2f157",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'POTVRDI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6373b244-38e7-4461-b29d-2343c68f7195",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9162e741-77e1-4081-9204-c6b5649ac0f7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE OBNOVILI KARTICU.')]", "xpath:innerText"]
+      ],
+      "value": "USPEŠNO STE OBNOVILI KARTICU."
+    }]
+  }, {
+    "id": "a39e5368-43bb-47d6-9955-71306eda9ffb",
+    "name": "obnova prazno polje",
+    "commands": [{
+      "id": "a3c2c26b-6dc0-4ec0-b27d-6e56305558a1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/obnovaKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "447b5dd0-505c-4a13-9a43-b56836ebcdb3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c9758de-de68-4ad1-88f1-2a295ee46953",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'POTVRDI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7fea320c-1606-4f10-9976-811674b7811c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b11b770-dd46-48ff-887f-01ce949ac8e8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }]
+  }, {
+    "id": "32995f26-1c53-4141-bbed-c786017391c5",
+    "name": "obnova karticom za gosta",
+    "commands": [{
+      "id": "9e510d60-4821-4738-bee2-7b8ed3224efd",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/obnovaKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b1a3767-139b-443e-b9da-842b1c689485",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a2909be-2783-40a2-874e-743bc8141d10",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1998b02-294c-46d7-b3df-2ff115bad5e1",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "27"
+    }, {
+      "id": "3303b2f6-b9fb-4a05-9074-2533644d5ba1",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }]
+  }, {
+    "id": "ae68d486-0777-40e4-9913-988f8f54bcdc",
+    "name": "obnova ne postoji kartica",
+    "commands": [{
+      "id": "59a569ae-6d42-4266-9bb4-b708bd5669dd",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/obnovaKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29f014e8-17b4-4965-a10e-e3a46dba5635",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "917x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7899886d-137a-4b73-bd5d-1516eb468742",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "201ea7bc-a2d1-4318-8ce0-27b863ccca8e",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "834e5da8-bcc4-4345-8b10-f073ecff494b",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "7a8affd6-9a38-4192-bab8-55a49cceacc5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96adce50-0d0f-4e2b-83b4-5959ae31c44a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM NE POSTOJI.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM NE POSTOJI."
+    }]
+  }, {
+    "id": "454b752a-5b78-4d28-8566-9908453e777f",
+    "name": "uplata ne postoji kartica",
+    "commands": [{
+      "id": "f75c5a2d-c450-430c-938e-b175e22cce36",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "05961907-add0-4421-b91d-58a804faf36e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f786603-c213-4ea4-ae27-49cbf48ec074",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7211d4d9-f9c9-4958-9e0f-cdd012e5e22d",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "0b491b69-44d3-4b5d-b34e-140e7bc9fe21",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "1000"
+    }, {
+      "id": "91c5a471-8cb7-4b20-8d73-bee131d7343a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "0ac6c04c-d5ea-44bc-bd00-ceca8fb091df",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7ca541c-bc32-478f-b79c-def0f5868c14",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI."
+    }]
+  }, {
+    "id": "acc8d916-6b1a-4d19-8363-d410e4618a14",
+    "name": "uplata karticom za gosta",
+    "commands": [{
+      "id": "9d49f794-fd6c-46e0-9426-3a12eec3210b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "718f0134-6b24-4858-a074-95bc046b0224",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "921x769",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "426ebd52-1cb9-4b86-be7a-aacd766b64df",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7e88bea-cb51-4083-a8e6-514086525614",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "27"
+    }, {
+      "id": "b9f91966-b59b-4ee4-8a7f-fb38e9e32e65",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "200"
+    }, {
+      "id": "42c49838-6dff-41bc-9355-6c8af096a41f",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "9bc83031-7ee7-4b63-9de1-447215eb246b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2da197c1-8f94-467b-a196-ebc20e97bf21",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA."
+    }]
+  }, {
+    "id": "e010ff0f-2b80-41b5-9064-67630aa4fb89",
+    "name": "uplata prazno polje",
+    "commands": [{
+      "id": "7f3f8acf-b6e5-4593-a7c3-9f7aa4281260",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2778bd8e-3016-4ce6-8d62-86bb870ac445",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ebb4d083-df46-4899-acc8-9b31193fd875",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "005042ef-97c9-41e6-a9c6-9220c39f820a",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "500"
+    }, {
+      "id": "e69b9684-dfbc-47a0-903b-f0703a9ec32b",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "18c88d7f-5da6-41e8-ab3e-80b23d473ad0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4737b38a-c072-4f66-9445-dd20bb76431e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }, {
+      "id": "5a28bb07-e304-4072-8222-644884996a73",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron > .py-4",
+      "targets": [
+        ["css=.jumbotron > .py-4", "css:finder"],
+        ["xpath=//div[2]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5b81a63e-e6f6-430f-8d67-5ed127f4ab33",
+    "name": "uplata iznos nije broj",
+    "commands": [{
+      "id": "88ca9297-258d-4066-9628-11568d249611",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a5a750b1-a429-45eb-8343-bf2eede6f8ef",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "920x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c98d79ea-e0ec-4683-9a64-1ca92e64c042",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cba4fd1c-d7da-46eb-8022-7a3f5272a1da",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "11"
+    }, {
+      "id": "e545c7bd-a840-4051-a239-224b260fc802",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "500sf."
+    }, {
+      "id": "e3cc5e1c-778b-49a4-adae-4c03d201e126",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a329394f-90e9-4f52-9c04-077a788018e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "702d41cf-5f4d-43bb-8344-b2b72c2dccca",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NEKOREKTAN UNOS ZA IZNOS.')]", "xpath:innerText"]
+      ],
+      "value": "NEKOREKTAN UNOS ZA IZNOS."
+    }]
+  }, {
+    "id": "2cdbd1be-2037-4ded-a545-90f754141ac4",
+    "name": "gubitak uspeh",
+    "commands": [{
+      "id": "6bae8513-190c-4224-abac-b5a22f141949",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/gubitakKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5e2d5f9-1c94-4457-960e-0885c5bda369",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "793x770",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "53aadfb3-dada-4834-9a63-458f84f67048",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "432b2162-35ec-4b61-a907-52bbcb862fa4",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mika@etf.rs"
+    }, {
+      "id": "126f035b-3997-4347-9096-95dcba569264",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79d0de85-237a-4e20-b4e4-118ab062cc27",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "LO-678-QR"
+    }, {
+      "id": "850660d8-3c8d-44c1-9d07-6c2574177645",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ GUBITAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b63b00f-8b1b-40ef-9c5d-9e7007b3c2d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bea5263b-1401-4cb8-b25a-3509ecdc3cbb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "USPEŠNO STE EVIDENTIRALI GUBITAK KARTICE.\\nNovac za uplatu: 0 DIN\\nNovac za isplatu: 0 DIN"
+    }]
+  }, {
+    "id": "cc9bdc61-8841-4189-8646-c4eac2aa762a",
+    "name": "gubitak prazno polje",
+    "commands": [{
+      "id": "f4276f8d-bdaa-442b-a720-e5500d509987",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/gubitakKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "32b308be-2b03-40d5-be71-808cd2394da9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a6d13488-64d3-4eb3-8a84-ed9368e8d636",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e734b14a-33b7-4ad8-a997-1ed2fee2107b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mika@etf.rs"
+    }, {
+      "id": "6236bad1-5a82-491e-b008-aabeda65873e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c1960070-246f-411d-b22f-be14a0fdf94f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1567b4fd-de53-4397-8ffd-e8ea710b852b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE TABLICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE TABLICE."
+    }]
+  }, {
+    "id": "c851f74d-8a71-481e-8947-86fae25c2cca",
+    "name": "gubitak ne postoji email",
+    "commands": [{
+      "id": "7f1b4fc1-6cb7-4247-b1b9-9e7f7ae8bb15",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/gubitakKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a49cb521-37e6-4b13-ad30-be4e8de0b2d0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "918x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "696e3eee-bc0f-4a62-8087-7f010f76962c",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1d0e9b4-9e6a-4215-a916-de54e7010da1",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tamara@etf.rs"
+    }, {
+      "id": "c1a16ed7-896a-4d3d-bfa5-bdbfba3c4ce1",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "BF-687-RT"
+    }, {
+      "id": "846bb91b-66dd-4128-991f-3b018ba272d4",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "adcfbf75-90d6-4bc6-b358-a8d6c3706a9d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cfe549f9-7ede-47f8-b931-0e0fab1be7b1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d045183-1aff-4c11-b9a7-02d88270c65e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NE POSTOJI KORISNIK SA UNETIM EMAIL-OM.')]", "xpath:innerText"]
+      ],
+      "value": "NE POSTOJI KORISNIK SA UNETIM EMAIL-OM."
+    }]
+  }, {
+    "id": "ef18f7bf-eac1-466a-af50-dbaadf6844ca",
+    "name": "gubitak ne postoji kartica",
+    "commands": [{
+      "id": "0a09e713-1173-4df1-8555-8c2f997acdff",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/gubitakKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bae4b06f-e42b-4a65-a8b8-007f389940ba",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "919x767",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76a7cc0c-4a8b-4109-b614-e7eb49847b43",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93ae19c0-a021-4216-abde-28165d38c2ac",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "zika@etf.rs"
+    }, {
+      "id": "b48e56b3-0799-4e0a-90db-4c9daa26170c",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "tablice"
+    }, {
+      "id": "775c6035-0987-466f-8a81-354fb4ae986e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d7d7efee-6c56-4b7b-82cd-bb65d7d322a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eef9ea80-131c-440b-9a9f-145bddd4022b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NE POSTOJI KARTICA ZA UNETE PODATKE.')]", "xpath:innerText"]
+      ],
+      "value": "NE POSTOJI KARTICA ZA UNETE PODATKE."
+    }]
+  }],
+  "suites": [{
+    "id": "9868fe9e-f58e-4705-8f96-fbc7d07ffa07",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/Admin/izdavanjeKartice", "http://localhost:8080/Gost/prijava", "http://localhost:8080/Admin/obnovaKartice", "http://localhost:8080/Admin/uplata", "http://localhost:8080/Admin/gubitakKartice"],
+  "plugins": []
+}
