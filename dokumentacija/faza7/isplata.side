@@ -1,0 +1,858 @@
+{
+  "id": "d32b26d0-de38-4ccc-993f-b0258308ef9c",
+  "version": "2.0",
+  "name": "isplata",
+  "url": "http://localhost:8080/Admin/isplata",
+  "tests": [{
+    "id": "d8a5acd3-215e-497f-b2a3-edfa17c7edc6",
+    "name": "prijava",
+    "commands": [{
+      "id": "ff34add2-1ffe-481c-a78a-9951a53a0018",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6bf20bc1-67b1-434d-933a-c97ad68efd46",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12a9f703-fa1d-4744-972e-1ce49f0b480c",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "768cc0cd-ddd4-46c6-bbe1-90833f8f6c5a",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mika"
+    }, {
+      "id": "456caae4-9525-453a-915e-0ec974a38e2c",
+      "comment": "",
+      "command": "click",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aba5270a-051d-4be3-85d1-b093ba6c961f",
+      "comment": "",
+      "command": "type",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "b3e1cae7-59d7-4981-ad3f-18220b0b7e4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4e6e4d33-0529-44d9-ab94-aed52f5697ce",
+    "name": "isplata test 1",
+    "commands": [{
+      "id": "5edeefad-b546-467f-b0e5-c2271425fdb3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e7cceb6-19f9-476a-b889-1138cbf0eff8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76965c19-663a-4cc5-9b2e-66a99f74868e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "af0941e2-d5f2-4e5c-bfc7-c24a4e8e3e30",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "140648dc-ea78-4638-a36e-5eb17e3f0c6e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }, {
+      "id": "987c0960-8921-459d-b76d-d84271d3c9fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8c451545-7d93-4976-bc6c-a797c4059a43",
+    "name": "isplata test 2",
+    "commands": [{
+      "id": "5beea148-6387-4e00-82d0-df4034103e4d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eaf5eb49-8417-4884-b66e-83a113747c4a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1056x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "787b28ef-1189-4b52-9621-ff1ad1f67205",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d98d65b-1649-4079-9e30-c064c3094c0a",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "f4a464c0-73d2-449e-be2f-dbaf53f4fdd3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6a0f3b1-cee0-4606-8337-c65ce1c4facf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0eb93b9-e874-4d86-b34e-539858833fed",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE IZNOS.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE IZNOS."
+    }, {
+      "id": "4cb4872e-59f4-4a2a-93d4-1bacfc98bbbf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "490be1ec-eb12-4672-bda3-5025adec7257",
+    "name": "isplata test 3",
+    "commands": [{
+      "id": "a714009a-a3f8-4097-95cb-1637314923a1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "516a713c-e30f-4398-9dbb-8224b815d64e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1056x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca1af9c1-df21-4d63-ac34-2d92add0498d",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c0ede07-d62f-41ee-b337-17955d9da178",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1234"
+    }, {
+      "id": "beaac773-f3f5-47c5-8568-12143917b8f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9c26303-04b0-4b4a-919a-42d5bc3ae2a3",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100a"
+    }, {
+      "id": "c73e9a56-895c-427a-884e-e9671dc14f72",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "41cbc45d-c4d5-4d54-ad0e-8da2a9cafffa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "322bd8b3-2318-470a-94d7-1834b0a2ef2b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NEKOREKTAN UNOS ZA IZNOS.')]", "xpath:innerText"]
+      ],
+      "value": "NEKOREKTAN UNOS ZA IZNOS."
+    }, {
+      "id": "f0d3c5d7-0b30-4231-b8a8-c61f6fcd8d71",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fd29f5a5-95ae-4689-a2fa-bca9ec2dc4b9",
+    "name": "isplata test 4",
+    "commands": [{
+      "id": "0eecc512-a0de-436f-944b-4682e0503bdb",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7eda66b9-9449-4fe6-81cb-8e8ced404cf1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2181771-4b05-4095-9018-9f586d41771e",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2aa9787a-6746-4a8a-8b28-a944bbe8cfc5",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1234"
+    }, {
+      "id": "00cc4cff-52f6-42da-b25d-5bcb368eb78c",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f5ddbaa-c757-4ce2-90ff-25e6756c0b98",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "074e7e2c-af54-48e7-a31f-e01860176df3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "28c46039-8a68-411e-b43e-5c2e19e87a99",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a2947b5-d418-4a86-b951-aa3c11b65971",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI."
+    }, {
+      "id": "bc35ed46-e12d-413e-99ee-f67167e8c7bd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "72005cb1-6a51-40aa-a102-2cb6d8738d87",
+    "name": "isplata test 5",
+    "commands": [{
+      "id": "76b80dd7-5846-4245-b1fe-4842f2327470",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e4afcee2-3498-466c-8d68-12c7c1322c4a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11cc146d-13f0-4f37-8229-b62a0b990ead",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1711067c-0b7c-4d6f-8dd5-6f422aa00d0d",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "27"
+    }, {
+      "id": "46e58b3e-d999-4a62-a6a7-b447a12200ce",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13358a3e-def6-42c0-8437-f602cf39f053",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "9752a538-fb2d-41f2-b02e-1b6dde1488d8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "124e583c-7268-418e-83bd-388be87a8a23",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
+      ],
+      "value": "12.899993896484375,-0.600006103515625"
+    }, {
+      "id": "10090f2e-69a8-4ff6-badb-bdd78bb4eb08",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
+      ],
+      "value": "12.899993896484375,-0.600006103515625"
+    }, {
+      "id": "a3a3fbfc-6527-4e00-a492-5a00dee46596",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
+      ],
+      "value": "12.899993896484375,-0.600006103515625"
+    }, {
+      "id": "7e788ed6-4de7-407b-9e9e-3a38396d0f67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6932a337-5115-444f-91ca-192d45a269dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2498447d-84a6-472a-b76d-027999962c11",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA."
+    }, {
+      "id": "7b835533-3b72-4ffe-980a-0cca87910a85",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "74d10ec3-0416-4a4b-afdb-89bc54467a7b",
+    "name": "isplata test 6",
+    "commands": [{
+      "id": "2acbd278-b045-43b7-9aa3-6c9cc38badb1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d3d36fb0-bc56-4dce-a75e-bc4e31376e07",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a70eaf50-01ce-475c-82dc-0ab1d10824ec",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4201c787-9285-4478-bcac-30d0f1f3e93f",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "22510b4a-e094-47d4-94f3-e427513d3589",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7b63f3c-2956-4c15-a654-ac7fe8f3cb25",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "1500"
+    }, {
+      "id": "af7c61df-9ef2-42d4-89f4-b8ebb84919e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "50626cd0-408d-46a5-855b-e5386d52034a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4b402a9-8ef3-47ae-8cb3-7a019e926d9d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUŠAJTE ISPLATU MANJE SUME.')]", "xpath:innerText"]
+      ],
+      "value": "NA KARTICI NEMA DOVOLJNO SREDSTAVA. POKUŠAJTE ISPLATU MANJE SUME."
+    }, {
+      "id": "abf7c9c1-df6c-4113-b9cc-0807d393c7d9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "88d6524a-68ea-4aa4-ad08-22649b1536b6",
+    "name": "isplata test 7",
+    "commands": [{
+      "id": "573dcd36-6070-4fe0-9499-7ae23b8b9e9a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "394fb414-4fe5-42b2-9356-457fbb7d55b6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1056x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30239ee7-c49d-4829-9972-fa25681d1c89",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e73debae-f29e-4f75-b662-1bccda203709",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "5b1b4e82-3eaa-4c8b-8ea4-65215b6ced34",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e97c0e82-7b3c-4093-91e6-7e511c7fc9ee",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "500"
+    }, {
+      "id": "4c44b59e-fe33-4863-99a3-d06d60ac8a4c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca2e20b0-0bff-4fb9-b188-2ff02d88858e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI ISPLATU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a53f04e6-9c17-4454-9d19-12e33986bd34",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI ISPLATU.')]", "xpath:innerText"]
+      ],
+      "value": "USPEŠNO STE IZVRŠILI ISPLATU."
+    }, {
+      "id": "b1906478-b318-4e85-b98a-77a4cddccdfb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI ISPLATU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "87922a4b-673e-4fc9-889c-5dae2f04cf97",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Gost/prijava", "http://localhost:8080/Admin/isplata"],
+  "plugins": []
+}

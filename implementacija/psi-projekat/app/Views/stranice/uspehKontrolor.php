@@ -1,5 +1,5 @@
 <div class="col-md-8 col-xs-12">
-    <div class="alert <?php if($_SESSION['kaznjen']) echo 'alert-danger'; else echo 'alert-success'; ?> text-center py-5">
+    <div class="alert <?php if(isset($_SESSION['kaznjen']) && $_SESSION['kaznjen'] && $naslov == 'PROVERA - USPEH') echo 'alert-danger'; else echo 'alert-success'; ?> text-center py-5">
         <h2>
             <?php
                 switch ($naslov) {

@@ -1,0 +1,551 @@
+{
+  "id": "f4361f30-ec66-4936-84c7-714d37781d8c",
+  "version": "2.0",
+  "name": "provera",
+  "url": "http://localhost:8080/Kontrolor/provera",
+  "tests": [{
+    "id": "3dba0ca1-b515-4197-b8b8-95270ea4ba44",
+    "name": "prijava",
+    "commands": [{
+      "id": "414fbf81-36a8-4d7d-a3e8-513ceddf16de",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a54cda7a-42ca-4c35-9023-8fdd0d98c2a9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6e89b613-7914-449b-aa2d-e0ea37af5d6c",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4306d232-41e1-458b-8232-99f7d820f109",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "zika"
+    }, {
+      "id": "1a9166af-6da4-49d0-a014-71399248f754",
+      "comment": "",
+      "command": "click",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32765640-cb39-4502-aa36-8dd6408be4ea",
+      "comment": "",
+      "command": "type",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "291f8b88-c891-483c-be77-28342cc16d73",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "41717c84-dba8-42ef-aa3d-bef05ccd27fa",
+    "name": "provera test 1",
+    "commands": [{
+      "id": "e41a3c00-b577-455a-a181-1702ca87c08b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/provera",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9d665ffa-56ea-4b61-a28c-b3a0d7f17580",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad1540bc-4636-4eee-9b8c-b0c70c9725f3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d649d917-216a-4496-9917-a67d5a009c74",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron > .row:nth-child(2)",
+      "targets": [
+        ["css=.jumbotron > .row:nth-child(2)", "css:finder"],
+        ["xpath=//div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4aaf3c7-741f-455e-b81e-ecb023c88839",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "UNESITE REGISTARSKI BROJ TABLICA."
+    }, {
+      "id": "d045354d-242e-4e6f-9bde-d6e13c95bbe3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "833fee4e-eec7-4e51-804d-7d452c5745c9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "fec33663-d6cb-44b4-add9-1356cb38a2ea",
+    "name": "provera test 2",
+    "commands": [{
+      "id": "126713b2-09c2-4324-90c9-0e7207cbbbe6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/provera",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "90055af8-58e8-4e1c-b081-ef0b02cb1698",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb0f51e9-0426-4e2a-93f3-163ff4390aa3",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0eb4fdc9-41fe-45c5-844c-0a96f16c642b",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "neketablice"
+    }, {
+      "id": "b7d9fcd0-6247-4391-9da5-6993f6492072",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5bffb2d3-c9fa-4ff6-8380-c20f0627094d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff61265f-5ade-4df0-9978-3b780bff75a8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'AUTOMOBIL UNETIH REGISTARSKIH OZNAKA TRENUTNO NE BORAVI U GARAŽI.')]", "xpath:innerText"]
+      ],
+      "value": "AUTOMOBIL UNETIH REGISTARSKIH OZNAKA TRENUTNO NE BORAVI U GARAŽI."
+    }, {
+      "id": "e2644936-fada-4948-9559-f43fe74807c9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7fca6bd1-f4b1-41a7-b3f9-5a2ec9e448a0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e5dffb2b-1e70-4fb5-8b36-35d764e7f8e7",
+    "name": "provera test 3",
+    "commands": [{
+      "id": "9614657d-e874-4e68-92de-73931d2cc2e4",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/provera",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa481f09-c2e7-4d5d-80f7-ec888144d628",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1058x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5ded9fb8-e9c1-4263-ab28-dd649dc963e4",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9714dba5-e91d-4750-a9a5-90635bb64e6e",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "gost1"
+    }, {
+      "id": "4f8f88cb-6f63-47d6-9e0d-b135cd53ec8c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "578171f3-0e52-4eae-9390-b7ab1702b3b4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fb58432-f96e-468e-930d-cc53adb4f9b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc0fa1dc-2cf3-45cc-b8a7-092fb720fae8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a11651ab-45b9-4fbe-9991-c8d3fe4b196f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbcdf9fb-9477-446b-9c4d-f17c5e75a099",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "ID kartice: 27\\nDatum i vreme ulaska: 2020-06-02 13:00:00\\nKartica važi do: Kartica je izdata gostu"
+    }]
+  }, {
+    "id": "d3a8245d-55e6-474d-8bc0-53277e17b6b6",
+    "name": "provera test 4",
+    "commands": [{
+      "id": "8b18adeb-24dd-4a55-be26-fd3e321262da",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/provera",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a34e555-0ddc-483e-b066-710592a9ead1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1062x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ede5b3f-2434-4496-ac88-a3db0448d504",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ade9919-869d-442a-bba4-cd8d8c5a29fa",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tablice1"
+    }, {
+      "id": "4c208dea-513e-4679-a434-d9e08d7e780b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c43d5e5d-0c11-4e39-8495-6c706953e38e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f872041d-bab5-4442-b11b-3d718bd0b0e2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "ID kartice: 7\\nDatum i vreme ulaska: 2020-06-01 05:00:00\\nKartica važi do: 2020-07-08\\n\\nKORISNIK IMA VALIDNU KARTICU."
+    }, {
+      "id": "cf667220-accc-41c6-8391-789c66a4ab04",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9ae08258-5ba6-421c-a490-e0633b6216fe",
+    "name": "provera test 5",
+    "commands": [{
+      "id": "574a2fef-f4e3-4fe2-92f2-06c5666be535",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/provera",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a7726176-08be-4113-93e2-c2a7919ac4f3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1066x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b13255c-d692-4ce9-87a6-70bef68cd2c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=form > .row:nth-child(1)",
+      "targets": [
+        ["css=form > .row:nth-child(1)", "css:finder"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1de3d88e-c3b6-45d3-8f02-9f25169af9d6",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46667ad1-0f48-46d9-9212-3e8dece8d34e",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tablice2"
+    }, {
+      "id": "07ddae2d-9125-4984-933b-06a284fd5e26",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d977dc67-bc44-403b-8fe3-98ee2caee1d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ad618a6-b944-43d9-91df-8d7b54264deb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "ID kartice: 8\\nDatum i vreme ulaska: 2020-06-04 07:00:00\\nKartica važi do: 2020-02-01\\n\\nKORISNIK JE KAŽNJEN ZBOG ISTEKA VALIDNOSTI KARTICE."
+    }, {
+      "id": "fb4a0ad1-338b-435e-9f45-24d4a0295e25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f14c88cf-4313-4bb4-8034-18b7693f3ce4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Gost/prijava", "http://localhost:8080/Kontrolor/provera"],
+  "plugins": []
+}

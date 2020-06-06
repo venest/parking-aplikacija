@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: May 17, 2020 at 12:48 PM
+-- Generation Time: Jun 06, 2020 at 08:08 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -42,15 +42,16 @@ CREATE TABLE IF NOT EXISTS `boravak` (
   PRIMARY KEY (`idBoravka`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `boravak`
 --
 
 INSERT INTO `boravak` (`idBoravka`, `idKartice`, `datumUlaska`, `vremeUlaska`, `datumIzlaska`, `vremeIzlaska`, `idRacuna`) VALUES
-(1, 27, '2020-05-17', '13:55:22', '2020-05-17', '13:57:11', 171),
-(2, 8, '2020-05-17', '13:57:25', NULL, NULL, NULL);
+(16, 27, '2020-06-02', '13:00:00', NULL, NULL, NULL),
+(17, 7, '2020-06-01', '05:00:00', NULL, NULL, NULL),
+(18, 8, '2020-06-04', '07:00:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `isplata` (
   PRIMARY KEY (`idIsplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `isplata`
@@ -74,7 +75,11 @@ CREATE TABLE IF NOT EXISTS `isplata` (
 
 INSERT INTO `isplata` (`idIsplate`, `idKartice`, `idRacuna`) VALUES
 (57, 8, 116),
-(58, 7, 126);
+(58, 7, 126),
+(70, 14, 182),
+(71, 10, 185),
+(72, 10, 186),
+(73, 10, 187);
 
 -- --------------------------------------------------------
 
@@ -112,20 +117,21 @@ CREATE TABLE IF NOT EXISTS `kartica` (
   `stanje` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`idKartice`),
   KEY `idKorisnika` (`idKorisnika`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `kartica`
 --
 
 INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `vaziDo`, `stanje`) VALUES
-(7, 'LO-401-MN', 1, '2020-07-08', '21600.00'),
-(8, 'LO-400-RE', 1, '2021-02-01', '4800.00'),
-(9, 'LO-980-PĐ', 2, '2020-07-11', '4000.00'),
-(10, 'LO-512-ĆŽ', 2, '2020-05-05', '1000.00'),
-(11, 'LO-678-QR', 2, '2020-04-18', '0.00'),
-(14, 'BG-500-AA', 5, '2020-05-14', '0.00'),
-(27, 'tablice1', NULL, NULL, NULL);
+(7, 'tablice1', 1, '2020-07-08', '22400.00'),
+(8, 'tablice2', 1, '2020-02-01', '4800.00'),
+(9, 'tablice3', 2, '2020-04-01', '4000.00'),
+(10, 'tablice4', 2, '2020-05-05', '1000.00'),
+(11, 'tablice5', 2, '2020-06-03', '0.00'),
+(14, 'tablice6', 5, '2020-05-14', '3.00'),
+(27, 'gost1', NULL, NULL, NULL),
+(37, 'gost2', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -141,7 +147,27 @@ CREATE TABLE IF NOT EXISTS `kazna` (
   `iznos` decimal(10,2) NOT NULL,
   PRIMARY KEY (`idKazne`),
   KEY `idBoravka` (`idBoravka`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `kazna`
+--
+
+INSERT INTO `kazna` (`idKazne`, `idBoravka`, `tipPrekrsaja`, `iznos`) VALUES
+(18, 18, 'PARKIRANJE SA KARTICOM CIJE JE VAZENJE ISTEKLO.', '1500.00'),
+(19, 18, 'PARKIRANJE SA KARTICOM CIJE JE VAZENJE ISTEKLO.', '1500.00'),
+(20, 18, 'PARKIRANJE SA KARTICOM CIJE JE VAZENJE ISTEKLO.', '1500.00'),
+(21, 18, 'PARKIRANJE SA KARTICOM CIJE JE VAZENJE ISTEKLO.', '1500.00'),
+(22, 16, 'PARKIRANJE NA MESTU ZA INVALIDE.', '1200.00'),
+(23, 17, 'PARKIRANJE NA MESTU ZA INVALIDE.', '1200.00'),
+(24, 16, 'PARKIRANJE NA MESTU ZA INVALIDE.', '1200.00'),
+(25, 18, 'PARKIRANJE SA KARTICOM CIJE JE VAZENJE ISTEKLO.', '1500.00'),
+(26, 16, 'PARKIRANJE NA MESTU ZA INVALIDE.', '1200.00'),
+(27, 17, 'PARKIRANJE NA MESTU ZA INVALIDE.', '1200.00'),
+(28, 17, 'PARKIRANJE NA MESTU ZA INVALIDE.', '1200.00'),
+(29, 16, 'PARKIRANJE NA MESTU ZA TRUDNICE.', '1500.00'),
+(30, 16, 'PARKIRANJE NA MESTU ZA TRUDNICE.', '1500.00'),
+(31, 18, 'PARKIRANJE SA KARTICOM CIJE JE VAZENJE ISTEKLO.', '1500.00');
 
 -- --------------------------------------------------------
 
@@ -157,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `obnova` (
   PRIMARY KEY (`idObnove`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `obnova`
@@ -190,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `racun` (
   `iznos` decimal(10,2) NOT NULL,
   `opis` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `racun`
@@ -252,7 +278,23 @@ INSERT INTO `racun` (`idRacuna`, `datum`, `vreme`, `iznos`, `opis`) VALUES
 (168, '2020-05-15', '00:39:50', '1200.00', 'izdavanje i pocetna dopuna dan'),
 (169, '2020-05-15', '00:39:50', '3000.00', 'uplata'),
 (170, '2020-05-15', '00:40:01', '1800.00', 'isplata zbog gubitka'),
-(171, '2020-05-17', '13:57:11', '60.00', 'placanje izlaska');
+(171, '2020-05-17', '13:57:11', '60.00', 'placanje izlaska'),
+(172, '2020-06-02', '09:17:05', '60.00', 'placanje izlaska'),
+(173, '2020-06-02', '09:52:34', '60.00', 'placanje izlaska'),
+(174, '2020-06-02', '10:43:55', '1500.00', 'placanje izlaska'),
+(175, '2020-06-02', '10:45:25', '2520.00', 'placanje izlaska'),
+(176, '2020-06-02', '11:05:55', '60.00', 'placanje izlaska'),
+(177, '2020-06-02', '12:26:10', '1200.00', 'izdavanje i pocetna dopuna dan'),
+(178, '2020-06-02', '12:26:10', '131434.00', 'uplata'),
+(179, '2020-06-02', '12:27:00', '200.00', 'obnova dan'),
+(180, '2020-06-02', '15:44:06', '60.00', 'placanje izlaska'),
+(181, '2020-06-02', '16:10:21', '13.00', 'uplata'),
+(182, '2020-06-02', '16:11:46', '10.00', 'isplata'),
+(183, '2020-06-05', '20:14:54', '400.00', 'uplata'),
+(184, '2020-06-05', '20:15:20', '400.00', 'uplata'),
+(185, '2020-06-05', '20:25:10', '500.00', 'isplata'),
+(186, '2020-06-05', '20:27:11', '1500.00', 'isplata'),
+(187, '2020-06-05', '20:28:45', '500.00', 'isplata');
 
 -- --------------------------------------------------------
 
@@ -270,7 +312,8 @@ CREATE TABLE IF NOT EXISTS `registrovani` (
   `grad` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `adresa` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `telefon` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`idKorisnika`)
+  PRIMARY KEY (`idKorisnika`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
@@ -298,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `uplata` (
   PRIMARY KEY (`idUplate`),
   KEY `idKartice` (`idKartice`),
   KEY `idRacuna` (`idRacuna`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `uplata`
@@ -306,7 +349,10 @@ CREATE TABLE IF NOT EXISTS `uplata` (
 
 INSERT INTO `uplata` (`idUplate`, `idKartice`, `idRacuna`) VALUES
 (34, 7, 116),
-(35, 8, 126);
+(35, 8, 126),
+(49, 14, 181),
+(50, 7, 183),
+(51, 7, 184);
 
 -- --------------------------------------------------------
 
@@ -359,10 +405,16 @@ ALTER TABLE `izdavanje`
   ADD CONSTRAINT `izdavanje_ibfk_2` FOREIGN KEY (`idRacuna`) REFERENCES `racun` (`idRacuna`);
 
 --
+-- Constraints for table `kartica`
+--
+ALTER TABLE `kartica`
+  ADD CONSTRAINT `kartica_ibfk_1` FOREIGN KEY (`idKorisnika`) REFERENCES `registrovani` (`idKorisnika`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `kazna`
 --
 ALTER TABLE `kazna`
-  ADD CONSTRAINT `kazna_ibfk_1` FOREIGN KEY (`idBoravka`) REFERENCES `boravak` (`idBoravka`)ON DELETE CASCADE;
+  ADD CONSTRAINT `kazna_ibfk_1` FOREIGN KEY (`idBoravka`) REFERENCES `boravak` (`idBoravka`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `obnova`

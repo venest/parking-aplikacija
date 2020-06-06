@@ -1,0 +1,671 @@
+{
+  "id": "7318a002-2804-41cc-a00e-58b6d3ce02b1",
+  "version": "2.0",
+  "name": "uplata",
+  "url": "http://localhost:8080/Admin/uplata",
+  "tests": [{
+    "id": "664006fa-7cd5-4f19-9b8f-8ab0b43f4237",
+    "name": "prijava",
+    "commands": [{
+      "id": "1d71d94e-8338-4410-89d4-dbc19dbf83c2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1398271f-c302-4606-a200-dc8c3a6cb35d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9322f9c-8b84-4792-8cf4-34b4f47b879d",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f657813-0420-4ec5-b7bb-bb3b00539ee8",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mika"
+    }, {
+      "id": "1e98e458-506f-4014-ad0a-6b975561ebed",
+      "comment": "",
+      "command": "click",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eff5ecf1-3212-4267-826a-14f21c9437e0",
+      "comment": "",
+      "command": "type",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "f1d8a1ff-26a1-481f-8a36-6c875ed23ba1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e6bde4e6-1f75-4ac3-80fc-1538dfb09408",
+    "name": "uplata test 1",
+    "commands": [{
+      "id": "003eea79-f8d0-47f3-999f-0bda2ab1ed51",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "670450e7-9407-49ec-bdec-abd06cc2f7ce",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1057x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b236dec-6b70-4a7b-b41d-5295c7548d5f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ UPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e90ccf6-81e0-45e2-a38a-c95ee8a19317",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d568966-c923-459b-a0be-17629a1de1df",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }]
+  }, {
+    "id": "a700e315-64bc-4871-bee6-d25e26ec58e6",
+    "name": "uplata test 2",
+    "commands": [{
+      "id": "d789305d-4fb1-4641-8a01-94b5b85a9d13",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c522fc7-614e-4496-a661-a3f76d756a91",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1061x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5aecd009-2b95-471c-8f76-147897a08037",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa45aed9-820a-4ad8-bb4c-8604c1e70247",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "a2c3d90b-301f-4fc9-9f18-76bc2f0f2e41",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ UPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "178b5f68-8e51-4238-b1ba-973c6a7dbb9d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a605b31-3f9c-4a3d-b6cb-4dec0ceac572",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE IZNOS.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE IZNOS."
+    }]
+  }, {
+    "id": "fc374e73-0a80-4ad7-98cd-49cb6eb8fabb",
+    "name": "uplata test 3",
+    "commands": [{
+      "id": "8e0ed9dd-7a9d-473f-a134-92c419afc8ca",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed5d2937-f7ec-4d85-af57-533aa4595724",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1057x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1fdb1dba-975f-46dc-b793-88b0dda761f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b13f2f00-ba43-4aea-97ba-06d1491adc72",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1234"
+    }, {
+      "id": "13b4f3a4-c478-40c9-a1dd-46af419e36e3",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "495f91eb-1987-4d04-9b29-38d0978fe75a",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "e7dcf0e5-906e-4eea-be4f-efc68ba6e7d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ UPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a986e83d-1a1b-4a55-ac89-6d1a435f6071",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b06b361f-cbe7-4c80-9567-0135f432e633",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM NE POSTOJI U BAZI."
+    }]
+  }, {
+    "id": "57928801-b927-4b48-9727-b2ed2763e1a9",
+    "name": "uplata test 4",
+    "commands": [{
+      "id": "31365537-8781-4566-a243-a2e961c3685f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f69b724-f4ab-46aa-808a-d9b46dddbf6c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1061x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1dd35101-f07c-410b-895b-b74400326a4f",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd1cf4a9-0a01-4a0c-81cd-b1cc95d1fca1",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1234"
+    }, {
+      "id": "b7cde513-8671-416b-8d46-b131d0616239",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "80f74264-3356-4c1c-b3ca-1e5860fe4f12",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100a"
+    }, {
+      "id": "68baa11c-108c-4e89-b9a7-024263c525c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ UPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "635dda19-916a-43dd-a3e7-391c9b264814",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87c7280b-630c-4af8-b7ed-71b0a908c343",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NEKOREKTAN UNOS ZA IZNOS.')]", "xpath:innerText"]
+      ],
+      "value": "NEKOREKTAN UNOS ZA IZNOS."
+    }, {
+      "id": "e081486d-95ba-4984-853a-11faf3702369",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c89899b3-93f4-486e-8352-b0784fa06c34",
+    "name": "uplata test 6",
+    "commands": [{
+      "id": "2e32ae04-10b8-4316-bccd-f9e1a625384d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70e4751c-c06f-4f15-8443-618236e3d0bb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2b12214-927e-4d98-82f6-e4d7981c7674",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6bfa2d84-0059-4545-a666-614081160392",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "7"
+    }, {
+      "id": "c436f5a3-0939-4a78-b6ad-cb02984f8765",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d658b14-0e98-4785-91f6-1070eb0d7069",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "400"
+    }, {
+      "id": "41c9e749-dc02-4803-8040-2ded380e1f30",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ UPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0c294d2-6a4a-4018-8428-e7f1d14a8d56",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI UPLATU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89d35725-6d16-48aa-89b4-54711ddac746",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI UPLATU.')]", "xpath:innerText"]
+      ],
+      "value": "USPEŠNO STE IZVRŠILI UPLATU."
+    }, {
+      "id": "f8e1414f-9f1f-4297-bfb0-446a6bfc17e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI UPLATU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "de8c1beb-f2bc-4f5e-a4c5-e3d922c32ccb",
+    "name": "uplata test 5",
+    "commands": [{
+      "id": "47e09f85-0ee0-4771-b72e-14359b71e7bf",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/uplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b09611e-e075-4bdb-867e-aff589a6b0f4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3c8d58a2-89f8-4278-bc9a-4f9dd2e11654",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa8bed1e-a84c-478d-a136-e72c17dcba87",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "27"
+    }, {
+      "id": "f7cfff0e-ed10-40d8-ae40-bc4d764679df",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "855540d1-e2ee-4eb7-a575-421e26734939",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "4ad3347d-37fd-4e96-ba33-6ab909ee4481",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ UPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "553c04a0-ae11-4ba0-a379-aabbb90bc02f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd6206ee-a08d-41a7-8009-8be7d2c23cec",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOZE SE IZVRSITI UPLATA."
+    }, {
+      "id": "0b33833a-66d0-433d-84e8-15dfed054e7f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "d9f22b14-707c-4408-8a5f-41e0bfcf1910",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Gost/prijava", "http://localhost:8080/Admin/uplata"],
+  "plugins": []
+}

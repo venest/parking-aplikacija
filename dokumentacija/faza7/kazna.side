@@ -1,0 +1,464 @@
+{
+  "id": "baec7d7d-ddd0-49b7-9c63-a365f8669688",
+  "version": "2.0",
+  "name": "kazna",
+  "url": "http://localhost:8080/Kontrolor/kazna",
+  "tests": [{
+    "id": "7a971190-f701-4036-a6f4-8a933a51215c",
+    "name": "prijava",
+    "commands": [{
+      "id": "b4a649f8-dfb1-4999-91bb-569bf9023da8",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1ca813a4-2f15-43aa-8499-e7c51955b65f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80e8b5f7-b20b-4720-a41a-6e9dc59260e4",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b116c308-200c-4aeb-8716-da61f18524fe",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "zika"
+    }, {
+      "id": "3d2802a2-4900-4608-beb8-964c3be0583d",
+      "comment": "",
+      "command": "click",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1687f92c-4186-45c2-a12a-0489b2cfc22f",
+      "comment": "",
+      "command": "type",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "f8bb4cda-a007-495a-8984-a09c65c8bf11",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d24dc76d-4748-4b9b-ae21-6c67d40b5394",
+    "name": "kazna test 1",
+    "commands": [{
+      "id": "b08b37d1-4613-4b4e-be2f-62c0943fda9f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/kazna",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "413306b2-c889-4e9d-9ed9-45c92fee40ad",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2c48fef9-0d36-42c7-8789-4d80821b5da8",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c683690-efc9-4692-8352-09fc576cf1d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ KAZNU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3caba4c-8d42-4980-9b04-2a96bb20559c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67ba304b-0468-4934-9927-410755e579b1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": "UNESITE REGISTARSKI BROJ TABLICA."
+    }, {
+      "id": "6949b626-620d-4dac-9da2-7ba1d0c90577",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "104d31f3-8f75-4133-8e5a-42563a4de901",
+    "name": "kazna test 2",
+    "commands": [{
+      "id": "958c3161-845f-4ecb-8836-76195c1b645b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/kazna",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7340545a-d4c7-4d98-9fa9-80d7808bed69",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1058x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "851e9e60-d714-4c88-9554-e8e5af907126",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "584cd214-e0ae-4fb6-a2a8-6c449e778aab",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "neketablice"
+    }, {
+      "id": "f3ffe948-fb8c-48e9-ad36-9cb8c5f7e1fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ KAZNU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b5a211b-50da-4b05-94e2-0e6d89500b99",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "caf45674-43ce-446d-baa4-50d84d728792",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'AUTOMOBIL UNETIH REGISTARSKIH OZNAKA TRENUTNO NE BORAVI U GARAŽI.')]", "xpath:innerText"]
+      ],
+      "value": "AUTOMOBIL UNETIH REGISTARSKIH OZNAKA TRENUTNO NE BORAVI U GARAŽI."
+    }, {
+      "id": "20537c63-621a-4020-ba77-e42ecfdc8e25",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1b7e00fe-f1ad-49b8-9931-06018a5b9b72",
+    "name": "kazna test 3",
+    "commands": [{
+      "id": "cdc295c3-1208-4485-8a0d-6774a84cca54",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/kazna",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d8dd645-031b-4127-9aec-16432df22e10",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2ffa099-34ef-4530-96ea-588dc0617b24",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e56f2059-5e3d-4489-89ae-9ce5bcf52e08",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tablice1"
+    }, {
+      "id": "062a26da-1349-4ae3-bb6d-afa066fce47d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ KAZNU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1433afd-e546-4f9f-aea5-f2661fbc0fd1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4042462-1f64-4db0-83cd-cc792f2035a8",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
+      ],
+      "value": "USPEŠNO STE EVIDENTIRALI KAZNU."
+    }]
+  }, {
+    "id": "40e11b43-3f45-4e66-b5bd-085f1b7e03a0",
+    "name": "kazna test 4",
+    "commands": [{
+      "id": "c009e8e2-2b85-49c6-b11e-d944ce8abf77",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Kontrolor/kazna",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "958589a6-7dc7-4d59-989f-d22dc384e1ab",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1058x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b98b3df-845d-4014-ab32-8774fb05da33",
+      "comment": "",
+      "command": "click",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c634f671-a730-4fc0-b88c-cfbb86937273",
+      "comment": "",
+      "command": "type",
+      "target": "id=tablice",
+      "targets": [
+        ["id=tablice", "id"],
+        ["name=tablice", "name"],
+        ["css=#tablice", "css:finder"],
+        ["xpath=//input[@id='tablice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "gost1"
+    }, {
+      "id": "4986a654-c7e6-4435-a135-3017f40541ad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa72dbc7-0c50-44d1-81ad-1dd18b23fb2f",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bs-select-1-1 > .text",
+      "targets": [
+        ["css=#bs-select-1-1 > .text", "css:finder"],
+        ["xpath=//a[@id='bs-select-1-1']/span", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'PARKIRANJE NA MESTU ZA TRUDNICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "255157e2-67d7-4b9c-977b-c55c39c09064",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipPrekrsaja",
+      "targets": [],
+      "value": "label=PARKIRANJE NA MESTU ZA TRUDNICE"
+    }, {
+      "id": "3a2bf25d-8a65-4001-9665-f8897fbf2adb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ KAZNU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "743b39bd-6cab-4fde-92fb-3e65fe06c293",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2)",
+      "targets": [
+        ["css=.row:nth-child(2)", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc0e0091-4f5c-4ddf-8a4a-2fc4ad4a8b0a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d8507af-3a5f-42bd-96e2-75c67a1b26b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "651f252f-1be3-4051-abdc-e63c4070d37f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
+      ],
+      "value": "USPEŠNO STE EVIDENTIRALI KAZNU."
+    }]
+  }],
+  "suites": [{
+    "id": "67d2e871-90b3-4cc1-90f5-2155d619a820",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Gost/prijava", "http://localhost:8080/Kontrolor/kazna"],
+  "plugins": []
+}
