@@ -134,25 +134,27 @@ class Operater extends Korisnik
 		}
 		else{
 			$bm = new BoravakModel();
-
-			if($bm->dohvatiBoravak($idKartice)) $poruka = "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI.";
-			else{
-				//provera da li postoji registrovani korisnik sa ovim ID-em
-				$karticaModel = new KarticaModel();
-				$kartica = $karticaModel->dohvatiKarticu($idKartice);
-
-				if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-JEM.';
+			$karticaModel = new KarticaModel();
+			$kartica = $karticaModel->dohvatiKarticu($idKartice);
+			if($kartica){
+				if($this->proveraBoravka($kartica->automobil)) $poruka = "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI.";
 				else{
-					if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
+					
+					//provera da li postoji registrovani korisnik sa ovim ID-em
+					if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-JEM.';
 					else{
-						//insert boravka
-						$ulazakModel = new BoravakModel();
-						$ulazakModel->dodajBoravak($idKartice);
-						$data['usaoRegistrovani'] = 'Uspesan ulazak';
-						return redirect()->to(site_url('Operater/uspehOperater/2'));
+						if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
+						else{
+							//insert boravka
+							$ulazakModel = new BoravakModel();
+							$ulazakModel->dodajBoravak($idKartice);
+							$data['usaoRegistrovani'] = 'Uspesan ulazak';
+							return redirect()->to(site_url('Operater/uspehOperater/2'));
+						}
 					}
 				}
 			}
+			else $poruka = "KARTICA SA UNETIM ID-JEM NE POSTOJI.";
 		}
 
 		$data['naslov'] = "ULAZAK REGISTROVANI";
