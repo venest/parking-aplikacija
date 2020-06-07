@@ -3,6 +3,14 @@
                 <div class="row justify-content-center py-4">
                     <h4>Gubitak kartice</h4>
                 </div>
+
+                <div class="row justify-content-center py-4">
+                    <h6>ZA GOSTA UNESITE TABLICE</h6>
+                    </div>
+                    <div class="row justify-content-center py-4">
+                    <h6>ZA REGISTROVANOG KORISNIKA UNESITE TABLICE I EMAIL</h6>
+                </div>
+
                <?php
                if(isset($poruka)) { ?>
                    <div class="row justify-content-center">

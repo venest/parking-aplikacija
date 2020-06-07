@@ -15,28 +15,28 @@
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="email">EMAIL ADRESA</label>
-                      <input type="email" class="form-control form-control-lg" name="email" id="email">
+                      <input type="email" class="form-control form-control-lg" name="email" id="email" value="<?php echo set_value('email'); ?>">
                     </div>
                   </div>
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="tablice">AUTOMOBIL</label>
-                      <input type="text" class="form-control form-control-lg" name="tablice" id="tablice">
+                      <input type="text" class="form-control form-control-lg" name="tablice" id="tablice" value="<?php echo set_value('tablice'); ?>">
                     </div>
                   </div>
                     <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="iznos">POCETNI IZNOS</label>
-                      <input type="text" class="form-control form-control-lg" name="iznos" id="iznos">
+                      <input type="text" class="form-control form-control-lg" name="iznos" id="iznos" value="<?php echo set_value('iznos'); ?>">
                     </div>
                   </div>
                   <div class="row justify-content-center">
                 <div class="form-group col-lg-9">
                   <label for="period">PERIOD VAŽENJA</label>
-                  <select class="form-control form-control-lg selectpicker" name="period">
+                  <select class="form-control form-control-lg selectpicker" name="period" value="<?php echo set_value('period'); ?>">
                     <option value="dan">DAN, 200 RSD</option>
-                    <option value="dan">SEDMICA, 800 RSD</option>
-                    <option value="dan">MESEC, 2000 RSD</option>
+                    <option value="sedmica">SEDMICA, 800 RSD</option>
+                    <option value="mesec">MESEC, 2000 RSD</option>
                   </select>
                 </div>
               </div>
