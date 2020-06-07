@@ -144,13 +144,6 @@
         ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "833fee4e-eec7-4e51-804d-7d452c5745c9",
-      "comment": "",
-      "command": "close",
-      "target": "",
-      "targets": [],
-      "value": ""
     }]
   }, {
     "id": "fec33663-d6cb-44b4-add9-1356cb38a2ea",
@@ -238,36 +231,26 @@
         ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "7fca6bd1-f4b1-41a7-b3f9-5a2ec9e448a0",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert",
-      "targets": [
-        ["css=.alert", "css:finder"],
-        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
-      ],
-      "value": ""
     }]
   }, {
     "id": "e5dffb2b-1e70-4fb5-8b36-35d764e7f8e7",
     "name": "provera test 3",
     "commands": [{
-      "id": "9614657d-e874-4e68-92de-73931d2cc2e4",
+      "id": "39a09f8d-e6ac-4f78-8960-dbb86cb67352",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/Kontrolor/provera",
       "targets": [],
       "value": ""
     }, {
-      "id": "fa481f09-c2e7-4d5d-80f7-ec888144d628",
+      "id": "0b0b30e0-302b-41de-b44f-561f17408c6c",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1058x808",
+      "target": "1058x811",
       "targets": [],
       "value": ""
     }, {
-      "id": "5ded9fb8-e9c1-4263-ab28-dd649dc963e4",
+      "id": "022629e4-feb8-4b18-8bc7-0b8f8de853be",
       "comment": "",
       "command": "click",
       "target": "id=tablice",
@@ -280,7 +263,7 @@
       ],
       "value": ""
     }, {
-      "id": "9714dba5-e91d-4750-a9a5-90635bb64e6e",
+      "id": "1bd29a9b-7711-4626-95cc-89a6138af573",
       "comment": "",
       "command": "type",
       "target": "id=tablice",
@@ -293,7 +276,7 @@
       ],
       "value": "gost1"
     }, {
-      "id": "4f8f88cb-6f63-47d6-9e0d-b135cd53ec8c",
+      "id": "ebd4c41a-32a4-436b-9ff5-89180db9d9d4",
       "comment": "",
       "command": "click",
       "target": "css=.btn-plavi",
@@ -304,76 +287,26 @@
         ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
       ],
       "value": ""
-    }, {
-      "id": "578171f3-0e52-4eae-9390-b7ab1702b3b4",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "0fb58432-f96e-468e-930d-cc53adb4f9b0",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "cc0fa1dc-2cf3-45cc-b8a7-092fb720fae8",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "a11651ab-45b9-4fbe-9991-c8d3fe4b196f",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "bbcdf9fb-9477-446b-9c4d-f17c5e75a099",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": "ID kartice: 27\\nDatum i vreme ulaska: 2020-06-02 13:00:00\\nKartica važi do: Kartica je izdata gostu"
     }]
   }, {
     "id": "d3a8245d-55e6-474d-8bc0-53277e17b6b6",
     "name": "provera test 4",
     "commands": [{
-      "id": "8b18adeb-24dd-4a55-be26-fd3e321262da",
+      "id": "8d19c77b-fb45-46db-b58c-ba4db693063b",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/Kontrolor/provera",
       "targets": [],
       "value": ""
     }, {
-      "id": "4a34e555-0ddc-483e-b066-710592a9ead1",
+      "id": "d178864e-e018-4931-bbc5-9f6a15c6806c",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1062x808",
+      "target": "1058x811",
       "targets": [],
       "value": ""
     }, {
-      "id": "9ede5b3f-2434-4496-ac88-a3db0448d504",
+      "id": "89e68ae2-e4c6-4c9e-aa72-bd2bd92f3fd2",
       "comment": "",
       "command": "click",
       "target": "id=tablice",
@@ -386,7 +319,7 @@
       ],
       "value": ""
     }, {
-      "id": "3ade9919-869d-442a-bba4-cd8d8c5a29fa",
+      "id": "b87c9559-c8b8-40d9-8102-3a16d2a4654d",
       "comment": "",
       "command": "type",
       "target": "id=tablice",
@@ -399,7 +332,7 @@
       ],
       "value": "tablice1"
     }, {
-      "id": "4c208dea-513e-4679-a434-d9e08d7e780b",
+      "id": "64d79800-8f80-4947-86e7-b8b6cd321c42",
       "comment": "",
       "command": "click",
       "target": "css=.btn-plavi",
@@ -410,66 +343,26 @@
         ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
       ],
       "value": ""
-    }, {
-      "id": "c43d5e5d-0c11-4e39-8495-6c706953e38e",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f872041d-bab5-4442-b11b-3d718bd0b0e2",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": "ID kartice: 7\\nDatum i vreme ulaska: 2020-06-01 05:00:00\\nKartica važi do: 2020-07-08\\n\\nKORISNIK IMA VALIDNU KARTICU."
-    }, {
-      "id": "cf667220-accc-41c6-8391-789c66a4ab04",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
     }]
   }, {
     "id": "9ae08258-5ba6-421c-a490-e0633b6216fe",
     "name": "provera test 5",
     "commands": [{
-      "id": "574a2fef-f4e3-4fe2-92f2-06c5666be535",
+      "id": "52a9307c-7fd2-4a8d-97b8-4ddedf7adbf1",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/Kontrolor/provera",
       "targets": [],
       "value": ""
     }, {
-      "id": "a7726176-08be-4113-93e2-c2a7919ac4f3",
+      "id": "fc3a5c78-06f9-43ad-ab87-6e6f975fa8de",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1066x808",
+      "target": "1051x806",
       "targets": [],
       "value": ""
     }, {
-      "id": "8b13255c-d692-4ce9-87a6-70bef68cd2c7",
-      "comment": "",
-      "command": "click",
-      "target": "css=form > .row:nth-child(1)",
-      "targets": [
-        ["css=form > .row:nth-child(1)", "css:finder"],
-        ["xpath=//form/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "1de3d88e-c3b6-45d3-8f02-9f25169af9d6",
+      "id": "2222db49-7649-4884-93e6-543bf516e5ca",
       "comment": "",
       "command": "click",
       "target": "id=tablice",
@@ -482,7 +375,7 @@
       ],
       "value": ""
     }, {
-      "id": "46667ad1-0f48-46d9-9212-3e8dece8d34e",
+      "id": "e5b0cc26-3052-4fd2-b932-e5958ad47b00",
       "comment": "",
       "command": "type",
       "target": "id=tablice",
@@ -495,7 +388,7 @@
       ],
       "value": "tablice2"
     }, {
-      "id": "07ddae2d-9125-4984-933b-06a284fd5e26",
+      "id": "29d3912c-0074-4852-bdcc-bc81d7058487",
       "comment": "",
       "command": "click",
       "target": "css=.btn-plavi",
@@ -504,36 +397,6 @@
         ["xpath=//button[@type='submit']", "xpath:attributes"],
         ["xpath=//div[2]/div/button", "xpath:position"],
         ["xpath=//button[contains(.,'PROVERA')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "d977dc67-bc44-403b-8fe3-98ee2caee1d2",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "5ad618a6-b944-43d9-91df-8d7b54264deb",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": "ID kartice: 8\\nDatum i vreme ulaska: 2020-06-04 07:00:00\\nKartica važi do: 2020-02-01\\n\\nKORISNIK JE KAŽNJEN ZBOG ISTEKA VALIDNOSTI KARTICE."
-    }, {
-      "id": "fb4a0ad1-338b-435e-9f45-24d4a0295e25",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > h2",
-      "targets": [
-        ["css=.alert > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
       ],
       "value": ""
     }]

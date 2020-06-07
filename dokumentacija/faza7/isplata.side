@@ -235,7 +235,7 @@
     }]
   }, {
     "id": "490be1ec-eb12-4672-bda3-5025adec7257",
-    "name": "isplata test 3",
+    "name": "isplata test 4",
     "commands": [{
       "id": "a714009a-a3f8-4097-95cb-1637314923a1",
       "comment": "",
@@ -275,7 +275,7 @@
         ["xpath=//input[@id='idKartice']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "1234"
+      "value": "1"
     }, {
       "id": "beaac773-f3f5-47c5-8568-12143917b8f1",
       "comment": "",
@@ -348,7 +348,7 @@
     }]
   }, {
     "id": "fd29f5a5-95ae-4689-a2fa-bca9ec2dc4b9",
-    "name": "isplata test 4",
+    "name": "isplata test 6",
     "commands": [{
       "id": "0eecc512-a0de-436f-944b-4682e0503bdb",
       "comment": "",
@@ -461,23 +461,23 @@
     }]
   }, {
     "id": "72005cb1-6a51-40aa-a102-2cb6d8738d87",
-    "name": "isplata test 5",
+    "name": "isplata test 7",
     "commands": [{
-      "id": "76b80dd7-5846-4245-b1fe-4842f2327470",
+      "id": "14feffec-4f8f-46ae-86fb-7ad9f402c569",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/Admin/isplata",
       "targets": [],
       "value": ""
     }, {
-      "id": "e4afcee2-3498-466c-8d68-12c7c1322c4a",
+      "id": "f1338ce7-cea6-480c-842d-e54e55f9a407",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1054x808",
+      "target": "1051x806",
       "targets": [],
       "value": ""
     }, {
-      "id": "11cc146d-13f0-4f37-8229-b62a0b990ead",
+      "id": "24ed2a12-8981-4f48-9f0f-78cd48fb42ca",
       "comment": "",
       "command": "click",
       "target": "id=idKartice",
@@ -490,7 +490,7 @@
       ],
       "value": ""
     }, {
-      "id": "1711067c-0b7c-4d6f-8dd5-6f422aa00d0d",
+      "id": "63da14e0-bde7-48af-bb78-4b0545fb3f59",
       "comment": "",
       "command": "type",
       "target": "id=idKartice",
@@ -503,7 +503,7 @@
       ],
       "value": "27"
     }, {
-      "id": "46e58b3e-d999-4a62-a6a7-b447a12200ce",
+      "id": "65a35ac2-e49c-4627-96d6-efa5b2fa1f31",
       "comment": "",
       "command": "click",
       "target": "id=iznos",
@@ -516,7 +516,7 @@
       ],
       "value": ""
     }, {
-      "id": "13358a3e-def6-42c0-8437-f602cf39f053",
+      "id": "2aef14ba-f670-494e-a0fd-d2d2b46e1848",
       "comment": "",
       "command": "type",
       "target": "id=iznos",
@@ -529,7 +529,7 @@
       ],
       "value": "100"
     }, {
-      "id": "9752a538-fb2d-41f2-b02e-1b6dde1488d8",
+      "id": "3f2d54e2-47e9-4852-abe9-f6900d23249c",
       "comment": "",
       "command": "click",
       "target": "css=.btn-plavi",
@@ -541,51 +541,7 @@
       ],
       "value": ""
     }, {
-      "id": "124e583c-7268-418e-83bd-388be87a8a23",
-      "comment": "",
-      "command": "mouseDownAt",
-      "target": "css=.alert > strong",
-      "targets": [
-        ["css=.alert > strong", "css:finder"],
-        ["xpath=//strong", "xpath:position"],
-        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
-      ],
-      "value": "12.899993896484375,-0.600006103515625"
-    }, {
-      "id": "10090f2e-69a8-4ff6-badb-bdd78bb4eb08",
-      "comment": "",
-      "command": "mouseMoveAt",
-      "target": "css=.alert > strong",
-      "targets": [
-        ["css=.alert > strong", "css:finder"],
-        ["xpath=//strong", "xpath:position"],
-        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
-      ],
-      "value": "12.899993896484375,-0.600006103515625"
-    }, {
-      "id": "a3a3fbfc-6527-4e00-a492-5a00dee46596",
-      "comment": "",
-      "command": "mouseUpAt",
-      "target": "css=.alert > strong",
-      "targets": [
-        ["css=.alert > strong", "css:finder"],
-        ["xpath=//strong", "xpath:position"],
-        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
-      ],
-      "value": "12.899993896484375,-0.600006103515625"
-    }, {
-      "id": "7e788ed6-4de7-407b-9e9e-3a38396d0f67",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert > strong",
-      "targets": [
-        ["css=.alert > strong", "css:finder"],
-        ["xpath=//strong", "xpath:position"],
-        ["xpath=//strong[contains(.,'KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA.')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "6932a337-5115-444f-91ca-192d45a269dc",
+      "id": "9a0573bb-4324-493f-a0d5-28f96b8c467e",
       "comment": "",
       "command": "click",
       "target": "css=.alert",
@@ -595,7 +551,7 @@
       ],
       "value": ""
     }, {
-      "id": "2498447d-84a6-472a-b76d-027999962c11",
+      "id": "5f39345f-137b-4397-b70d-656f7f2be752",
       "comment": "",
       "command": "assertText",
       "target": "css=.alert > strong",
@@ -606,7 +562,7 @@
       ],
       "value": "KARTICA SA UNETIM ID-JEM PRIPADA GOSTU I NE MOŽE SE IZVRŠITI ISPLATA."
     }, {
-      "id": "7b835533-3b72-4ffe-980a-0cca87910a85",
+      "id": "d76c5dc1-b3ed-4b06-843b-b2192e0bcf64",
       "comment": "",
       "command": "click",
       "target": "css=.alert",
@@ -618,7 +574,7 @@
     }]
   }, {
     "id": "74d10ec3-0416-4a4b-afdb-89bc54467a7b",
-    "name": "isplata test 6",
+    "name": "isplata test 8",
     "commands": [{
       "id": "2acbd278-b045-43b7-9aa3-6c9cc38badb1",
       "comment": "",
@@ -731,7 +687,7 @@
     }]
   }, {
     "id": "88d6524a-68ea-4aa4-ad08-22649b1536b6",
-    "name": "isplata test 7",
+    "name": "isplata test 9",
     "commands": [{
       "id": "573dcd36-6070-4fe0-9499-7ae23b8b9e9a",
       "comment": "",
@@ -841,6 +797,206 @@
         ["css=.alert > h2", "css:finder"],
         ["xpath=//h2", "xpath:position"],
         ["xpath=//h2[contains(.,'USPEŠNO STE IZVRŠILI ISPLATU.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e8d97aa1-72ff-4e10-af24-59f81f6f8ee1",
+    "name": "isplata test 5",
+    "commands": [{
+      "id": "69c6943a-505a-4c0c-a352-e36c9ce7e5fc",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "331c1214-b9e9-4544-98bb-f966540409f2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1051x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0860ea65-7c4b-4d87-addf-42812699d7b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f0744bb-5a84-47c8-a03a-5e4a8d8e17bc",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "cbdf792f-6aef-40d3-a2bd-df0bff688e2c",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "44a4fdbe-a4a6-4864-a9e1-bbc259c660ad",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "-100"
+    }, {
+      "id": "48fdd9a6-864c-472e-8efb-dcec72f61c4e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ad822b9-412e-4839-b61e-d8688c9cdd26",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "962a7e9c-5e2d-42bc-b1e1-e8a73bccf30c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'IZNOS MORA BITI POZITIVAN.')]", "xpath:innerText"]
+      ],
+      "value": "IZNOS MORA BITI POZITIVAN."
+    }, {
+      "id": "1126a288-8e76-4f2f-b2bb-d5a21db54680",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "eec663d8-e6f5-4446-90d8-14d4004800b2",
+    "name": "isplata test 3",
+    "commands": [{
+      "id": "72738587-795d-4065-a4f5-f73ea2cce170",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Admin/isplata",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c45079b3-1f13-42f4-a492-e24c9b2e2d51",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1057x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb42d6fa-285c-46da-873d-5cda826514a6",
+      "comment": "",
+      "command": "click",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32d8fd8f-5a0d-4f57-bdc9-5559b3cac980",
+      "comment": "",
+      "command": "type",
+      "target": "id=iznos",
+      "targets": [
+        ["id=iznos", "id"],
+        ["name=iznos", "name"],
+        ["css=#iznos", "css:finder"],
+        ["xpath=//input[@id='iznos']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "672e27e3-fe93-48c2-b312-0d8281906882",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ISPLATU')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "edc20ecd-26e8-49f7-89b7-45e9746798b6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3059044d-a44a-4db0-9b62-378554d8bd6f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }, {
+      "id": "3eb4b4f9-9f6b-4e2a-bf34-cf9add72d0be",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
       ],
       "value": ""
     }]

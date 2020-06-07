@@ -249,21 +249,21 @@
     "id": "1b7e00fe-f1ad-49b8-9931-06018a5b9b72",
     "name": "kazna test 3",
     "commands": [{
-      "id": "cdc295c3-1208-4485-8a0d-6774a84cca54",
+      "id": "719bab3e-ebaa-4c61-81bd-c7327f7d8aaa",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/Kontrolor/kazna",
       "targets": [],
       "value": ""
     }, {
-      "id": "2d8dd645-031b-4127-9aec-16432df22e10",
+      "id": "136cd7ed-199d-421f-b58d-202084fe35a4",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1054x808",
+      "target": "1061x808",
       "targets": [],
       "value": ""
     }, {
-      "id": "d2ffa099-34ef-4530-96ea-588dc0617b24",
+      "id": "f8f0b375-27e5-4b11-b833-2b6316696236",
       "comment": "",
       "command": "click",
       "target": "id=tablice",
@@ -276,7 +276,7 @@
       ],
       "value": ""
     }, {
-      "id": "e56f2059-5e3d-4489-89ae-9ce5bcf52e08",
+      "id": "bd4755cd-56e1-4d72-8524-73262f9c377d",
       "comment": "",
       "command": "type",
       "target": "id=tablice",
@@ -289,7 +289,56 @@
       ],
       "value": "tablice1"
     }, {
-      "id": "062a26da-1349-4ae3-bb6d-afa066fce47d",
+      "id": "21c0457b-8762-4565-9f02-1530af13313a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "69cf4bb2-4b32-4f64-a818-cb7c7ee3ef8e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f94aab71-b5fd-433e-8edd-10d9a9375120",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6127655a-4311-4c0b-8a62-4361e679e34b",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bs-select-1-1 > .text",
+      "targets": [
+        ["css=#bs-select-1-1 > .text", "css:finder"],
+        ["xpath=//a[@id='bs-select-1-1']/span", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'PARKIRANJE NA MESTU ZA TRUDNICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb102eed-0585-4684-bd5b-c6b5c4e44f92",
+      "comment": "",
+      "command": "select",
+      "target": "id=tipPrekrsaja",
+      "targets": [],
+      "value": "label=PARKIRANJE NA MESTU ZA TRUDNICE"
+    }, {
+      "id": "a22b6301-7965-4ce0-b738-f160e0328bdf",
       "comment": "",
       "command": "click",
       "target": "css=.btn-plavi",
@@ -301,7 +350,7 @@
       ],
       "value": ""
     }, {
-      "id": "f1433afd-e546-4f9f-aea5-f2661fbc0fd1",
+      "id": "012b176b-85d8-4cf6-bb09-698307053217",
       "comment": "",
       "command": "click",
       "target": "css=.alert > h2",
@@ -312,7 +361,7 @@
       ],
       "value": ""
     }, {
-      "id": "a4042462-1f64-4db0-83cd-cc792f2035a8",
+      "id": "775d0e53-20f1-4dae-b1c3-cf9891c9c7e7",
       "comment": "",
       "command": "assertText",
       "target": "css=.alert > h2",
@@ -322,26 +371,37 @@
         ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
       ],
       "value": "USPEŠNO STE EVIDENTIRALI KAZNU."
+    }, {
+      "id": "c28d6814-bfc6-4c48-9025-1190fd6f7fa6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }, {
     "id": "40e11b43-3f45-4e66-b5bd-085f1b7e03a0",
     "name": "kazna test 4",
     "commands": [{
-      "id": "c009e8e2-2b85-49c6-b11e-d944ce8abf77",
+      "id": "374f9ab4-ff57-4a6a-8902-3578e3e790b9",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8080/Kontrolor/kazna",
       "targets": [],
       "value": ""
     }, {
-      "id": "958589a6-7dc7-4d59-989f-d22dc384e1ab",
+      "id": "a9812f4b-6fce-4403-97e2-2036c90d200c",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1058x808",
+      "target": "1062x808",
       "targets": [],
       "value": ""
     }, {
-      "id": "0b98b3df-845d-4014-ab32-8774fb05da33",
+      "id": "d7f2f53b-4101-4dd4-a684-70358f61abb7",
       "comment": "",
       "command": "click",
       "target": "id=tablice",
@@ -354,7 +414,7 @@
       ],
       "value": ""
     }, {
-      "id": "c634f671-a730-4fc0-b88c-cfbb86937273",
+      "id": "cefc3a79-e0b9-4bb7-897f-cae344321d63",
       "comment": "",
       "command": "type",
       "target": "id=tablice",
@@ -367,7 +427,7 @@
       ],
       "value": "gost1"
     }, {
-      "id": "4986a654-c7e6-4435-a135-3017f40541ad",
+      "id": "988aaf7f-96e0-4038-85c5-7ef9b0fe9fdc",
       "comment": "",
       "command": "click",
       "target": "css=.filter-option-inner-inner",
@@ -377,26 +437,46 @@
       ],
       "value": ""
     }, {
-      "id": "aa72dbc7-0c50-44d1-81ad-1dd18b23fb2f",
+      "id": "4f6be2d9-3de3-47d3-9043-e2de74d3d956",
       "comment": "",
-      "command": "click",
-      "target": "css=#bs-select-1-1 > .text",
+      "command": "mouseOver",
+      "target": "css=.filter-option-inner-inner",
       "targets": [
-        ["css=#bs-select-1-1 > .text", "css:finder"],
-        ["xpath=//a[@id='bs-select-1-1']/span", "xpath:idRelative"],
-        ["xpath=//li[2]/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'PARKIRANJE NA MESTU ZA TRUDNICE')]", "xpath:innerText"]
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "255157e2-67d7-4b9c-977b-c55c39c09064",
+      "id": "64d68ca6-ee99-4b3d-b8b6-3177e59a298f",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.filter-option-inner-inner",
+      "targets": [
+        ["css=.filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2dde0477-59b0-4351-8c9d-da9d097269ee",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bs-select-1-2 > .text",
+      "targets": [
+        ["css=#bs-select-1-2 > .text", "css:finder"],
+        ["xpath=//a[@id='bs-select-1-2']/span", "xpath:idRelative"],
+        ["xpath=//li[3]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'ZAUZIMANJE VIŠE PARKING MESTA')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab940e87-e3d7-47db-94a1-9df80c6c6877",
       "comment": "",
       "command": "select",
       "target": "id=tipPrekrsaja",
       "targets": [],
-      "value": "label=PARKIRANJE NA MESTU ZA TRUDNICE"
+      "value": "label=ZAUZIMANJE VIŠE PARKING MESTA"
     }, {
-      "id": "3a2bf25d-8a65-4001-9665-f8897fbf2adb",
+      "id": "c29ab86b-87c1-4b03-a7aa-49c159784dc8",
       "comment": "",
       "command": "click",
       "target": "css=.btn-plavi",
@@ -408,27 +488,7 @@
       ],
       "value": ""
     }, {
-      "id": "743b39bd-6cab-4fde-92fb-3e65fe06c293",
-      "comment": "",
-      "command": "click",
-      "target": "css=.row:nth-child(2)",
-      "targets": [
-        ["css=.row:nth-child(2)", "css:finder"],
-        ["xpath=//div[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "dc0e0091-4f5c-4ddf-8a4a-2fc4ad4a8b0a",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert",
-      "targets": [
-        ["css=.alert", "css:finder"],
-        ["xpath=//div[2]/div[2]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "9d8507af-3a5f-42bd-96e2-75c67a1b26b5",
+      "id": "4d062c24-a2bf-4c10-a574-2e60cac78cc5",
       "comment": "",
       "command": "click",
       "target": "css=.alert > h2",
@@ -439,7 +499,7 @@
       ],
       "value": ""
     }, {
-      "id": "651f252f-1be3-4051-abdc-e63c4070d37f",
+      "id": "c9a69794-2eac-475c-a03e-3f4afd0f9672",
       "comment": "",
       "command": "assertText",
       "target": "css=.alert > h2",
@@ -449,6 +509,17 @@
         ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
       ],
       "value": "USPEŠNO STE EVIDENTIRALI KAZNU."
+    }, {
+      "id": "8abbbb59-81aa-4dd3-87a8-d870f59fd93a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'USPEŠNO STE EVIDENTIRALI KAZNU.')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }],
   "suites": [{
