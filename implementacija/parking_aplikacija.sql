@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `kartica` (
 
 INSERT INTO `kartica` (`idKartice`, `automobil`, `idKorisnika`, `vaziDo`, `stanje`) VALUES
 (7, 'tablice1', 1, '2020-07-08', '22400.00'),
-(8, 'tablice2', 1, '2020-02-01', '4800.00'),
+(8, 'tablice2', 1, '2020-02-01', '800.00'),
 (9, 'tablice3', 2, '2020-04-01', '4000.00'),
 (10, 'tablice4', 2, '2020-05-05', '1000.00'),
 (11, 'tablice5', 2, '2020-06-03', '0.00'),
