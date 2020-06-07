@@ -1,0 +1,1103 @@
+{
+  "id": "a9f11783-0492-47bd-82e8-2f3615a7c9c2",
+  "version": "2.0",
+  "name": "psi",
+  "url": "http://localhost:8080/Operater/ulazakGost",
+  "tests": [{
+    "id": "d14bbaf7-ac16-4e37-be2c-e10de4333e50",
+    "name": "ulazakGostVecUGarazi",
+    "commands": [{
+      "id": "fb4bc1c1-6bf7-44d0-b697-637e7e953fbd",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02ad64e1-b125-4916-bf39-621bd9b1e0d9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c07183d-b79f-4bf7-855f-1dc49b4c6200",
+      "comment": "",
+      "command": "click",
+      "target": "id=brojTablica",
+      "targets": [
+        ["id=brojTablica", "id"],
+        ["name=brojTablica", "name"],
+        ["css=#brojTablica", "css:finder"],
+        ["xpath=//input[@id='brojTablica']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "804d241d-2a87-4b15-990b-57463643f23d",
+      "comment": "",
+      "command": "type",
+      "target": "id=brojTablica",
+      "targets": [
+        ["id=brojTablica", "id"],
+        ["name=brojTablica", "name"],
+        ["css=#brojTablica", "css:finder"],
+        ["xpath=//input[@id='brojTablica']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "BG-545-MS"
+    }, {
+      "id": "405e0c75-7cd4-4ab7-9033-210a7b402e00",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'IZDAVANJE KARTICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7e71dcb-3da5-4b94-acd1-2006fb731cea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "968f2fbf-e912-42e2-9710-b5eae631b008",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.alert > strong",
+      "targets": [],
+      "value": "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI."
+    }]
+  }, {
+    "id": "be680850-8316-42e8-93ad-d4e003df810e",
+    "name": "ulazakGostNijeUgaraziUspeh",
+    "commands": [{
+      "id": "13103625-d313-4d95-b53b-3a126d5b7f20",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2cc69d5e-a9bb-4047-a849-86e01b0ae282",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "945a3ae9-cb62-42d8-8c6f-15bc69876ceb",
+      "comment": "",
+      "command": "click",
+      "target": "id=brojTablica",
+      "targets": [
+        ["id=brojTablica", "id"],
+        ["name=brojTablica", "name"],
+        ["css=#brojTablica", "css:finder"],
+        ["xpath=//input[@id='brojTablica']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0333c41a-ceac-4c76-b447-d8a03e51fc02",
+      "comment": "",
+      "command": "type",
+      "target": "id=brojTablica",
+      "targets": [
+        ["id=brojTablica", "id"],
+        ["name=brojTablica", "name"],
+        ["css=#brojTablica", "css:finder"],
+        ["xpath=//input[@id='brojTablica']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "BG-295-MS"
+    }, {
+      "id": "f977333a-f842-40d7-9bdd-295df0dfec75",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'IZDAVANJE KARTICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b772955c-1938-4933-abd8-6b002ac0bad5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73370bbc-001a-4f5b-a473-c085bf19f879",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "USPESNO USAO GOST\\nID kartice: 45"
+    }]
+  }, {
+    "id": "b293b565-80b8-4e76-85f3-970f0ba12a82",
+    "name": "izlazakGostUspeh",
+    "commands": [{
+      "id": "46a0e953-069f-4c50-8fbf-70d1b5cbb16f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5ddc0876-5f2c-4213-aa7a-3e142d495a6e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1472x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9cd4527e-4fc0-4f4a-b587-a8e5a9fd2db2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IZLAZAK",
+      "targets": [
+        ["linkText=IZLAZAK", "linkText"],
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'IZLAZAK')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/izlazak']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2668de09-cd38-426b-899b-020630fa3452",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "53a4d1a9-9b3f-4118-9076-5fc3306abcf1",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "e51f95b5-7e43-4df7-83fc-076edff1c9a9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c112bb04-f98d-4e2e-b592-0e6fdd052a98",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86c80f75-1355-4025-b1bc-98ca2f0be80b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "USPEŠNO IZAŠAO\\nID korisnika: 50\\nPlacen racun od: 60.00 dinara!"
+    }]
+  }, {
+    "id": "0a03a2d9-7dc4-4b0e-bb25-6e79054f475e",
+    "name": "izlazakRegistrovaniUspeh",
+    "commands": [{
+      "id": "c2b9543e-1957-4945-be43-96d87a55fc58",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d374eef-f3c7-4d3e-a6b2-9e9dfdfaf7ea",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff8146e4-5418-4338-b249-e46a5059c5b7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IZLAZAK",
+      "targets": [
+        ["linkText=IZLAZAK", "linkText"],
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'IZLAZAK')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/izlazak']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d8f9d55-0e85-4f72-8b73-67a228a48dc0",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5ce3579-30fe-431c-9161-1f27192f6f93",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "14"
+    }, {
+      "id": "fdb4bda3-dde2-414f-95af-ebfd7f51c962",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "28446f4b-f07b-4780-9ab7-6303d850210c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "526e88a1-2314-4bd3-b017-b1762634e3af",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "USPEŠNO IZAŠAO\\nID korisnika: 14"
+    }]
+  }, {
+    "id": "0c30b67f-4e2a-4f5c-aba7-7d6dfc55fb17",
+    "name": "ulazakRegistrovaniNeunetID",
+    "commands": [{
+      "id": "38fb72f8-369f-40eb-97e2-b2f1039e3e66",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4737c795-e427-414c-a39e-345ec8dc9a83",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b963b59-da9e-4994-8358-dabfd4e615c3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=ULAZAK REGISTROVANI",
+      "targets": [
+        ["linkText=ULAZAK REGISTROVANI", "linkText"],
+        ["css=.list-group-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'ULAZAK REGISTROVANI')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/ulazakRegistrovani']", "xpath:href"],
+        ["xpath=//div/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'ULAZAK REGISTROVANI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbbbfae0-84db-447b-99b5-9815643a20f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ULAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a0bbc95f-bf36-482d-a353-4a9a007c3f86",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ebb2aff-b2c5-464e-ad72-67eefa01155b",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }]
+  }, {
+    "id": "3faa79fc-4940-48aa-be97-9fbff9702c65",
+    "name": "ulazakGostNeuneteTablice",
+    "commands": [{
+      "id": "689fa0d3-b598-40c2-ab03-19a0a256e77a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0529d54-fe08-45f3-a76a-be434256d3a0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c40a0998-f048-409f-94a1-63c7af911c64",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'IZDAVANJE KARTICE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37da8c5f-5d0e-4cf5-a6e3-8dd7de444168",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c2a6529-4b9d-4b23-bf8f-0fb4e2a98153",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE TABLICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE TABLICE."
+    }]
+  }, {
+    "id": "b8d98f1d-31df-4767-b9cc-aa41a7013922",
+    "name": "ulazakRegistrovaniNepostojeciID",
+    "commands": [{
+      "id": "f0cf55cf-74be-417e-b4e3-0ee16210e9f6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9961f20-038c-4479-827b-ad32d710daec",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5f58b75-58c5-41a9-868b-31143da91789",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=ULAZAK REGISTROVANI",
+      "targets": [
+        ["linkText=ULAZAK REGISTROVANI", "linkText"],
+        ["css=.list-group-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'ULAZAK REGISTROVANI')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/ulazakRegistrovani']", "xpath:href"],
+        ["xpath=//div/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'ULAZAK REGISTROVANI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b40fbd9-2ab9-4e72-aa9e-e6cbe9dee729",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2ee8ad8-be0e-42e6-b8e9-e38fa2721e6d",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "8794561364"
+    }, {
+      "id": "61da76a2-c686-426c-b353-f354c33bbf1f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ULAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc8d463a-b8ef-4b35-9242-bb6eecc8a8e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NE POSTOJI KARTICA SA UNETIM ID-JEM.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "21d29a0f-037a-49ce-aceb-adcbdf656e29",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d8ae465-cabb-4532-ba46-7afd65df3774",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NE POSTOJI KARTICA SA UNETIM ID-JEM.')]", "xpath:innerText"]
+      ],
+      "value": "NE POSTOJI KARTICA SA UNETIM ID-JEM."
+    }]
+  }, {
+    "id": "c800b766-cb47-4ba3-b2a0-a2396fe1cb59",
+    "name": "ulazakRegistrovaniVecUGarazi",
+    "commands": [{
+      "id": "bcdffd72-3f0e-47a3-9657-ee9786a46d37",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "27ac99f4-de36-43ee-88d4-eb62177edfda",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03dcc979-1aac-4aee-8eb4-799729353067",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=ULAZAK REGISTROVANI",
+      "targets": [
+        ["linkText=ULAZAK REGISTROVANI", "linkText"],
+        ["css=.list-group-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'ULAZAK REGISTROVANI')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/ulazakRegistrovani']", "xpath:href"],
+        ["xpath=//div/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'ULAZAK REGISTROVANI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "32511ca1-f623-4af7-bb1e-bba3ae5956ad",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe5017d8-08fd-44ca-a3a3-55be48310fb5",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "11"
+    }, {
+      "id": "6e4d424c-ac85-4c43-9a8e-41d260c6f1ad",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ULAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbd5b447-3e9c-445c-bebc-1c0f61374492",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78ae0957-5f9d-4343-9916-4914f54f081e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI.')]", "xpath:innerText"]
+      ],
+      "value": "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI."
+    }]
+  }, {
+    "id": "1c10b2e9-b6a3-4ad9-955f-d69018f1c8db",
+    "name": "ulazakRegistrovaniSaKarticomGosta",
+    "commands": [{
+      "id": "de8e369a-bf0d-4a5f-a393-00982f0f1c1e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2da1db1f-aa96-45bf-87b0-85e1c7ad8fbb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "962f756c-8718-4ee8-a250-7e0a6d621290",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=ULAZAK REGISTROVANI",
+      "targets": [
+        ["linkText=ULAZAK REGISTROVANI", "linkText"],
+        ["css=.list-group-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'ULAZAK REGISTROVANI')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/ulazakRegistrovani']", "xpath:href"],
+        ["xpath=//div/div/div/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'ULAZAK REGISTROVANI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d34abd0-7f21-4e08-8018-a8440f44ec42",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba7357e9-bb8d-4381-ae1d-c053410b0406",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "46"
+    }, {
+      "id": "e419feac-ce13-42d5-b090-679a7df68826",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ ULAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a60490bb-6561-4587-aab8-45490eb9ccfa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron",
+      "targets": [
+        ["css=.jumbotron", "css:finder"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57513614-79b1-4f9b-bb01-5b055aef849e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.')]", "xpath:innerText"]
+      ],
+      "value": "KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA."
+    }]
+  }, {
+    "id": "0c6a225d-5ad8-4bbd-bca4-777f10e5268e",
+    "name": "izlazakNeunetID",
+    "commands": [{
+      "id": "2f37f6c9-ed80-4046-9013-350923de6566",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a396922d-f5fe-49cf-afab-b9fa96afd728",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1472x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ea227d38-4cf0-4409-a0ff-d814e822b69e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IZLAZAK",
+      "targets": [
+        ["linkText=IZLAZAK", "linkText"],
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'IZLAZAK')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/izlazak']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b69d6e3-668b-4ae3-a602-c7891cea814a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc0710a5-42c4-4643-9ad8-b2c66206c27a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c40ae0b-7d5b-41c9-92ef-b6ffa32b022d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE ID KARTICE.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE ID KARTICE."
+    }]
+  }, {
+    "id": "29aa330f-bf9d-4cb0-8e4e-85f05f400e2e",
+    "name": "izlazakNepostojeciID",
+    "commands": [{
+      "id": "726904b7-a15c-43d8-af5b-b5cc76f695dd",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a6e273c3-1604-4e12-a015-4df97d1d3ceb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1472x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c214a418-73a1-4506-b855-366906c07ed6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IZLAZAK",
+      "targets": [
+        ["linkText=IZLAZAK", "linkText"],
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'IZLAZAK')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/izlazak']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f1ce4e0-c62f-4cf1-a0ea-1391cf2636cc",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c154a1aa-951e-4c05-9c07-550354eab065",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "454632"
+    }, {
+      "id": "b3213d80-a25f-49da-a745-1274bf1386e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5de2ec46-a35e-491d-a76e-0fa1de6db05f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e16b933-3640-468e-a81e-6a862bfe88b0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NE POSTOJI KORISNIK SA UNETIM ID-JEM.')]", "xpath:innerText"]
+      ],
+      "value": "NE POSTOJI KORISNIK SA UNETIM ID-JEM."
+    }]
+  }, {
+    "id": "c0eac440-a2cd-4d79-8f54-20a69aef70bd",
+    "name": "izlazakNijeUGarazi",
+    "commands": [{
+      "id": "2e90fae7-1040-49f8-9c14-11435f7deeab",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d24e09ec-3182-46e6-b035-433cc27b9d46",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cf41861-df45-4114-84ad-8562ee10b3ec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IZLAZAK",
+      "targets": [
+        ["linkText=IZLAZAK", "linkText"],
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'IZLAZAK')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/izlazak']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d48c40d-b183-4814-bc13-8d620d2f8783",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "15774383-16d7-4c83-abc9-ce4e33c92476",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "14"
+    }, {
+      "id": "4794e109-7948-4915-a735-de44ce2e4a82",
+      "comment": "",
+      "command": "click",
+      "target": "css=.jumbotron",
+      "targets": [
+        ["css=.jumbotron", "css:finder"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0010507b-173c-45c4-b8f3-a71077b2bc56",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6e25e8e-67e5-4745-b524-5bd5dbad005a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38895bb4-c21f-4fac-ac97-e9960bace8c4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'KORISNIK NIJE U GARAŽI.')]", "xpath:innerText"]
+      ],
+      "value": "KORISNIK NIJE U GARAŽI."
+    }]
+  }, {
+    "id": "9c84a6c2-5d52-4d27-8c24-e788f4ec50b3",
+    "name": "izlazakRegistrovaniKazna",
+    "commands": [{
+      "id": "1e1b86fb-39fe-416d-bfb8-d26510b9ba06",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Operater/ulazakGost",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b2df4a30-2ba3-4abd-a005-ebb2ba97127c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1634x1040",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0f5527e-6172-4383-a841-9aa7e28910eb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IZLAZAK",
+      "targets": [
+        ["linkText=IZLAZAK", "linkText"],
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'IZLAZAK')]", "xpath:link"],
+        ["xpath=//div[@id='side-nav']/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Operater/izlazak']", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a449bda3-2efe-4ea8-ac30-e7114585aa22",
+      "comment": "",
+      "command": "click",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d36fac8-a551-481d-bf12-134e1aefc19e",
+      "comment": "",
+      "command": "type",
+      "target": "id=idKartice",
+      "targets": [
+        ["id=idKartice", "id"],
+        ["name=idKartice", "name"],
+        ["css=#idKartice", "css:finder"],
+        ["xpath=//input[@id='idKartice']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "14"
+    }, {
+      "id": "339ebb04-c487-493c-a3c2-a8c0ddf117f5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EVIDENTIRAJ IZLAZAK')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb1a0dbf-4316-4d96-9eb9-de9014d95c2d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9158558-0d6b-454d-a1e4-5c52a241e455",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > h2",
+      "targets": [
+        ["css=.alert > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
+      "value": "USPEŠNO IZAŠAO\\nID korisnika: 14\\nPlacen racun od: 1200.00 dinara!"
+    }]
+  }],
+  "suites": [{
+    "id": "f4467d78-8d64-4232-8d0b-682ad26f246f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/Operater/ulazakGost"],
+  "plugins": []
+}
