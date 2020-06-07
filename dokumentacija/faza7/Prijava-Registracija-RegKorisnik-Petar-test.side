@@ -2,7 +2,7 @@
   "id": "99376a0a-fab0-44e5-9dc7-c079c25d5f44",
   "version": "2.0",
   "name": "TestoviPetar",
-  "url": "http://localhost:8080/Registrovani/transfer",
+  "url": "http://localhost:8080/Gost/prijava",
   "tests": [{
     "id": "9737a738-8379-48c3-bc8b-9d3e731a0ee4",
     "name": "PRIJAVA TEST5: Uspeh prijavljivanje registrovani korisnik",
@@ -330,57 +330,6 @@
         ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
       ],
       "value": ""
-    }]
-  }, {
-    "id": "5427b875-539d-422a-af4e-0bc295943ca5",
-    "name": "PRIJAVA TEST1: Nije popunjeno polje email",
-    "commands": [{
-      "id": "3f1db57a-acd1-4300-a1b6-355e21265f78",
-      "comment": "",
-      "command": "open",
-      "target": "http://localhost:8080/Gost/prijava",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "8c04f980-5d0f-4660-8a9a-9a0e9de80454",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1300x417",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "92ba6a56-0783-4800-ab5c-d8b3e060f6bc",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn",
-      "targets": [
-        ["css=.btn", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "b87afc27-59cc-44f5-bfeb-c3a627bc06b3",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert",
-      "targets": [
-        ["css=.alert", "css:finder"],
-        ["xpath=//div[2]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4bb11925-f0bd-4ff5-9ddb-5ab553c49975",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=strong",
-      "targets": [
-        ["css=strong", "css:finder"],
-        ["xpath=//strong", "xpath:position"],
-        ["xpath=//strong[contains(.,'UNESITE KORISNIČKO IME.')]", "xpath:innerText"]
-      ],
-      "value": "UNESITE KORISNIČKO IME."
     }]
   }, {
     "id": "cc369d8f-536c-4be6-9acb-b8bd71ccd808",
@@ -5090,6 +5039,90 @@
         ["xpath=//h2[contains(.,'USPEŠNO STE OBAVILI TRANSFER.')]", "xpath:innerText"]
       ],
       "value": "USPEŠNO STE OBAVILI TRANSFER."
+    }]
+  }, {
+    "id": "6315d366-34a5-4f90-b194-43d84c88d1b2",
+    "name": "PRIJAVA TEST1: Nije popunjeno polje email",
+    "commands": [{
+      "id": "836472a5-9d13-4e75-a737-70279f4cdc08",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/prijava",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "704cd844-fa8c-472a-93d7-59dfc0f946ae",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1052x673",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a4569a83-7238-4dec-aa21-714ad56d0aef",
+      "comment": "",
+      "command": "click",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "84537ec9-c63a-4b2f-aadb-ad9061e904c5",
+      "comment": "",
+      "command": "type",
+      "target": "name=lozinka",
+      "targets": [
+        ["name=lozinka", "name"],
+        ["css=#lozinka > #lozinka", "css:finder"],
+        ["xpath=//input[@id='lozinka']", "xpath:attributes"],
+        ["xpath=//div[@id='lozinka']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "1234567"
+    }, {
+      "id": "dea5f473-a2ec-49a8-9cf4-b9ee00ceccea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'PRIJAVI SE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7012883-5251-4d9d-9183-83e467e47815",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "361abe05-651e-4bbe-b158-f052067a3cbd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=strong",
+      "targets": [
+        ["css=strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'UNESITE KORISNIČKO IME.')]", "xpath:innerText"]
+      ],
+      "value": "UNESITE KORISNIČKO IME."
+    }, {
+      "id": "9f2b5196-aa36-4ddc-b97a-c9e2c947f522",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
     }]
   }],
   "suites": [{
