@@ -2,7 +2,7 @@
   "id": "99376a0a-fab0-44e5-9dc7-c079c25d5f44",
   "version": "2.0",
   "name": "TestoviPetar",
-  "url": "http://localhost:8080/Gost/prijava",
+  "url": "http://localhost:8080/Registrovani/obnovaKartice",
   "tests": [{
     "id": "9737a738-8379-48c3-bc8b-9d3e731a0ee4",
     "name": "PRIJAVA TEST5: Uspeh prijavljivanje registrovani korisnik",
@@ -4062,115 +4062,6 @@
       "value": "USPEŠNO STE SE PROMENILI LOZINKU."
     }]
   }, {
-    "id": "ebecd661-0e8b-4924-98eb-47d7529d2461",
-    "name": "OBNOVA KARTICE TEST1: Nema dovoljno sredstava na kartici",
-    "commands": [{
-      "id": "eef30852-34da-4dd9-bbac-afc6288eab5e",
-      "comment": "",
-      "command": "open",
-      "target": "http://localhost:8080/Registrovani/obnovaKartice",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "53957868-7031-4e37-b8cd-dad4fc4b8577",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1300x429",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "a54dbead-af85-48ff-b114-911f53b5baba",
-      "comment": "",
-      "command": "click",
-      "target": "css=.row:nth-child(1) .filter-option-inner-inner",
-      "targets": [
-        ["css=.row:nth-child(1) .filter-option-inner-inner", "css:finder"],
-        ["xpath=//button/div/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "84b87ed1-cde7-4ac5-a04d-35509efbd040",
-      "comment": "",
-      "command": "click",
-      "target": "css=#bs-select-1-1 > .text",
-      "targets": [
-        ["css=#bs-select-1-1 > .text", "css:finder"],
-        ["xpath=//a[@id='bs-select-1-1']/span", "xpath:idRelative"],
-        ["xpath=//li[2]/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'LO-400-RE, 800.00 RSD, 01.02.2021.')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "c35a825e-a6b5-4fd5-8a79-ba0372ac426d",
-      "comment": "",
-      "command": "select",
-      "target": "name=idKartice",
-      "targets": [],
-      "value": "label=LO-400-RE, 800.00 RSD, 01.02.2021."
-    }, {
-      "id": "e08801e5-eba0-4d9e-8c46-e6ebaab31eec",
-      "comment": "",
-      "command": "click",
-      "target": "css=.row:nth-child(2) > .form-group .filter-option-inner-inner",
-      "targets": [
-        ["css=.row:nth-child(2) > .form-group .filter-option-inner-inner", "css:finder"],
-        ["xpath=//div[2]/div/div/button/div/div/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d7a3b989-6e43-46ec-a0f8-f039f5ee3fb4",
-      "comment": "",
-      "command": "click",
-      "target": "css=#bs-select-2-2 > .text",
-      "targets": [
-        ["css=#bs-select-2-2 > .text", "css:finder"],
-        ["xpath=//a[@id='bs-select-2-2']/span", "xpath:idRelative"],
-        ["xpath=//li[3]/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'MESEC, 2000 RSD')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "762667e1-a8b8-4bed-ab00-70a56a3d289f",
-      "comment": "",
-      "command": "select",
-      "target": "name=period",
-      "targets": [],
-      "value": "label=MESEC, 2000 RSD"
-    }, {
-      "id": "8430420d-62e8-4e69-bf65-b7db7596d9a7",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-plavi",
-      "targets": [
-        ["css=.btn-plavi", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//div[3]/div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'POTVRDI')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "5911094f-fe4a-4b83-8a3a-67fe971d5306",
-      "comment": "",
-      "command": "click",
-      "target": "css=.alert",
-      "targets": [
-        ["css=.alert", "css:finder"],
-        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "e51e1dd3-ac6b-4fb5-8971-fa117c9b3f26",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=.alert > strong",
-      "targets": [
-        ["css=.alert > strong", "css:finder"],
-        ["xpath=//strong", "xpath:position"],
-        ["xpath=//strong[contains(.,'NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI.')]", "xpath:innerText"]
-      ],
-      "value": "NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI."
-    }]
-  }, {
     "id": "e6db468c-e57c-4ea0-bf8d-9dbdafd2d16a",
     "name": "OBNOVA KARTICE TEST2: Uspeh",
     "commands": [{
@@ -4318,7 +4209,7 @@
       "command": "select",
       "target": "id=idKarticeNa",
       "targets": [],
-      "value": "label=LO-400-RE, 800.00 RSD"
+      "value": "label=tablice2, 800.00 RSD"
     }, {
       "id": "c552fd25-8244-4604-9fd7-2dc3818891c3",
       "comment": "",
@@ -4434,7 +4325,7 @@
       "command": "select",
       "target": "id=idKarticeNa",
       "targets": [],
-      "value": "label=LO-400-RE, 800.00 RSD"
+      "value": "label=tablice2, 800.00 RSD"
     }, {
       "id": "70d2e207-7316-4939-afbd-faa85691927e",
       "comment": "",
@@ -4563,7 +4454,7 @@
       "command": "select",
       "target": "id=idKarticeNa",
       "targets": [],
-      "value": "label=LO-400-RE, 800.00 RSD"
+      "value": "label=tablice2, 800.00 RSD"
     }, {
       "id": "ef2f370c-ab4a-4ac6-bdf1-1cef0b43d339",
       "comment": "",
@@ -4747,7 +4638,7 @@
       "command": "select",
       "target": "id=idKarticeNa",
       "targets": [],
-      "value": "label=LO-400-RE, 800.00 RSD"
+      "value": "label=tablice2, 800.00 RSD"
     }, {
       "id": "cdc7989f-20cc-4440-ae91-9b9f0aee4aa4",
       "comment": "",
@@ -4968,7 +4859,7 @@
       "command": "select",
       "target": "id=idKarticeNa",
       "targets": [],
-      "value": "label=LO-400-RE, 800.00 RSD"
+      "value": "label=tablice2, 800.00 RSD"
     }, {
       "id": "91a66fcb-5dfd-484a-81a3-aaedaa801e1b",
       "comment": "",
@@ -5123,6 +5014,115 @@
       "target": "",
       "targets": [],
       "value": ""
+    }]
+  }, {
+    "id": "b133447d-170b-4488-b8ad-c5e60d7d5b70",
+    "name": "OBNOVA KARTICE TEST1: Nema dovoljno sredstava na kartici",
+    "commands": [{
+      "id": "9e15f735-89ec-4e89-b4ec-4acd34a3258d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Registrovani/obnovaKartice",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43b37c74-c178-48d5-b34e-239c8fd68cd7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1300x433",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68055d01-bd25-40d4-9c1d-20f9ffbc4c48",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .filter-option-inner-inner",
+      "targets": [
+        ["css=.row:nth-child(1) .filter-option-inner-inner", "css:finder"],
+        ["xpath=//button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "761c55c4-9a50-40ac-8a4b-f504f8095198",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bs-select-1-1 > .text",
+      "targets": [
+        ["css=#bs-select-1-1 > .text", "css:finder"],
+        ["xpath=//a[@id='bs-select-1-1']/span", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'tablice2, 800.00 RSD, 01.02.2020.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed7deb2c-814a-4aae-9e95-baae289398f4",
+      "comment": "",
+      "command": "select",
+      "target": "name=idKartice",
+      "targets": [],
+      "value": "label=tablice2, 800.00 RSD, 01.02.2020."
+    }, {
+      "id": "1a28c1a4-6648-497a-8b47-f31adab8cd4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(2) > .form-group .filter-option-inner-inner",
+      "targets": [
+        ["css=.row:nth-child(2) > .form-group .filter-option-inner-inner", "css:finder"],
+        ["xpath=//div[2]/div/div/button/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0327e1d2-e7c9-4de7-9d47-b57df6ed8cca",
+      "comment": "",
+      "command": "click",
+      "target": "css=#bs-select-2-2 > .text",
+      "targets": [
+        ["css=#bs-select-2-2 > .text", "css:finder"],
+        ["xpath=//a[@id='bs-select-2-2']/span", "xpath:idRelative"],
+        ["xpath=//li[3]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'MESEC, 2000 RSD')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d98130e5-dee7-494a-8609-cfe9c95a11b7",
+      "comment": "",
+      "command": "select",
+      "target": "name=period",
+      "targets": [],
+      "value": "label=MESEC, 2000 RSD"
+    }, {
+      "id": "0fa8459e-1829-45e0-a379-92e1d9a1ae2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-plavi",
+      "targets": [
+        ["css=.btn-plavi", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'POTVRDI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c7b2556-3d98-42a3-8b48-00f266f332c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9d8861c-2a76-4254-bd04-53c1c70b41f5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert > strong",
+      "targets": [
+        ["css=.alert > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI.')]", "xpath:innerText"]
+      ],
+      "value": "NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI."
     }]
   }],
   "suites": [{
