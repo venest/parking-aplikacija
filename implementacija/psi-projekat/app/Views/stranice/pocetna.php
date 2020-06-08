@@ -38,7 +38,7 @@
             Zaposleni sa ulogom operatera ima zadatak da evidentira svaki ulazak i izlazak iz garaže. <br>
             U sistemu postoji još jedna uloga, a to je uloga admina. 
             Zaposleni sa ovom ulogom ima najveća ovlašćenja i to je centralna uloga u sistemu.<br>
-            Osnovne funkcionalnosti admina su: izdavanje i obnova kartice, evidencija gubitka kartice (uz izdavanje duplikata) 
+            Osnovne funkcionalnosti admina su: izdavanje i obnova kartice, evidencija gubitka kartice  
             kao i evidencija svih uplata i isplata.
     </div>   
 </div>

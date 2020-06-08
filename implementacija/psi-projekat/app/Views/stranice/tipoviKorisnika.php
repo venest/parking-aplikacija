@@ -4,16 +4,13 @@
         <h4 class="display-4 mb-5">ADMIN</h4>
         <p class="lead">
             Uloga admina je centralna uloga u sistemu. Osnovne funkcije admina su: izdavanje i obnova kartica, 
-            evidencija gubitka kartice (uz izdavanje duplikata), kao i evidencija svih uplata i isplata. <br>
+            evidencija gubitka kartice, kao i evidencija svih uplata i isplata. <br>
             Admin je zadužen za izdavanje kartice registrovanom korisniku na određeni period (dan, sedmica, mesec) 
-            na osnovu email adrese
-            i broja tablica automobila. <br>
+            na osnovu email adrese, broja tablica automobila i početnog iznosa. <br>
             Registrovani korisnici mogu obnoviti svoje kartice kod admina na određeni period (dan, sedmica, mesec), 
             a takođe mogu uplatiti
             ili podići izvestan novčani iznos sa svoje parking kartice. <br>
-            Jedna od uloga admina je i evidencija svakog gubitka kartice, 
-            i tom prilikom na osnovu broja tablica i email adrese (za registrovanog korisnika) admin korisniku 
-            izdaje duplikat izgubljene kartice. <br>
+            Jedna od uloga admina je i evidencija svakog gubitka kartice. <br>
         </p>
     </div>
     <!-- opeater -->
@@ -57,8 +54,7 @@
             Funkcije koje su na raspolaganju svakom korisniku nakon prijave na nalog su: izmena profila, promena lozinke, 
             pregled svih kartica sa detaljnim podacima o svakoj od njih, obnova kartice, kao i transfer novca između svojih kartica. <br>
             Lično kod admina korisnici, koji su se prethodno registrovali, mogu preuzeti svoju karticu. <br>
-            Takođe kod admina, registrovani korisnici mogu uplatiti ili podići izvestan novčani iznos sa svoje parking kartice kao i
-            prijaviti gubitak kartice. 
+            Takođe kod admina, registrovani korisnici mogu uplatiti ili podići izvestan novčani iznos sa svoje parking kartice. 
         </p>
     </div>
 </div>
