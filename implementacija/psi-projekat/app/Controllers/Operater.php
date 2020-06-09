@@ -148,25 +148,22 @@ class Operater extends Korisnik
 			if($kartica){
 				if($this->proveraBoravka($kartica->automobil)) $poruka = "AUTOMOBIL REGISTROVAN NA KARTICU SA UNETIM ID-JEM JE VEĆ U GARAŽI.";
 				else{
-					
-					//provera da li postoji registrovani korisnik sa ovim ID-em
-					if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-JEM.';
+
+					//provera da li je registrovani
+					if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
 					else{
 
-						if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
+						//ako mu je istekla obavesti ga
+						if($this->isteklaKartica($kartica)) $poruka = "VAŠA KARTICA JE ISTEKLA";
 						else{
-
-							//ako mu je istekla obavesti ga
-							if($this->isteklaKartica($kartica)) $poruka = "VAŠA KARTICA JE ISTEKLA";
-							else{
-								//insert boravka
-								$ulazakModel = new BoravakModel();
-								$ulazakModel->dodajBoravak($idKartice);
-								$data['usaoRegistrovani'] = 'Uspesan ulazak';
-								return redirect()->to(site_url('Operater/uspehOperater/2'));
-							}
+							//insert boravka
+							$ulazakModel = new BoravakModel();
+							$ulazakModel->dodajBoravak($idKartice);
+							$data['usaoRegistrovani'] = 'Uspesan ulazak';
+							return redirect()->to(site_url('Operater/uspehOperater/2'));
 						}
 					}
+					
 				}
 			}
 			else $poruka = "KARTICA SA UNETIM ID-JEM NE POSTOJI.";
