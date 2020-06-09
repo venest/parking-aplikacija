@@ -5,6 +5,7 @@ use App\Models\BoravakModel;
 use App\Models\KaznaModel;
 use App\Models\RacunModel;
 
+define('CENA_SAT', 60);
 
 /* 
  * 
@@ -27,7 +28,6 @@ use App\Models\RacunModel;
  * 
  * 
 */
-
 class Operater extends Korisnik
 {
     
@@ -86,7 +86,7 @@ class Operater extends Korisnik
 	}
 
 
-	public function ulazakGosta(){
+	public function ulazakGostaUGarazu(){
 		$tablice = $this->request->getVar('brojTablica');
 
 		$rules['brojTablica'] = 'required';
@@ -122,7 +122,16 @@ class Operater extends Korisnik
 		$this->prikazi('ulazakGost', $data);
 	}
 
-	public function ulazakRegistrovanog(){
+	private function isteklaKartica($kartica){
+		$vremeUl = strtotime(date('Y-m-d'));
+		$vremeVazenja = strtotime($kartica->vaziDo);
+
+		if($vremeVazenja<=$vremeUl) return true;
+		return false; 
+
+	}
+
+	public function ulazakRegistrovanogUGarazu(){
 		$idKartice = $this->request->getVar('idKartice');
 
 		$rules['idKartice'] = 'required';
@@ -137,19 +146,25 @@ class Operater extends Korisnik
 			$karticaModel = new KarticaModel();
 			$kartica = $karticaModel->dohvatiKarticu($idKartice);
 			if($kartica){
-				if($this->proveraBoravka($kartica->automobil)) $poruka = "AUTOMOBIL SA UNETIM TABLICAMA JE VEĆ U GARAŽI.";
+				if($this->proveraBoravka($kartica->automobil)) $poruka = "AUTOMOBIL REGISTROVAN NA KARTICU SA UNETIM ID-JEM JE VEĆ U GARAŽI.";
 				else{
 					
 					//provera da li postoji registrovani korisnik sa ovim ID-em
 					if($kartica == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-JEM.';
 					else{
+
 						if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
 						else{
-							//insert boravka
-							$ulazakModel = new BoravakModel();
-							$ulazakModel->dodajBoravak($idKartice);
-							$data['usaoRegistrovani'] = 'Uspesan ulazak';
-							return redirect()->to(site_url('Operater/uspehOperater/2'));
+
+							//ako mu je istekla obavesti ga
+							if($this->isteklaKartica($kartica)) $poruka = "VAŠA KARTICA JE ISTEKLA";
+							else{
+								//insert boravka
+								$ulazakModel = new BoravakModel();
+								$ulazakModel->dodajBoravak($idKartice);
+								$data['usaoRegistrovani'] = 'Uspesan ulazak';
+								return redirect()->to(site_url('Operater/uspehOperater/2'));
+							}
 						}
 					}
 				}
@@ -178,7 +193,7 @@ class Operater extends Korisnik
 			$karticaModel = new KarticaModel();
 			$postojiKor = $karticaModel->dohvatiKarticu($idKartice);
 
-			if($postojiKor == null) $poruka = 'NE POSTOJI KORISNIK SA UNETIM ID-JEM.';
+			if($postojiKor == null) $poruka = 'NE POSTOJI KARTICA SA UNETIM ID-JEM.';
 			else{
 				$boravakM = new BoravakModel();
 				$boravak = $boravakM->dohvatiBoravak($idKartice);
@@ -186,8 +201,11 @@ class Operater extends Korisnik
 					$data['poruka'] = "KORISNIK NIJE U GARAŽI.";
 				}
 				else{
+					$cena = 0;
 					//provera da li registrovan ili ne
 					if($postojiKor->idKorisnika == null) {
+
+						//ako nije registrovan
 
 						//vreme provedeno + kazne
 						$datumUl = $boravak->datumUlaska;
@@ -208,7 +226,7 @@ class Operater extends Korisnik
 						$brsati = round(($vremeIzl - $vremeUl) / 3600); 
 						if($brsati == 0) $brsati = 1;
 
-						$cena = $brsati*60; //60din sat
+						$cena = $brsati * CENA_SAT; //60din sat
 						$data['cena'] = $cena;
 						$_SESSION['cenaBoravka'] = $cena;
 						
@@ -216,26 +234,21 @@ class Operater extends Korisnik
 						$kaznaM = new KaznaModel();
 						$kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
 
-						foreach($kazne as $kazna){
-							$cena += $kazna->iznos;
-							$_SESSION['tipKazne'] ="{$kazna->tipPrekrsaja}";
-							$_SESSION['iznosKazne'] ="Iznos: {$kazna->iznos}";
-						}
+						
 					}
-					else{
-						//gledaju se samo kazne ako ih ima
-						$kaznaM = new KaznaModel();
-						$kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
-
-						$cena = 0;
-						foreach($kazne as $kazna){
-							$cena += $kazna->iznos;
-							$_SESSION['tipKazne'] ="Tip prekrsaja: {$kazna->tipPrekrsaja}<br/>";
-							$_SESSION['iznosKazne'] ="Iznos: {$kazna->iznos}<br/>";
-						}
-
-						$data['cena'] = $cena;
+					
+					//gledaju se kazne ako ih ima
+					$kaznaM = new KaznaModel();
+					$kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
+				
+					foreach($kazne as $kazna){
+						$cena += $kazna->iznos;
+						$_SESSION['tipKazne'] ="Tip prekrsaja: {$kazna->tipPrekrsaja}<br/>";
+						$_SESSION['iznosKazne'] ="Iznos: {$kazna->iznos}<br/>";
 					}
+
+					$data['cena'] = $cena;
+					
 					
 					if($cena > 0){
 						$data['datum'] = date('Y-m-d');
@@ -248,8 +261,8 @@ class Operater extends Korisnik
 					}
 					$boravakM->izlazak($boravak->idBoravka);
 					$_SESSION['ID'] = $idKartice."<br/>";
-			
-					return redirect()->to(site_url("Operater/uspehOperater/3/$cena"));
+					$_SESSION['cena'] = $cena;
+					return redirect()->to(site_url("Operater/uspehOperater/3"));
 				}
 			}
 
@@ -261,14 +274,13 @@ class Operater extends Korisnik
 		$this->prikazi('izlazak', $data);
 	}
 
-	public function uspehOperater($id, $cena = null) {
+	public function uspehOperater($id) {
 		switch($id) {
 			case '1': $naslov = 'ULAZAK GOST'; break;
 			case '2': $naslov = 'ULAZAK REGISTROVANI'; break;
 			case '3': $naslov = 'IZLAZAK'; break;
 		}
 		$data['naslov'] = $naslov;
-		$data['cena'] = $cena;
 		$this->prikazi('uspehOperater', $data);
 	}
 
