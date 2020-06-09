@@ -4,7 +4,7 @@
             <?php
                 switch ($naslov) {
                     case 'ULAZAK GOST': 
-                        echo 'USPESNO USAO GOST';
+                        echo 'USPEŠNO UŠAO GOST';
                         echo '<br/>'; 
                         echo 'ID kartice: '.$_SESSION['ID'];
                     break;
@@ -12,11 +12,10 @@
                     case 'IZLAZAK':
                         echo 'USPEŠNO IZAŠAO';
                         echo "</br>";
-                        echo "ID korisnika: ".$_SESSION['ID'] ;
+                        echo "ID kartice: ".$_SESSION['ID'] ;
                         $_SESSION['ID'] = '';
-                        if($cena > 0) echo 'Placen racun od: '.$cena.'.00 dinara!';
-                        break;
-                   
+                        if($_SESSION['cena'] > 0) echo 'Iznos za plaćanje je: '.$_SESSION['cena'].'.00 dinara!';
+                    break;
                 }
             ?>
         </h2>
