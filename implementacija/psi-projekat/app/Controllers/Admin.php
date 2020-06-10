@@ -563,7 +563,7 @@ class Admin extends Korisnik
 
                     if ($karticaUnutra) {
 
-                        if ($karticaUnutra->stanje != null) { //gost sigurno
+                        if ($karticaUnutra->stanje == null) { //gost sigurno
 
                             $boravak = $bm->dohvatiBoravak($karticaUnutra->idKartice);
 
