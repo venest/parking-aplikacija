@@ -585,7 +585,7 @@ class Admin extends Korisnik
                             $vremeIzl = mktime(date("H"), date("i"), date("s"), date("n"), date("j"), date("Y"));
                             $brsati = round(($vremeIzl - $vremeUl) / 3600);
                            
-                            $brsati++;
+                            if ($brsati>0)$brsati++;
 
                             $cena = $brsati * 60; //60din sat
                             $data['cena'] = $cena;
