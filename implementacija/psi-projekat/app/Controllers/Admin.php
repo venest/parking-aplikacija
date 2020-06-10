@@ -110,6 +110,10 @@ class Admin extends Korisnik
         $this->prikazi('gubitakKartice', $data);
     }
 
+    /*
+    izdavanje kartice registrovanom korisniku
+    koristi email, tablice, iznos za uplacivanje i period produzenja
+    */
     public function izdavanjeKarticeSubmit()
     {
 
@@ -224,6 +228,11 @@ class Admin extends Korisnik
         $this->prikazi('izdavanjeKartice', $data);
     }
 
+
+    /* 
+    obnova kartice registrovanom korisniku
+    koristi id kartice i period produzenja
+     */
     public function obnovaKarticeSubmit()
     {
 
@@ -254,74 +263,72 @@ class Admin extends Korisnik
                 $poruka = 'KARTICA SA UNETIM ID-JEM NE POSTOJI.';
             } else {
 
-                if ($kartica->stanje==null){
+                if ($kartica->stanje == null) {
                     $poruka = 'UNETI ID KARTICE SE ODNOSI NA GOSTA.';
                 } else {
 
-                if ($kartica->stanje < $cena) {
-                    $poruka = 'NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI.';
-                } else {
-                    // azuriranje stanja na kartici
-                    $km->izmeniStanje($idKartice, $kartica->stanje - $cena);
-                    // azuriranje datuma vazenja
-                    $datumDo = explode('-', $kartica->vaziDo);
-                    $danDo = (int) $datumDo[2];
-                    $mesecDo = (int) $datumDo[1];
-                    $godinaDo = (int) $datumDo[0];
-                    $datumDoUnix = mktime(0, 0, 0, $mesecDo, $danDo, $godinaDo);
-                    $datumTekuci = explode('-', date('Y-m-d'));
-                    $danTekuci = (int) $datumTekuci[2];
-                    $mesecTekuci = (int) $datumTekuci[1];
-                    $godinaTekuca = (int) $datumTekuci[0];
-                    $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
-                    if ($datumDoUnix > $datumTekuciUnix) {
-                        $datum = $datumDoUnix;
-                        $dan = $danDo;
-                        $mesec = $mesecDo;
-                        $godina = $godinaDo;
+                    if ($kartica->stanje < $cena) {
+                        $poruka = 'NEMATE DOVOLJNO SREDSTAVA NA IZABRANOJ KARTICI.';
                     } else {
-                        $datum = $datumTekuciUnix;
-                        $dan = $danTekuci;
-                        $mesec = $mesecTekuci;
-                        $godina = $godinaTekuca;
-                    }
-                    switch ($period) {
-                        case 'dan':
-                            $sekunde = 24 * 60 * 60;
-                            $datum += $sekunde;
-                            break;
-                        case 'sedmica':
-                            $sekunde = 7 * 24 * 60 * 60;
-                            $datum += $sekunde;
-                            break;
-                        case 'mesec':
-                            if ($mesec == 12)
-                                $godina++;
-                            $mesec = ($mesec + 1) % 12;
-                            $datum = mktime(0, 0, 0, $mesec, $dan, $godina);
-                            break;
-                    }
-                    $km->izmeniDatumVazenja($idKartice, date('Y-m-d', $datum));
-                    // dodavanje racuna
-                    $data['datum'] = date('Y-m-d');
-                    $data['vreme'] = date('H:i:s');
-                    $data['iznos'] = $cena;
-                    $data['opis'] = 'obnova ' . $period;
-                    $rm = new RacunModel();
-                    $idRacuna = $rm->dodajRacun($data);
-                    // dodavanje obnove
-                    $om = new ObnovaModel();
-                    $data['idRacuna'] = $idRacuna;
-                    $data['idKartice'] = $idKartice;
-                    $om->dodajObnovu($data);
+                        // azuriranje stanja na kartici
+                        $km->izmeniStanje($idKartice, $kartica->stanje - $cena);
+                        // azuriranje datuma vazenja
+                        $datumDo = explode('-', $kartica->vaziDo);
+                        $danDo = (int) $datumDo[2];
+                        $mesecDo = (int) $datumDo[1];
+                        $godinaDo = (int) $datumDo[0];
+                        $datumDoUnix = mktime(0, 0, 0, $mesecDo, $danDo, $godinaDo);
+                        $datumTekuci = explode('-', date('Y-m-d'));
+                        $danTekuci = (int) $datumTekuci[2];
+                        $mesecTekuci = (int) $datumTekuci[1];
+                        $godinaTekuca = (int) $datumTekuci[0];
+                        $datumTekuciUnix = mktime(0, 0, 0, $mesecTekuci, $danTekuci, $godinaTekuca);
+                        if ($datumDoUnix > $datumTekuciUnix) {
+                            $datum = $datumDoUnix;
+                            $dan = $danDo;
+                            $mesec = $mesecDo;
+                            $godina = $godinaDo;
+                        } else {
+                            $datum = $datumTekuciUnix;
+                            $dan = $danTekuci;
+                            $mesec = $mesecTekuci;
+                            $godina = $godinaTekuca;
+                        }
+                        switch ($period) {
+                            case 'dan':
+                                $sekunde = 24 * 60 * 60;
+                                $datum += $sekunde;
+                                break;
+                            case 'sedmica':
+                                $sekunde = 7 * 24 * 60 * 60;
+                                $datum += $sekunde;
+                                break;
+                            case 'mesec':
+                                if ($mesec == 12)
+                                    $godina++;
+                                $mesec = ($mesec + 1) % 12;
+                                $datum = mktime(0, 0, 0, $mesec, $dan, $godina);
+                                break;
+                        }
+                        $km->izmeniDatumVazenja($idKartice, date('Y-m-d', $datum));
+                        // dodavanje racuna
+                        $data['datum'] = date('Y-m-d');
+                        $data['vreme'] = date('H:i:s');
+                        $data['iznos'] = $cena;
+                        $data['opis'] = 'obnova ' . $period;
+                        $rm = new RacunModel();
+                        $idRacuna = $rm->dodajRacun($data);
+                        // dodavanje obnove
+                        $om = new ObnovaModel();
+                        $data['idRacuna'] = $idRacuna;
+                        $data['idKartice'] = $idKartice;
+                        $om->dodajObnovu($data);
 
-                    return redirect()->to(site_url('Admin/uspehAdmin/2'));
+                        return redirect()->to(site_url('Admin/uspehAdmin/2'));
+                    }
                 }
-            } 
-        
+            }
         }
-    
-    }
 
         $data['naslov'] = 'OBNOVA KARTICE';
         $data['poruka'] = $poruka;
@@ -444,6 +451,10 @@ class Admin extends Korisnik
     }
 
 
+    /* 
+    gubitak kartice gosta ili registrovanog korisnika
+    koristi tablice i email (za registrovanog korisnika)
+    */
     public function gubitakKarticeSubmit()
     {
         $email = $this->request->getVar('email');
@@ -474,7 +485,6 @@ class Admin extends Korisnik
                         $poruka = 'NE POSTOJI KARTICA ZA UNETE PODATKE.';
                     } else {
 
-                        //proveriIzlazak($kartica->idKartice); 
                         $idKartice = $kartica->idKartice;
 
                         $boravakM = new BoravakModel();
@@ -486,7 +496,6 @@ class Admin extends Korisnik
                         } else {
                             $data['poruka0'] = 'Korisnik izasao iz garaze';
                             $poruka0 = 'Korisnik izasao iz garaze';
-                            //registrovani
                             $kaznaM = new KaznaModel();
                             $kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
 
@@ -529,7 +538,7 @@ class Admin extends Korisnik
 
                         $km->obrisi($kartica);
 
-                        $preostaliNovac = -$cena;
+                        // $preostaliNovac = -$cena;
 
                         //$this->uspehAdmin(5, $poruka);
                         return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
@@ -542,8 +551,8 @@ class Admin extends Korisnik
 
                     $bm = new \App\Models\BoravakModel();
                     $karticaUnutra = null;
-                    $boravak;
-                    
+                    // $boravak;
+
                     foreach ($kartice as $kartica) {
 
                         if ($bm->dohvatiBoravak($kartica->idKartice)) {
@@ -554,53 +563,57 @@ class Admin extends Korisnik
 
                     if ($karticaUnutra) {
 
+                        if ($karticaUnutra->stanje != null) { //gost sigurno
 
-                        $boravak = $bm->dohvatiBoravak($karticaUnutra->idKartice);
+                            $boravak = $bm->dohvatiBoravak($karticaUnutra->idKartice);
 
-                        //vreme provedeno + kazne
-                        $datumUl = $boravak->datumUlaska;
-                        $datumUl = explode('-', $datumUl);
-                        $vremeUl = $boravak->vremeUlaska;
-                        $vremeUl = explode(':', $vremeUl);
+                            //vreme provedeno + kazne
+                            $datumUl = $boravak->datumUlaska;
+                            $datumUl = explode('-', $datumUl);
+                            $vremeUl = $boravak->vremeUlaska;
+                            $vremeUl = explode(':', $vremeUl);
 
-                        $danUl = (int) $datumUl[2];
-                        $mesUl = (int) $datumUl[1];
-                        $godUl = (int) $datumUl[0];
+                            $danUl = (int) $datumUl[2];
+                            $mesUl = (int) $datumUl[1];
+                            $godUl = (int) $datumUl[0];
 
-                        $satUl = (int) $vremeUl[0];
-                        $minUl = (int) $vremeUl[1];
-                        $sekUl = (int) $vremeUl[2];
+                            $satUl = (int) $vremeUl[0];
+                            $minUl = (int) $vremeUl[1];
+                            $sekUl = (int) $vremeUl[2];
 
-                        $vremeUl = mktime($satUl, $minUl, $sekUl, $mesUl, $danUl, $godUl);
-                        $vremeIzl = mktime(date("H"), date("i"), date("s"), date("n"), date("j"), date("Y"));
-                        $brsati = round(($vremeIzl - $vremeUl) / 3600);
-                        if ($brsati == 0)
-                            $brsati = 1;
+                            $vremeUl = mktime($satUl, $minUl, $sekUl, $mesUl, $danUl, $godUl);
+                            $vremeIzl = mktime(date("H"), date("i"), date("s"), date("n"), date("j"), date("Y"));
+                            $brsati = round(($vremeIzl - $vremeUl) / 3600);
+                           
+                            $brsati++;
 
-                        $cena = $brsati * 60; //60din sat
-                        $data['cena'] = $cena;
+                            $cena = $brsati * 60; //60din sat
+                            $data['cena'] = $cena;
 
-                        //cena se sabira sa kaznama ako ih ima
-                        $kaznaM = new KaznaModel();
-                        $kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
+                            //cena se sabira sa kaznama ako ih ima
+                            $kaznaM = new KaznaModel();
+                            $kazne = $kaznaM->dohvatiKazne($boravak->idBoravka);
 
-                        foreach ($kazne as $kazna) {
-                            $cena += $kazna->iznos;
+                            foreach ($kazne as $kazna) {
+                                $cena += $kazna->iznos;
+                            }
+
+                            $km = new KarticaModel();
+                            $bm->izlazak($boravak->idBoravka);
+                            $km->obrisi($karticaUnutra);
+
+                            $preostaliNovac = 0;
+                            return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
+                        } else {
+                            $poruka = 'KARTICA SE ODNOSI NA REGISTROVANOG KORISNIKA. UNESITE MAIL';
                         }
-
-                        $km = new KarticaModel();
-                        $bm->izlazak($boravak->idBoravka);
-                        $km->obrisi($karticaUnutra);
-
-                        $preostaliNovac = 0;
-                        return redirect()->to(site_url("Admin/uspehAdmin/5/$preostaliNovac/$cena"));
                     } else {
 
 
                         $poruka = "AUTOMOBIL SA UNETIM TABLICAMA NIJE U GARAŽI.";
                     }
                 } else {
-                    $poruka = "AUTOMOBIL SA UNETIM TABLICAMA NIJE U GARAŽI.";
+                    $poruka = "NE POSTOJI KARTICA ZA UNETE TABLICE.";
                 }
             }
         }
