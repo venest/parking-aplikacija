@@ -146,11 +146,10 @@ class Operater extends Korisnik
 			$karticaModel = new KarticaModel();
 			$kartica = $karticaModel->dohvatiKarticu($idKartice);
 			if($kartica){
-				if($this->proveraBoravka($kartica->automobil)) $poruka = "AUTOMOBIL REGISTROVAN NA KARTICU SA UNETIM ID-JEM JE VEĆ U GARAŽI.";
+				//provera da li je registrovani
+				if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
 				else{
-
-					//provera da li je registrovani
-					if(!$kartica->idKorisnika) $poruka = 'KARTICA SE NE ODNOSI NA REGISTROVANOG KORISNIKA.';
+					if($this->proveraBoravka($kartica->automobil)) $poruka = "AUTOMOBIL REGISTROVAN NA KARTICU SA UNETIM ID-JEM JE VEĆ U GARAŽI.";
 					else{
 
 						//ako mu je istekla obavesti ga
