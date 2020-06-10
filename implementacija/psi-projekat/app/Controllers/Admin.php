@@ -13,6 +13,7 @@ use App\Models\IzdavanjeModel;
 use App\Models\BoravakModel;
 use App\Models\KaznaModel;
 
+define('CENA_SAT', 60);
 define('CENA_DAN', 200);
 define('CENA_SEDMICA', 800);
 define('CENA_MESEC', 2000);
@@ -585,9 +586,8 @@ class Admin extends Korisnik
                             $vremeIzl = mktime(date("H"), date("i"), date("s"), date("n"), date("j"), date("Y"));
                             $brsati = round(($vremeIzl - $vremeUl) / 3600);
                            
-                            if ($brsati>0)$brsati++;
 
-                            $cena = $brsati * 60; //60din sat
+                            $cena = $brsati * CENA_SAT; //60din sat
                             $data['cena'] = $cena;
 
                             //cena se sabira sa kaznama ako ih ima
