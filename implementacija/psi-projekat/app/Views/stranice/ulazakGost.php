@@ -12,7 +12,7 @@
                     </div> 
                 <?php unset($poruka); } ?>
                 
-                <form method="POST" action="<?php echo site_url('Operater/ulazakGosta'); ?>" autocomplete="off">
+                <form method="POST" action="<?php echo site_url('Operater/ulazakGostaUGarazu'); ?>" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="brojTablica">AUTOMOBIL</label>

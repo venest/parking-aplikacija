@@ -11,7 +11,7 @@
                       </div>
                     </div> 
                 <?php unset($poruka); } ?>
-                <form method="POST" action="<?php echo site_url('Operater/ulazakRegistrovanog'); ?>" autocomplete="off">
+                <form method="POST" action="<?php echo site_url('Operater/ulazakRegistrovanogUGarazu'); ?>" autocomplete="off">
                   <div class="row justify-content-center">
                     <div class="form-group col-lg-9">
                       <label for="idKartice">ID KARTICE</label>
