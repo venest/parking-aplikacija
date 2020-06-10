@@ -598,6 +598,21 @@ class Admin extends Korisnik
                                 $cena += $kazna->iznos;
                             }
 
+
+                            
+                            
+                            if ($cena > 0) {
+                                $data['datum'] = date('Y-m-d');
+                                $data['vreme'] = date('H:i:s');
+                                $data['iznos'] = $cena;
+                                $data['opis'] = "placanje izlaska";
+                                $rm = new RacunModel();
+                                $idRacuna = $rm->dodajRacun($data);
+                                $bm->updateRacun($boravak->idBoravka, $idRacuna);
+                            }
+                
+                            
+
                             $km = new KarticaModel();
                             $bm->izlazak($boravak->idBoravka);
                             $km->obrisi($karticaUnutra);
